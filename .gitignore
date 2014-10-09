@@ -3,3 +3,5 @@ Thumbs.db
 .DS_Store
 *.bak
 *.orig
+
+application/config/database.php
