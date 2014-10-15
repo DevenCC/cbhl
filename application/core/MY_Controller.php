@@ -13,7 +13,7 @@ class MY_Controller extends CI_Controller  {
     $this->load->helper('form');
     $this->load->helper('date');
     $this->load->model('system_message_model');
-    $this->load->model('user_model');
+    //$this->load->model('user_model');
   }
 
   /**
@@ -26,11 +26,10 @@ class MY_Controller extends CI_Controller  {
       $data['system_messages'] = $this->system_message_model->get_messages();
     }
     $data['is_logged_in'] = $this->is_logged_in();
-    $data['is_admin_user'] = $this->is_admin_user();
     $this->load->view('include/header', $data);
 
     if ($data['is_logged_in']){
-      $data['user'] = $this->user_model->get($this->get_current_user());
+      //$data['user'] = $this->user_model->get($this->get_current_user());
     }
 
     $this->load->view('include/navigation', $data);
@@ -46,13 +45,6 @@ class MY_Controller extends CI_Controller  {
    */
   protected function is_logged_in() {
     return isset($_SESSION['uid']);
-  }
-
-  protected function is_admin_user() {
-    if ($uid = $this->get_current_user()) {
-     return TRUE;
-    }
-    return FALSE;
   }
 
   /**
@@ -81,17 +73,6 @@ class MY_Controller extends CI_Controller  {
       $this->system_message_model->set_message('Please login to access this page.', MESSAGE_WARNING);
       redirect('user/login', 'location');
       die();
-    }
-  }
-
-  /**
-   * Verifies the current user's session and redirects to the login form if the
-   * user has not authenticated.
-   */
-  protected function require_admin() {
-    if (!$this->is_logged_in() || !$this->is_admin_user()) {
-      //$this->system_message_model->set_message('Administrator access is required to access this page.', MESSAGE_WARNING);
-      show_error('Access denied: you must be logged in as an administrator to view this content.', 403);
     }
   }
 
