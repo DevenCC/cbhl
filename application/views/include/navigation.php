@@ -13,8 +13,23 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+       <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="<?php echo site_url('schedules'); ?>" class="dropdown-toggle" data-toggle="dropdown">Schedules<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="<?php echo site_url("schedules/season"); ?>">Season</a></li>
+            <li><a href="<?php echo site_url("schedules/referees"); ?>">Referee</a></li>
+          </ul>
+        </li>
+      </ul>
       <ul class="nav navbar-nav">
-        <!-- NAVBAR HERE -->
+      <li class="dropdown">
+          <a href="<?php echo site_url('standings'); ?>" class="dropdown-toggle" data-toggle="dropdown">Standings<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="<?php echo site_url('standings/player'); ?>">Players</a></li>   
+            <li><a href="<?php echo site_url('standings/teams'); ?>">Teams</a></li>
+          </ul>
+        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </nav>
