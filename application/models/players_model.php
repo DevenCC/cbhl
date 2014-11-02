@@ -15,16 +15,9 @@
 		return $result->row_array();
 	}
 
-	public function get_all($sort_by = NULL)
+	public function get_all()
 	{
 		$sql = "SELECT * FROM players p";
-		if ($sort_by) 
-		{
-			// This is really bad and has a security flaw - SQL Injection
-			// Ask Stew about this later
-			$sql .= ' ORDER BY ' . $sort_by;
-		}
-
 		$result = $this->db->query($sql);
 
 		// Map the player rows by their ID

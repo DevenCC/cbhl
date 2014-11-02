@@ -2,10 +2,19 @@
 	<table class="table-standings-player">
 		<thead>
 			<th class="col-first-name">
-			First Name
+				First Name
 			</th>
 			<th class="col-last-name">
-			Last Name
+				Last Name
+			</th>
+			<th class="col-last-name">
+				Goals
+			</th>
+			<th class="col-last-name">
+				Assist
+			</th>
+			<th class="col-last-name">
+				Points
 			</th>
 		</thead>
 		<tbody>
@@ -18,11 +27,20 @@
 						<td>
 							<?php print $player->player_last_name; ?>
 						</td>
+						<td>
+							<?php print $goals[$player->playerid]; ?>
+						</td>
+						<td>
+							<?php print $assists[$player->playerid]; ?>
+						</td>
+						<td>
+							<?php print $goals[$player->playerid] + $assists[$player->playerid]; ?>
+						</td>
 					</tr>
 				<?php endforeach; ?>
 			<?php else: ?>
 				<tr>
-					<td colspan='2'>
+					<td colspan='5'>
 						No players availble
 					<td>
 				</tr>

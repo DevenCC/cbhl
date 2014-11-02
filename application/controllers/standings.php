@@ -6,6 +6,7 @@ class Standings extends MY_Controller
 	{
 		parent::__construct();
 		$this->load->model('players_model');
+		$this->load->model('goals_model');
 	}
 
 	public function index()
@@ -21,18 +22,33 @@ class Standings extends MY_Controller
 
 	public function player()
 	{
+
+		$players = array();
+		$players = $this->players_model->get_all();
+
+		// Removing spare players
+		unset($players[41]);
+		unset($players[42]);
+		unset($players[43]);
+		unset($players[44]);
+	
+		$goals = array();
+		$assists = array();
+		foreach ($players as $player) 
+		{
+			$goals[$player->playerid] = 
+				$this->goals_model->get_player_goal_sum($player->playerid);
+			$assists[$player->playerid] = 
+				$this->goals_model->get_player_assist_sum($player->playerid);
+		}
+
 		$data = array
 		(
 			'page_title' => 'Player Standings',
-			'players' => $this->players_model->get_all(),
+			'players' => $players,
+			'goals' => $goals,
+			'assists' => $assists
 		);
-
-		unset($data["players"][45]);
-		unset($data["players"][46]);
-		unset($data["players"][47]);
-		unset($data["players"][48]);
-		unset($data["players"][49]);
-
-		$this->view_wrapper('standings', $data);
+		$this->view_wrapper('player_standings', $data);
 	}
 }
