@@ -1,19 +1,19 @@
 <div class="container">
-	<table class="table-standings-player">
+	<table width="100%" class="table table-hover table-bordered">
 		<thead>
-			<th class="col-first-name">
+			<th class="col-first-name" width="33%">
 				First Name
 			</th>
-			<th class="col-last-name">
+			<th class="col-last-name" width="33%">
 				Last Name
 			</th>
-			<th class="col-last-name">
+			<th class="col-goals" width="11%">
 				Goals
 			</th>
-			<th class="col-last-name">
+			<th class="col-assists" width="11%">
 				Assist
 			</th>
-			<th class="col-last-name">
+			<th class="col-points" width="11%">
 				Points
 			</th>
 		</thead>
@@ -28,13 +28,13 @@
 							<?php print $player->player_last_name; ?>
 						</td>
 						<td>
-							<?php print $goals[$player->playerid]; ?>
+							<?php print $player->goals; ?>
 						</td>
 						<td>
-							<?php print $assists[$player->playerid]; ?>
+							<?php print $player->assists; ?>
 						</td>
 						<td>
-							<?php print $goals[$player->playerid] + $assists[$player->playerid]; ?>
+							<?php print $player->points; ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>

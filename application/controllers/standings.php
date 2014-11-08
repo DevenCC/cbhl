@@ -20,9 +20,21 @@ class Standings extends MY_Controller
 		$this->view_wrapper('standings', $data);
 	}
 
+	private function sort_by_points($a,$b)
+	{
+		if($a->points ==  $b->points )
+	 	{ 
+	 		if($a->goals ==  $b->goals )
+		 	{ 
+		 		return 0 ; 
+		 	} 
+			return ($a->goals > $b->goals) ? -1 : 1;
+		} 
+		return ($a->points > $b->points) ? -1 : 1;
+	}
+
 	public function player()
 	{
-
 		$players = array();
 		$players = $this->players_model->get_all();
 
@@ -32,23 +44,24 @@ class Standings extends MY_Controller
 		unset($players[43]);
 		unset($players[44]);
 	
-		$goals = array();
-		$assists = array();
 		foreach ($players as $player) 
 		{
-			$goals[$player->playerid] = 
+			$players[$player->playerid]->goals = 
 				$this->goals_model->get_player_goal_sum($player->playerid);
-			$assists[$player->playerid] = 
+			$players[$player->playerid]->assists = 
 				$this->goals_model->get_player_assist_sum($player->playerid);
+			$players[$player->playerid]->points = 
+				$players[$player->playerid]->goals + $players[$player->playerid]->assists;
 		}
+
+		usort($players, array("standings", "sort_by_points"));
 
 		$data = array
 		(
 			'page_title' => 'Player Standings',
-			'players' => $players,
-			'goals' => $goals,
-			'assists' => $assists
+			'players' => $players
 		);
 		$this->view_wrapper('player_standings', $data);
 	}
+
 }
