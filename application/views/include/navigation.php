@@ -26,7 +26,7 @@
       <li class="dropdown">
           <a href="<?php echo site_url('standings'); ?>" class="dropdown-toggle" data-toggle="dropdown">Standings<b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="<?php echo site_url('standings/player'); ?>">Players</a></li>   
+            <li><a href="<?php echo site_url('standings/players'); ?>">Players</a></li>   
             <li><a href="<?php echo site_url('standings/teams'); ?>">Teams</a></li>
           </ul>
         </li>

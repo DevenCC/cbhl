@@ -7,6 +7,7 @@ class Standings extends MY_Controller
 		parent::__construct();
 		$this->load->model('players_model');
 		$this->load->model('goals_model');
+		$this->load->model('teams_model');
 	}
 
 	public function index()
@@ -33,7 +34,7 @@ class Standings extends MY_Controller
 		return ($a->points > $b->points) ? -1 : 1;
 	}
 
-	public function player()
+	public function players()
 	{
 		$players = array();
 		$players = $this->players_model->get_all();
@@ -62,6 +63,22 @@ class Standings extends MY_Controller
 			'players' => $players
 		);
 		$this->view_wrapper('player_standings', $data);
+	}
+
+	public function teams()
+	{
+		$teams = array();
+		$teams = $this->teams_model->get_all();
+
+		// Removing "spare" team
+		unset($teams[5]);
+			
+		$data = array
+		(
+			'page_title' => 'Team Standings',
+			'teams' => $teams
+		);
+		$this->view_wrapper('team_standings', $data);
 	}
 
 }
