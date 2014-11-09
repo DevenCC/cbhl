@@ -13,9 +13,12 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-       <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav">
+        <li><a href="<?php echo site_url("information"); ?>"><span class="glyphicon glyphicon-info-sign"></span> League Info</a></li>
+      </ul>
+      <ul class="nav navbar-nav">
         <li class="dropdown">
-          <a href="<?php echo site_url('schedules'); ?>" class="dropdown-toggle" data-toggle="dropdown">Schedules<b class="caret"></b></a>
+          <a href="<?php echo site_url('schedules'); ?>" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-calendar"></span> Schedules<b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="<?php echo site_url("schedules/season"); ?>">Season</a></li>
             <li><a href="<?php echo site_url("schedules/referees"); ?>">Referee</a></li>
@@ -24,7 +27,7 @@
       </ul>
       <ul class="nav navbar-nav">
       <li class="dropdown">
-          <a href="<?php echo site_url('standings'); ?>" class="dropdown-toggle" data-toggle="dropdown">Standings<b class="caret"></b></a>
+          <a href="<?php echo site_url('standings'); ?>" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-stats"></span> Standings<b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="<?php echo site_url('standings/players'); ?>">Players</a></li>   
             <li><a href="<?php echo site_url('standings/teams'); ?>">Teams</a></li>
