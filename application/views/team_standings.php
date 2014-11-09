@@ -19,14 +19,17 @@
 			<th class="col-losses" width="5%">
 				L
 			</th>
-			<th class="col-over-times" width="5%">
-				OT
+			<th class="col-over-times-wins" width="5%">
+				OTW
 			</th>
-			<th class="col-goals-against" width="5%">
-				GA
+			<th class="col-over-times-losses" width="5%">
+				OTL
 			</th>
 			<th class="col-goals-for" width="5%">
 				GF
+			</th>
+			<th class="col-goals-against" width="5%">
+				GA
 			</th>
 		</thead>
 		<tbody>
@@ -37,7 +40,31 @@
 							<?php print $team->team_color; ?>
 						</td>
 						<td>
-							<?php print $team->team_name; ?>
+							<?php print $team->team_name ? $team->team_name : "<i>unnammed</i>"; ?>
+						</td>
+						<td>
+							<?php print $team->points; ?>
+						</td>
+						<td>
+							<?php print $team->games_played; ?>
+						</td>
+						<td>
+							<?php print $team->wins; ?>
+						</td>
+						<td>
+							<?php print $team->losses; ?>
+						</td>
+						<td>
+							<?php print $team->ot_wins; ?>
+						</td>
+						<td>
+							<?php print $team->ot_losses; ?>
+						</td>
+						<td>
+							<?php print $team->goals_for; ?>
+						</td>
+						<td>
+							<?php print $team->goals_against; ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>

@@ -21,11 +21,17 @@
 
 		$sql = "SELECT * FROM teams t";
 		$result = $this->db->query($sql);
-		return $result->result();
-	}
 
-	public function get_team_wins_($teamid)
-	{
-		
-	}		
+		$teams = array();
+
+		// Map the team rows by their ID and removing team "spare"
+		foreach ($result->result() as $row) 
+		{
+			if($row->team_color != "none")
+			{
+				$teams[$row->teamid] = $row;
+			}
+		}
+		return $teams;
+	}
  }

@@ -6,6 +6,7 @@ class Standings extends MY_Controller
 	{
 		parent::__construct();
 		$this->load->model('players_model');
+		$this->load->model('games_model');
 		$this->load->model('goals_model');
 		$this->load->model('teams_model');
 	}
@@ -21,7 +22,7 @@ class Standings extends MY_Controller
 		$this->view_wrapper('standings', $data);
 	}
 
-	private function sort_by_points($a,$b)
+	private function sort_players_by_points($a,$b)
 	{
 		if($a->points ==  $b->points )
 	 	{ 
@@ -30,6 +31,19 @@ class Standings extends MY_Controller
 		 		return 0 ; 
 		 	} 
 			return ($a->goals > $b->goals) ? -1 : 1;
+		} 
+		return ($a->points > $b->points) ? -1 : 1;
+	}
+
+	private function sort_teams_by_points($a,$b)
+	{
+		if($a->points ==  $b->points )
+	 	{ 
+	 		if($a->wins ==  $b->wins )
+		 	{ 
+		 		return 0 ; 
+		 	} 
+			return ($a->wins > $b->wins) ? -1 : 1;
 		} 
 		return ($a->points > $b->points) ? -1 : 1;
 	}
@@ -55,7 +69,7 @@ class Standings extends MY_Controller
 				$players[$player->playerid]->goals + $players[$player->playerid]->assists;
 		}
 
-		usort($players, array("standings", "sort_by_points"));
+		usort($players, array("standings", "sort_players_by_points"));
 
 		$data = array
 		(
@@ -68,15 +82,62 @@ class Standings extends MY_Controller
 	public function teams()
 	{
 		$teams = array();
+		$games = array();
 		$teams = $this->teams_model->get_all();
 
-		// Removing "spare" team
-		unset($teams[5]);
-			
+		foreach ($teams as $team)
+		{
+			$games = $this->games_model->get_games_played_by_team($team->teamid);
+			$wins = 0;
+			$losses = 0;
+			$ot_wins = 0;
+			$ot_losses = 0;
+			$points = 0;
+			$goals_against = 0;
+			$goals_for = 0;
+
+			foreach ($games as $game)
+			{
+				if($game->team_winner == $team->teamid)
+				{
+					$wins++;
+					$points += 2;
+					if($game->game_overtime == 1)
+					{
+						$ot_wins++;
+					}
+				}	
+				else
+				{
+					$losses++;
+					if($game->game_overtime == 1)
+					{
+						$ot_losses++;
+						$points++;
+					}
+				}
+
+				$goals_for += $this->games_model->get_goals_for_team($game->gameid, $team->teamid);
+				$goals_against += $this->games_model->get_goals_against_team($game->gameid, $team->teamid);
+			}
+
+			$teams[$team->teamid]->wins = $wins;	
+			$teams[$team->teamid]->losses = $losses;	
+			$teams[$team->teamid]->ot_wins = $ot_wins;	
+			$teams[$team->teamid]->ot_losses = $ot_losses;	
+			$teams[$team->teamid]->points = $points;	
+			$teams[$team->teamid]->goals_against = $goals_against;	
+			$teams[$team->teamid]->goals_for = $goals_for;	
+			$teams[$team->teamid]->games_played = count($games);	
+		}
+
+		usort($teams, array("standings", "sort_teams_by_points"));
+
 		$data = array
 		(
 			'page_title' => 'Team Standings',
-			'teams' => $teams
+			'teams' => $teams,
+			'games' => $games,
 		);
 		$this->view_wrapper('team_standings', $data);
 	}
