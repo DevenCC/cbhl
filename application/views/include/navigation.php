@@ -21,7 +21,7 @@
           <a href="<?php echo site_url('schedules'); ?>" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-calendar"></span> Schedules<b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="<?php echo site_url("schedules/season"); ?>">Season</a></li>
-            <li><a href="<?php echo site_url("schedules/referees"); ?>">Referee</a></li>
+            <li><a href="<?php echo site_url("schedules/referee"); ?>">Referee</a></li>
           </ul>
         </li>
       </ul>

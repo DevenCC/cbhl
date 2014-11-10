@@ -16,7 +16,6 @@ class Standings extends MY_Controller
 		$data = array
 		(
 			'page_title' => 'Standings',
-			'message' => 'Hello World'
 		);
 
 		$this->view_wrapper('standings', $data);
@@ -117,8 +116,8 @@ class Standings extends MY_Controller
 					}
 				}
 
-				$goals_for += $this->games_model->get_goals_for_team($game->gameid, $team->teamid);
-				$goals_against += $this->games_model->get_goals_against_team($game->gameid, $team->teamid);
+				$goals_for += $this->goals_model->get_goals_for_team($game->gameid, $team->teamid);
+				$goals_against += $this->goals_model->get_goals_against_team($game->gameid, $team->teamid);
 			}
 
 			$teams[$team->teamid]->wins = $wins;	

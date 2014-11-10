@@ -25,28 +25,4 @@
 		}
 		return $games;
 	}
-
-	public function get_goals_for_team($gameid, $teamid)
-	{
-		$sql = "SELECT COUNT(*) FROM goals
-				WHERE goal_gameid = '$gameid'
-				AND team_scoring =  '$teamid'
-				LIMIT 1";
-
-		$result = $this->db->query($sql);
-		$goals_array = $result->row_array();
-		return $goals_array['COUNT(*)'];
-	}		
-
-	public function get_goals_against_team($gameid, $teamid)
-	{
-		$sql = "SELECT COUNT(*) FROM goals
-				WHERE goal_gameid = '$gameid'
-				AND team_scoring <> '$teamid'
-				LIMIT 1";
-
-		$result = $this->db->query($sql);
-		$goals_array = $result->row_array();
-		return $goals_array['COUNT(*)'];
-	}
 }
