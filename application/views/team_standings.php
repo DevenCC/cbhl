@@ -42,7 +42,7 @@
 							<?php print $team->team_color; ?>
 						</td>
 						<td>
-							<?php print $team->team_name ? $team->team_name : "<i>unnammed</i>"; ?>
+							<?php print $team->team_name ? $team->team_name : "<i>N/A</i>"; ?>
 						</td>
 						<td>
 							<?php print $team->points; ?>
