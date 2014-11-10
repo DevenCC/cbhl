@@ -1,4 +1,6 @@
 <div class="container">
+	<h2> <?php echo $page_title; ?></h2>
+	</br>
 	<table width="100%" class="table table-hover table-bordered">
 		<thead>
 			<th class="col-first-name" width="33%">
