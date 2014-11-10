@@ -30,7 +30,7 @@ class Pages extends MY_Controller {
 		$data = array(
 			'page_title' => 'Welcome',
 			//'splash_image' => 'assets/img/cbhlLogo' . rand(1,2) . '.png',
-			'splash_image' => 'assets/img/cbhlLogo.png',
+			'splash_image' => 'assets/img/Logo.png',
 		);
 		$this->view_wrapper('index', $data);
 	}
