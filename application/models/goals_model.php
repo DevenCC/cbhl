@@ -6,6 +6,7 @@
 		parent::__construct();
 	}
 
+	// TODO: Make season specific
 	public function get_player_goal_sum($playerid)
 	{
 		$sql = "SELECT COUNT(*) FROM goals
@@ -17,6 +18,7 @@
 		return $goals_array['COUNT(*)'];
 	}
 
+	// TODO: Make season specific
 	public function get_player_assist_sum($playerid)
 	{
 		$sql = "SELECT COUNT(*) FROM goals
@@ -28,7 +30,7 @@
 		return $assists_array['COUNT(*)'];
 	}	
 
-	public function get_goals_for_team($gameid, $teamid)
+	public function get_goals_for_team_by_game($gameid, $teamid)
 	{
 		$sql = "SELECT COUNT(*) FROM goals
 				WHERE goal_gameid = '$gameid'
@@ -40,7 +42,7 @@
 		return $goals_array['COUNT(*)'];
 	}		
 
-	public function get_goals_against_team($gameid, $teamid)
+	public function get_goals_against_team_by_game($gameid, $teamid)
 	{
 		$sql = "SELECT COUNT(*) FROM goals
 				WHERE goal_gameid = '$gameid'

@@ -6,6 +6,16 @@
 		parent::__construct();
 	}
 
+	public function get_team_color_by_id($teamid)
+	{
+		$sql = "SELECT team_color FROM teams 
+				WHERE teamid = '$teamid'
+				LIMIT 1";
+		$result = $this->db->query($sql);
+		$team_array = $result->row_array();
+		return $team_array['team_color'];
+	}
+
 	public function get($teamid)
 	{
 		$sql = "SELECT * FROM teams t
@@ -15,10 +25,9 @@
 		return $result->row_array();
 	}
 
+	// TODO: Make season specific
 	public function get_all()
 	{
-		//TODO: Needs to be season specific
-
 		$sql = "SELECT * FROM teams t";
 		$result = $this->db->query($sql);
 

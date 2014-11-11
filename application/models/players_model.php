@@ -15,10 +15,9 @@
 		return $result->row_array();
 	}
 
+	// TODO: Make season specific
 	public function get_all()
 	{
-		//TODO: Needs to be seasons specific
-
 		$sql = "SELECT * FROM players p";
 		$result = $this->db->query($sql);
 

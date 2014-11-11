@@ -25,4 +25,23 @@
 		}
 		return $games;
 	}
+
+	// TODO: Make season specific
+	public function get_all_games()
+	{
+		$sql = "SELECT * FROM games";
+
+		$result = $this->db->query($sql);
+		$games = array();
+
+		// Map the games rows by their ID and only adding the games played (games with winner)
+		foreach ($result->result() as $row) 
+		{
+			if($row->team_winner)
+			{
+				$games[$row->gameid] = $row;
+			}
+		}
+		return $games;
+	}
 }
