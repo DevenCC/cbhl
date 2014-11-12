@@ -1,6 +1,6 @@
 <div class="container">
   <div class="footer">
-    <div class="copyright">Copyright &copy; <?php echo strftime('%Y'); ?> Deven Collete</div>
+    <div class="copyright">Copyright &copy; <?php echo strftime('%Y'); ?> Deven Collette</div>
   </div>
 </div>
 <!-- CDN
