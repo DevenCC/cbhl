@@ -31,7 +31,7 @@ class Schedules extends MY_Controller
 	{
 		$data = array
 		(
-			'page_title' => 'Referre Schedule',
+			'page_title' => 'Referee Schedule',
 			'source' => '../../assets/img/refSchedule.png'
 		);
 		$this->view_wrapper('image', $data);

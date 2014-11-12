@@ -17,6 +17,6 @@
 		</br>
 	<h2>Information about the site</h2>
 		<p>
-			For any information, comments or requests about the website, you may do so by email to deven.collette@gmail.com
+			For any information, comments or requests about the website, you may do so by email to info@chamblyballhockey.com
 		</p>
 </div>
