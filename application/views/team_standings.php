@@ -22,11 +22,8 @@
 				<th class="col-losses" width="5%">
 					L
 				</th>
-				<th class="col-over-times-wins" width="5%">
-					OTW
-				</th>
-				<th class="col-over-times-losses" width="5%">
-					OTL
+				<th class="col-over-times" width="5%">
+					OT
 				</th>
 				<th class="col-goals-for" width="5%">
 					GF
@@ -58,9 +55,6 @@
 								<?php print $team->losses; ?>
 							</td>
 							<td>
-								<?php print $team->ot_wins; ?>
-							</td>
-							<td>
 								<?php print $team->ot_losses; ?>
 							</td>
 							<td>
@@ -73,7 +67,7 @@
 					<?php endforeach; ?>
 				<?php else: ?>
 					<tr>
-						<td colspan='9'>
+						<td colspan='8'>
 							No teams availble
 						<td>
 					</tr>

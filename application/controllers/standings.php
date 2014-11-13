@@ -108,11 +108,14 @@ class Standings extends MY_Controller
 				}	
 				else
 				{
-					$losses++;
 					if($game->game_overtime == 1)
 					{
 						$ot_losses++;
 						$points++;
+					}
+					else
+					{
+						$losses++;
 					}
 				}
 
