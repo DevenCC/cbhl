@@ -59,6 +59,9 @@ class Standings extends MY_Controller
 		unset($players[44]);
 		unset($players[45]);
 		unset($players[46]);
+		unset($players[47]);
+		unset($players[48]);
+		unset($players[49]);
 	
 		foreach ($players as $player) 
 		{
