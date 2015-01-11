@@ -4,6 +4,9 @@
 	<div class="panel panel-default">
 		<table width="100%" class="table table-hover table-bordered">
 			<thead>
+				<th class="col-color" width="5%">
+					Position
+				</th>
 				<th class="col-color" width="15%">
 					Color
 				</th>
@@ -36,6 +39,9 @@
 				<?php if ($teams): ?>
 					<?php foreach ($teams as $teamid => $team): ?>
 						<tr>
+							<td>
+								<?php print $team->position; ?>
+							</td>
 							<td>
 								<?php print $team->team_color; ?>
 							</td>

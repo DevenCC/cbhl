@@ -28,7 +28,7 @@
 								<?php if ($game->game_overtime ==1): ?>
 									<div align="center">OVERTIME</div>
 								<?php else: ?>
-									<div align="center"><i>regultaion time</i></div>
+									<div align="center"><i>regulation time</i></div>
 								<?php endif; ?>
 							</td>
 						</tr>
