@@ -55,7 +55,7 @@ class Standings extends MY_Controller
 	{
 		if($a->points ==  $b->points )
 	 	{ 
-	 		if($a->wins ==  $b->wins )
+	 		if($a->regulation_wins ==  $b->regulation_wins )
 		 	{ 
 		 		$a_points = $this->get_total_goals_agaisnt_team($a->teamid, $b->teamid);
 		 		$b_points = $this->get_total_goals_agaisnt_team($b->teamid, $a->teamid);
@@ -71,7 +71,7 @@ class Standings extends MY_Controller
 			 	} 
 				return ($a_points > $b_points) ? -1 : 1;
 		 	} 
-			return ($a->wins > $b->wins) ? -1 : 1;
+			return ($a->regulation_wins > $b->regulation_wins) ? -1 : 1;
 		} 
 		return ($a->points > $b->points) ? -1 : 1;
 	}
@@ -87,7 +87,7 @@ class Standings extends MY_Controller
 			}
 			else
 			{
-				if($team->tied_flag == $teams[$team->teamid-1]->tied_flag && $team->points == $teams[$team->teamid-1]->points)
+				if($team->tied_flag != 0 && $team->tied_flag == $teams[$team->teamid-1]->tied_flag && $team->points == $teams[$team->teamid-1]->points)
 				{
 					$team->position = $teams[$team->teamid-1]->position;
 					++$position;	
@@ -117,6 +117,10 @@ class Standings extends MY_Controller
 		unset($players[49]);
 		unset($players[50]);
 		unset($players[51]);
+		unset($players[52]);
+		unset($players[53]);
+		unset($players[54]);
+		unset($players[55]);
 	
 		foreach ($players as $player) 
 		{
@@ -150,6 +154,7 @@ class Standings extends MY_Controller
 			$wins = 0;
 			$losses = 0;
 			$ot_losses = 0;
+			$regulation_wins = 0;
 			$points = 0;
 			$goals_against = 0;
 			$goals_for = 0;
@@ -160,6 +165,10 @@ class Standings extends MY_Controller
 				{
 					$wins++;
 					$points += 2;
+					if($game->game_overtime == 0)
+					{
+						$regulation_wins++;
+					}
 				}	
 				else
 				{
@@ -181,6 +190,7 @@ class Standings extends MY_Controller
 			$teams[$team->teamid]->wins = $wins;	
 			$teams[$team->teamid]->losses = $losses;	
 			$teams[$team->teamid]->ot_losses = $ot_losses;	
+			$teams[$team->teamid]->regulation_wins = $regulation_wins;	
 			$teams[$team->teamid]->points = $points;	
 			$teams[$team->teamid]->goals_against = $goals_against;	
 			$teams[$team->teamid]->goals_for = $goals_for;	
