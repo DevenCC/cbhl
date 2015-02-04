@@ -55,23 +55,27 @@ class Standings extends MY_Controller
 	{
 		if($a->points ==  $b->points )
 	 	{ 
-	 		if($a->regulation_wins ==  $b->regulation_wins )
+	 		if($a->wins ==  $b->wins )
 		 	{ 
-		 		$a_points = $this->get_total_goals_agaisnt_team($a->teamid, $b->teamid);
-		 		$b_points = $this->get_total_goals_agaisnt_team($b->teamid, $a->teamid);
-		 		if($a_points ==  $b_points )
+		 		if($a->regulation_wins ==  $b->regulation_wins )
 			 	{ 
-			 		if( ($a->goals_for - $a->goals_against) ==  ($b->goals_for - $b->goals_against) )
+			 		$a_points = $this->get_total_goals_agaisnt_team($a->teamid, $b->teamid);
+			 		$b_points = $this->get_total_goals_agaisnt_team($b->teamid, $a->teamid);
+			 		if($a_points ==  $b_points )
 				 	{ 
-				 		$a->tied_flag+=1;
-				 		$b->tied_flag+=1;
-				 		return 0 ; 
+				 		if( ($a->goals_for - $a->goals_against) ==  ($b->goals_for - $b->goals_against) )
+					 	{ 
+					 		$a->tied_flag+=1;
+					 		$b->tied_flag+=1;
+					 		return 0 ; 
+					 	} 
+						return (($a->goals_for - $a->goals_against) > ($b->goals_for - $b->goals_against)) ? -1 : 1;
 				 	} 
-					return (($a->goals_for - $a->goals_against) > ($b->goals_for - $b->goals_against)) ? -1 : 1;
+					return ($a_points > $b_points) ? -1 : 1;
 			 	} 
-				return ($a_points > $b_points) ? -1 : 1;
-		 	} 
-			return ($a->regulation_wins > $b->regulation_wins) ? -1 : 1;
+				return ($a->regulation_wins > $b->regulation_wins) ? -1 : 1;
+			} 
+			return ($a->wins > $b->wins) ? -1 : 1;
 		} 
 		return ($a->points > $b->points) ? -1 : 1;
 	}
@@ -108,7 +112,6 @@ class Standings extends MY_Controller
 		// Removing spare players
 		unset($players[41]);
 		unset($players[42]);
-		unset($players[43]);
 		unset($players[44]);
 		unset($players[45]);
 		unset($players[46]);
@@ -121,6 +124,7 @@ class Standings extends MY_Controller
 		unset($players[53]);
 		unset($players[54]);
 		unset($players[55]);
+		unset($players[56]);
 	
 		foreach ($players as $player) 
 		{
