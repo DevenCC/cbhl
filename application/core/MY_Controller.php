@@ -21,6 +21,7 @@ class MY_Controller extends CI_Controller  {
    * header and footer.
    */
   public function view_wrapper($template, $data = array(), $display_messages = TRUE) {
+    $data['navbar_logo'] = "/cbhl/assets/img/SimpleWhiteLogo.png";
     $data['system_messages'] = array();
     if ($display_messages) {
       $data['system_messages'] = $this->system_message_model->get_messages();
