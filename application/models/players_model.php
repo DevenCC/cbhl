@@ -15,6 +15,17 @@
 		return $result->row_array();
 	}
 
+	public function get_player_full_name_by_id($playerid)
+	{
+		$sql = "SELECT player_first_name, player_last_name 
+				FROM players 
+				WHERE playerid = '$playerid'
+				LIMIT 1";
+		$result = $this->db->query($sql);
+		$player_array = $result->row_array();
+		return @$player_array['player_first_name'] . " " . @$player_array['player_last_name'];
+	}
+
 	// TODO: Make season specific
 	public function get_all()
 	{

@@ -28,6 +28,21 @@
 		$result = $this->db->query($sql);
 		$assists_array = $result->row_array();
 		return $assists_array['COUNT(*)'];
+	}
+
+	public function get_goals_by_game($gameid)
+	{
+		$sql = "SELECT * FROM goals
+				WHERE goal_gameid = '$gameid'";
+		$result = $this->db->query($sql);
+		$goals = array();
+
+		// Map the goals rows by their ID
+		foreach ($result->result() as $row) 
+		{
+			$goals[$row->goalid] = $row;
+		}
+		return $goals;
 	}	
 
 	public function get_goals_for_team_by_game($gameid, $teamid)

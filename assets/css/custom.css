@@ -62,3 +62,54 @@ body {
 .table > tbody > tr > td {
   vertical-align: middle;
 }
+
+.bs-callout {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 3px;
+    border-radius: 3px;
+}
+.bs-callout h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.bs-callout p:last-child {
+    margin-bottom: 0;
+}
+.bs-callout code {
+    border-radius: 3px;
+}
+.bs-callout+.bs-callout {
+    margin-top: -5px;
+}
+.bs-callout-Black {
+    border-left-color: #777;
+}
+.bs-callout-Balck h4 {
+    color: #777;
+}
+.bs-callout-Blue {
+    border-left-color: #428bca;
+}
+.bs-callout-Blue h4 {
+    color: #428bca;
+}
+.bs-callout-Green {
+    border-left-color: #5cb85c;
+}
+.bs-callout-Green h4 {
+    color: #5cb85c;
+}
+.bs-callout-Red {
+    border-left-color: #d9534f;
+}
+.bs-callout-Red h4 {
+    color: #d9534f;
+}
+.bs-callout-Yellow {
+    border-left-color: #f0ad4e;
+}
+.bs-callout-Yellow h4 {
+    color: #f0ad4e;
+}
