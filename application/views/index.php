@@ -1,6 +1,6 @@
 <div class="container">
 <h3 id='splash_message'><p> Welcome to the Chambly Ball Hockey Leauge</p></h3>
-	<img src=<?php echo $splash_image ?> width='485' alt="League Logo" id='splash_image' />
+	<img class="img-responsive" src=<?php echo $splash_image ?> width='485' alt="League Logo" id='splash_image' />
 	<h3 id='splash_message'><p> Where we play for the love of the game</p></h3>
 	</br>
 	<hr>
