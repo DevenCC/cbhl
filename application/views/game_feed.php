@@ -33,41 +33,34 @@
 							</td>
 						</tr>
 						
-						<tr>
-							<td bgcolor="#fafafa" colspan='6' align="center">
-								--- <b>1<sup>st</sup> period</b> ---
-							</td>
-						</tr>
-							<?php if ($game->period1_goals): ?>
-								<?php foreach ($game->period1_goals as $goalid => $goal): ?>
-									<tr class="bs-callout bs-callout-<?php print($goal->team_scoring); ?>">
-										<td  colspan='6'>
-											Goal by <b><?php print($goal->player_scoring); ?></b>
-											<?php if ($goal->player_assisting): ?>
-												from <b><?php print($goal->player_assisting); ?></b>
-											<?php else: ?>
-												unassisted
-											<?php endif; ?>
-										</td>
-									</tr>
-								<?php endforeach; ?>
-							<?php else: ?>
+
+						<?php for($period_number = 1; $period_number <= 3; $period_number++): ?>
+							<?php $period = "period$period_number"; ?>
+							<?php if($period_number == 1): ?>
 								<tr>
-									<td colspan='6' >
-										<i>no goals</i>
+									<td bgcolor="#fafafa" colspan='6' align="center">
+										--- <b>1<sup>st</sup> period</b> ---
+									</td>
+								</tr>
+							<?php elseif($period_number == 2): ?>
+								<tr>
+									<td bgcolor="#fafafa" colspan='6' align="center">
+										--- <b>2<sup>nd</sup> period</b> ---
+									</td>
+								</tr>
+							<?php elseif($period_number == 3): ?>
+								<tr>
+									<td bgcolor="#fafafa" colspan='6' align="center">
+										--- <b>3<sup>rd</sup> period</b> ---
 									</td>
 								</tr>
 							<?php endif; ?>
 
-						<tr>
-							<td bgcolor="#fafafa" colspan='6' align="center">
-								--- <b>2<sup>nd</sup> period</b> ---
-							</td>
-						</tr>
-							<?php if ($game->period2_goals): ?>
-								<?php foreach ($game->period2_goals as $goalid => $goal): ?>
+							<?php if ($game->{$period.'_goals'}): ?>
+								<?php foreach ($game->{$period.'_goals'} as $goalid => $goal): ?>
 									<tr class="bs-callout bs-callout-<?php print($goal->team_scoring); ?>">
 										<td  colspan='6'>
+											<span class="glyphicon glyphicon-screenshot"></span>
 											Goal by <b><?php print($goal->player_scoring); ?></b>
 											<?php if ($goal->player_assisting): ?>
 												from <b><?php print($goal->player_assisting); ?></b>
@@ -84,32 +77,15 @@
 									</td>
 								</tr>
 							<?php endif; ?>
-
-						<tr>
-							<td bgcolor="#fafafa" colspan='6' align="center">
-								--- <b>3<sup>rd</sup> period</b> ---
-							</td>
-						</tr>
-							<?php if ($game->period3_goals): ?>
-								<?php foreach ($game->period3_goals as $goalid => $goal): ?>
-									<tr class="bs-callout bs-callout-<?php print($goal->team_scoring); ?>">
-										<td  colspan='6'>
-											Goal by <b><?php print($goal->player_scoring); ?></b>
-											<?php if ($goal->player_assisting): ?>
-												from <b><?php print($goal->player_assisting); ?></b>
-											<?php else: ?>
-												unassisted
-											<?php endif; ?>
-										</td>
-									</tr>
-								<?php endforeach; ?>
-							<?php else: ?>
-								<tr>
-									<td colspan='6' >
-										<i>no goals</i>
+							<?php foreach ($game->{$period.'_penalties'} as $penaltyid => $penalty): ?>
+								<tr class="bs-callout bs-callout-<?php print($penalty->color); ?>">
+									<td  colspan='6'>
+										<!-- <span class="glyphicon glyphicon-exclamation-sign color-<?php print($penalty->color); ?>"></span> -->
+										Penalty by <b><?php print($penalty->player_serving); ?></b>
 									</td>
 								</tr>
-							<?php endif; ?>
+							<?php endforeach; ?>
+						<?php endfor; ?>
 
 						<?php if ($game->game_overtime): ?>
 							<tr>
@@ -121,6 +97,7 @@
 									<?php foreach ($game->period4_goals as $goalid => $goal): ?>
 										<tr class="bs-callout bs-callout-<?php print($goal->team_scoring); ?>">
 											<td  colspan='6'>
+												<span class="glyphicon glyphicon-screenshot"></span>
 												Goal by <b><?php print($goal->player_scoring); ?></b>
 												<?php if ($goal->player_assisting): ?>
 													from <b><?php print($goal->player_assisting); ?></b>
@@ -134,12 +111,21 @@
 									<?php foreach ($game->period5_goals as $goalid => $goal): ?>
 										<tr class="bs-callout bs-callout-<?php print($goal->team_scoring); ?>">
 											<td  colspan='6'>
+												<span class="glyphicon glyphicon-screenshot"></span>
 												Winning shootout goal by <b><?php print($goal->player_scoring); ?></b>
 											</td>
 										</tr>
 									<?php endforeach; ?>
 								<?php endif; ?>	
 						<?php endif; ?>
+						<?php foreach ($game->period4_penalties as $penaltyid => $penalty): ?>
+							<tr class="bs-callout bs-callout-<?php print($penalty->color); ?>">
+								<td  colspan='6'>
+									<!-- <span class="glyphicon glyphicon-exclamation-sign"></span> -->
+									Penalty by <b><?php print($penalty->player_serving); ?></b>
+								</td>
+							</tr>
+						<?php endforeach; ?>
 
 					</tbody>
 				</table>

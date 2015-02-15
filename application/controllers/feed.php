@@ -7,7 +7,9 @@ class Feed extends MY_Controller
 		parent::__construct();
 		$this->load->model('games_model');
 		$this->load->model('goals_model');
+		$this->load->model('penalties_model');
 		$this->load->model('players_model');
+		$this->load->model('players_teams_model');
 		$this->load->model('teams_model');
 	}
 
@@ -29,8 +31,13 @@ class Feed extends MY_Controller
 			$games[$game->gameid]->period4_goals = array();
 			$games[$game->gameid]->period5_goals = array();
 
-			$games[$game->gameid]->goals = $this->goals_model->get_goals_by_game($game->gameid);
-			foreach ($games[$game->gameid]->goals as $goalid => $goal) 
+			$games[$game->gameid]->period1_penalties = array();
+			$games[$game->gameid]->period2_penalties = array();
+			$games[$game->gameid]->period3_penalties = array();
+			$games[$game->gameid]->period4_penalties = array();
+
+			$goals = $this->goals_model->get_goals_by_game($game->gameid);
+			foreach ($goals as $goalid => $goal) 
 			{
 				$goal->team_scoring = $this->teams_model->get_team_color_by_id($goal->team_scoring);
 				$goal->player_scoring = $this->players_model->get_player_full_name_by_id($goal->player_scoring);
@@ -59,6 +66,34 @@ class Feed extends MY_Controller
 				{
 					$games[$game->gameid]->period5_goals[$goal->goalid] = $goal;
 				}
+			}
+
+			$penalties = $this->penalties_model->get_penalties_by_game($game->gameid);
+			foreach ($penalties as $penaltyid => $penalty) 
+			{
+				$penalty->color = 
+					$this->teams_model->get_team_color_by_id(
+						$this->players_teams_model->get_player_current_team_by_id(
+							$penalty->player_serving));
+				$penalty->player_serving =
+					$this->players_model->get_player_full_name_by_id(
+						$penalty->player_serving);
+				if ($penalty->penalty_period == 1)
+				{
+					$games[$game->gameid]->period1_penalties[$penalty->penaltyid] = $penalty;
+				}
+				elseif ($penalty->penalty_period == 2)
+				{
+					$games[$game->gameid]->period2_penalties[$penalty->penaltyid] = $penalty;
+				}
+				elseif ($penalty->penalty_period == 3)
+				{
+					$games[$game->gameid]->period3_penalties[$penalty->penaltyid] = $penalty;
+				}
+				elseif ($penalty->penalty_period == 4)
+				{
+					$games[$game->gameid]->period4_penalties[$penalty->penaltyid] = $penalty;
+				}	
 			}
 
 		}
