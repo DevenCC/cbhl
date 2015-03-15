@@ -81,7 +81,7 @@
 								<tr class="bs-callout bs-callout-<?php print($penalty->color); ?>">
 									<td  colspan='6'>
 										<!-- <span class="glyphicon glyphicon-exclamation-sign color-<?php print($penalty->color); ?>"></span> -->
-										Penalty by <b><?php print($penalty->player_serving); ?></b>
+										&nbsp; &nbsp; Penalty by <b><?php print($penalty->player_serving); ?></b>
 									</td>
 								</tr>
 							<?php endforeach; ?>
@@ -122,7 +122,7 @@
 							<tr class="bs-callout bs-callout-<?php print($penalty->color); ?>">
 								<td  colspan='6'>
 									<!-- <span class="glyphicon glyphicon-exclamation-sign"></span> -->
-									Penalty by <b><?php print($penalty->player_serving); ?></b>
+									&nbsp; &nbsp; Penalty by <b><?php print($penalty->player_serving); ?></b>
 								</td>
 							</tr>
 						<?php endforeach; ?>

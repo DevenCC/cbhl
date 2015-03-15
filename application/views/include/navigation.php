@@ -26,8 +26,8 @@
       <li class="dropdown">
           <a href="<?php echo site_url('standings'); ?>" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-stats"></span> Standings<b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="<?php echo site_url('standings/players'); ?>">Players</a></li>   
-            <li><a href="<?php echo site_url('standings/teams'); ?>">Teams</a></li>
+            <li><a href="<?php echo site_url('player_standings/players'); ?>">Players</a></li>   
+            <li><a href="<?php echo site_url('team_standings/teams'); ?>">Teams</a></li>
           </ul>
         </li>
       </ul>

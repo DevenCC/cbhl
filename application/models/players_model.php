@@ -15,6 +15,20 @@
 		return $result->row_array();
 	}
 
+	public function get_all()
+	{
+		$sql = "SELECT * FROM players p";
+		$result = $this->db->query($sql);
+
+		// Map the player rows by their ID
+		$players = array();
+		foreach ($result->result() as $row) 
+		{
+			$players[$row->playerid] = $row;
+		}
+		return $players;
+	}
+
 	public function get_player_full_name_by_id($playerid)
 	{
 		$sql = "SELECT player_first_name, player_last_name 
@@ -26,10 +40,15 @@
 		return @$player_array['player_first_name'] . " " . @$player_array['player_last_name'];
 	}
 
-	// TODO: Make season specific
-	public function get_all()
+	// Excludes spares
+	public function get_all_by_seasonid($seasonid)
 	{
-		$sql = "SELECT * FROM players p";
+		$sql = "SELECT DISTINCT players.playerid, players.player_first_name, players.player_last_name
+				FROM playersteams
+				JOIN players on playersteams.playerid = players.playerid
+				JOIN teams on playersteams.teamid = teams.teamid
+				WHERE teams.team_seasonid = '$seasonid'
+				AND teams.team_color <> 'none'";
 		$result = $this->db->query($sql);
 
 		// Map the player rows by their ID

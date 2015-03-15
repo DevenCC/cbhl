@@ -25,10 +25,25 @@
 		return $result->row_array();
 	}
 
-	// TODO: Make season specific
 	public function get_all()
 	{
 		$sql = "SELECT * FROM teams t";
+		$result = $this->db->query($sql);
+
+		$teams = array();
+
+		// Map the team rows by their ID
+		foreach ($result->result() as $row) 
+		{
+			$teams[$row->teamid] = $row;
+		}
+		return $teams;
+	}
+
+	public function get_all_by_season($seasonid)
+	{
+		$sql = "SELECT * FROM teams t
+				WHERE t.team_seasonid = '$seasonid'";
 		$result = $this->db->query($sql);
 
 		$teams = array();
