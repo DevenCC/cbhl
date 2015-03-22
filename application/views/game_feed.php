@@ -78,9 +78,9 @@
 								</tr>
 							<?php endif; ?>
 							<?php foreach ($game->{$period.'_penalties'} as $penaltyid => $penalty): ?>
-								<tr class="bs-callout bs-callout-<?php print($penalty->color); ?>">
+								<tr class="bs-callout bs-callout-<?php print($penalty->team_serving); ?>">
 									<td  colspan='6'>
-										<!-- <span class="glyphicon glyphicon-exclamation-sign color-<?php print($penalty->color); ?>"></span> -->
+										<!-- <span class="glyphicon glyphicon-exclamation-sign color-<?php print($penalty->team_serving); ?>"></span> -->
 										&nbsp; &nbsp; Penalty by <b><?php print($penalty->player_serving); ?></b>
 									</td>
 								</tr>
@@ -119,7 +119,7 @@
 								<?php endif; ?>	
 						<?php endif; ?>
 						<?php foreach ($game->period4_penalties as $penaltyid => $penalty): ?>
-							<tr class="bs-callout bs-callout-<?php print($penalty->color); ?>">
+							<tr class="bs-callout bs-callout-<?php print($penalty->team_serving); ?>">
 								<td  colspan='6'>
 									<!-- <span class="glyphicon glyphicon-exclamation-sign"></span> -->
 									&nbsp; &nbsp; Penalty by <b><?php print($penalty->player_serving); ?></b>

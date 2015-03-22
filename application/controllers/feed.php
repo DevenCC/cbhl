@@ -11,12 +11,15 @@ class Feed extends MY_Controller
 		$this->load->model('players_model');
 		$this->load->model('players_teams_model');
 		$this->load->model('teams_model');
+		$this->load->model('seasons_model');
 	}
 
 	public function index()
 	{
+		$season = $this->seasons_model->get_current_season_id();
+
 		$games = array();
-		$games = $this->games_model->get_all_games();
+		$games = $this->games_model->get_all_games_by_seasonid($season);
 
 		foreach ($games as $game)
 		{
@@ -71,10 +74,9 @@ class Feed extends MY_Controller
 			$penalties = $this->penalties_model->get_penalties_by_game($game->gameid);
 			foreach ($penalties as $penaltyid => $penalty) 
 			{
-				$penalty->color = 
+				$penalty->team_serving = 
 					$this->teams_model->get_team_color_by_id(
-						$this->players_teams_model->get_player_current_team_by_id(
-							$penalty->player_serving));
+						$penalty->team_serving);
 				$penalty->player_serving =
 					$this->players_model->get_player_full_name_by_id(
 						$penalty->player_serving);

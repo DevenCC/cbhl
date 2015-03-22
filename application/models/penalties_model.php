@@ -6,11 +6,33 @@
 		parent::__construct();
 	}
 
-	// TODO: Make season specific
-	public function get_player_penalties_sum($playerid)
+	public function get_player_season_penalties_sum($playerid, $seasonid)
 	{
-		$sql = "SELECT COUNT(*) FROM penalties
-				WHERE player_serving = '$playerid'
+		$sql = "SELECT COUNT(*) FROM penalties p
+				LEFT JOIN games g
+				ON p.penalty_gameid = g.gameid
+				LEFT JOIN teams t
+				ON p.team_serving = t.teamid
+				WHERE p.player_serving = '$playerid'
+				AND g.game_playoff = 0
+				AND t.team_seasonid = '$seasonid'
+				LIMIT 1";
+
+		$result = $this->db->query($sql);
+		$penalties_array = $result->row_array();
+		return $penalties_array['COUNT(*)'];
+	}
+
+	public function get_player_playoff_penalties_sum($playerid, $seasonid)
+	{
+		$sql = "SELECT COUNT(*) FROM penalties p
+				LEFT JOIN games g
+				ON p.penalty_gameid = g.gameid
+				LEFT JOIN teams t
+				ON p.team_serving = t.teamid
+				WHERE p.player_serving = '$playerid'
+				AND g.game_playoff = 1
+				AND t.team_seasonid = '$seasonid'
 				LIMIT 1";
 
 		$result = $this->db->query($sql);
