@@ -24,10 +24,19 @@
       </ul>
       <ul class="nav navbar-nav">
       <li class="dropdown">
-          <a href="<?php echo site_url('standings'); ?>" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-stats"></span> Standings<b class="caret"></b></a>
+          <a href="<?php echo site_url('standings'); ?>" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-stats"></span> Season Standings<b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="<?php echo site_url('player_standings/players'); ?>">Players</a></li>   
             <li><a href="<?php echo site_url('team_standings/teams'); ?>">Teams</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav">
+      <li class="dropdown">
+          <a href="<?php echo site_url('playoff'); ?>" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-tower"></span> Playoff Standings<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="<?php echo site_url('player_standings/players/true'); ?>">Players</a></li>   
+            <li><a href="<?php echo site_url('team_standings/teams/true'); ?>">Teams</a></li>
           </ul>
         </li>
       </ul>

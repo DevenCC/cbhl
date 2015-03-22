@@ -59,4 +59,24 @@
 		}
 		return $players;
 	}
+
+	public function get_all_in_playoffs_by_seasonid($seasonid)
+	{
+		$sql = "SELECT DISTINCT players.playerid, players.player_first_name, players.player_last_name
+				FROM playersteams
+				JOIN players on playersteams.playerid = players.playerid
+				JOIN teams on playersteams.teamid = teams.teamid
+				WHERE teams.team_seasonid = '$seasonid'
+				AND teams.team_color <> 'none'
+				AND teams.team_made_playoffs = 1 ";
+		$result = $this->db->query($sql);
+
+		// Map the player rows by their ID
+		$players = array();
+		foreach ($result->result() as $row) 
+		{
+			$players[$row->playerid] = $row;
+		}
+		return $players;
+	}
  }

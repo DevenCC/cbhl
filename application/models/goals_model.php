@@ -6,11 +6,16 @@
 		parent::__construct();
 	}
 
-	// TODO: Make season specific
-	public function get_player_goal_sum($playerid)
+	public function get_player_season_goal_sum_by_season($playerid, $seasonid)
 	{
-		$sql = "SELECT COUNT(*) FROM goals
-				WHERE player_scoring = '$playerid'
+		$sql = "SELECT DISTINCT COUNT(*) FROM goals go
+				LEFT JOIN games ga
+				ON go.goal_gameid = ga.gameid
+				LEFT JOIN teams t
+				ON go.team_scoring = t.teamid
+				WHERE go.player_scoring = '$playerid'
+				AND ga.game_playoff = 0
+				AND t.team_seasonid = '$seasonid'
 				LIMIT 1";
 
 		$result = $this->db->query($sql);
@@ -18,16 +23,55 @@
 		return $goals_array['COUNT(*)'];
 	}
 
-	// TODO: Make season specific
-	public function get_player_assist_sum($playerid)
+	public function get_player_season_assist_sum_by_season($playerid, $seasonid)
 	{
-		$sql = "SELECT COUNT(*) FROM goals
-				WHERE player_assisting = '$playerid'
+		$sql = "SELECT DISTINCT COUNT(*) FROM goals go
+				LEFT JOIN games ga
+				ON go.goal_gameid = ga.gameid
+				LEFT JOIN teams t
+				ON go.team_scoring = t.teamid
+				WHERE go.player_assisting = '$playerid'
+				AND ga.game_playoff = 0
+				AND t.team_seasonid = '$seasonid'
 				LIMIT 1";
 
 		$result = $this->db->query($sql);
-		$assists_array = $result->row_array();
-		return $assists_array['COUNT(*)'];
+		$goals_array = $result->row_array();
+		return $goals_array['COUNT(*)'];
+	}
+
+	public function get_player_playoff_goal_sum_by_season($playerid, $seasonid)
+	{
+		$sql = "SELECT DISTINCT COUNT(*) FROM goals go
+				LEFT JOIN games ga
+				ON go.goal_gameid = ga.gameid
+				LEFT JOIN teams t
+				ON go.team_scoring = t.teamid
+				WHERE go.player_scoring = '$playerid'
+				AND ga.game_playoff = 1
+				AND t.team_seasonid = '$seasonid'
+				LIMIT 1";
+
+		$result = $this->db->query($sql);
+		$goals_array = $result->row_array();
+		return $goals_array['COUNT(*)'];
+	}
+
+	public function get_player_playoff_assist_sum_by_season($playerid, $seasonid)
+	{
+		$sql = "SELECT DISTINCT COUNT(*) FROM goals go
+				LEFT JOIN games ga
+				ON go.goal_gameid = ga.gameid
+				LEFT JOIN teams t
+				ON go.team_scoring = t.teamid
+				WHERE go.player_assisting = '$playerid'
+				AND ga.game_playoff = 1
+				AND t.team_seasonid = '$seasonid'
+				LIMIT 1";
+
+		$result = $this->db->query($sql);
+		$goals_array = $result->row_array();
+		return $goals_array['COUNT(*)'];
 	}
 
 	public function get_goals_by_game($gameid)

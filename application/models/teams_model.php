@@ -58,4 +58,24 @@
 		}
 		return $teams;
 	}
+
+	public function get_all_in_playoffs_by_season($seasonid)
+	{
+		$sql = "SELECT * FROM teams t
+				WHERE t.team_seasonid = '$seasonid'
+				AND t.team_made_playoffs = 1 ";
+		$result = $this->db->query($sql);
+
+		$teams = array();
+
+		// Map the team rows by their ID and removing team "spare"
+		foreach ($result->result() as $row) 
+		{
+			if($row->team_color != "none")
+			{
+				$teams[$row->teamid] = $row;
+			}
+		}
+		return $teams;
+	}
  }
