@@ -48,13 +48,34 @@
 		return $games;
 	}
 
-	// TODO: Make season specific
 	public function get_all_games_by_seasonid($seasonid)
 	{
 		$sql = "SELECT * FROM games g
 				LEFT JOIN teams t
 				ON g.team_winner = t.teamid
 				WHERE t.team_seasonid = '$seasonid'";
+
+		$result = $this->db->query($sql);
+		$games = array();
+
+		// Map the games rows by their ID and only adding the games played (games with winner)
+		foreach ($result->result() as $row) 
+		{
+			if($row->team_winner)
+			{
+				$games[$row->gameid] = $row;
+			}
+		}
+		return $games;
+	}
+
+	public function get_all_playoff_games_by_seasonid($seasonid)
+	{
+		$sql = "SELECT * FROM games g
+				LEFT JOIN teams t
+				ON g.team_winner = t.teamid
+				WHERE t.team_seasonid = '$seasonid'
+				AND g.game_playoff = 1";
 
 		$result = $this->db->query($sql);
 		$games = array();

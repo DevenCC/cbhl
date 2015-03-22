@@ -89,7 +89,7 @@
 							<?php elseif($teams[3]->playoff_wins==2): ?>
 								<td align="center"><?php print $teams[3]->playoff_wins-2 ; ?></td>
 							<?php else: ?>
-								<td align="center">Wins: 0</td>
+								<td align="center">-</td>
 							<?php endif; ?>
 						</tr>
 					</tbody>
@@ -114,7 +114,7 @@
 							<?php elseif($teams[2]->playoff_wins==2): ?>
 								<td align="center"><?php print $teams[2]->playoff_wins-2 ; ?></td>
 							<?php else: ?>
-								<td align="center">Wins: 0</td>
+								<td align="center">-</td>
 							<?php endif; ?>
 						</tr>
 					</tbody>

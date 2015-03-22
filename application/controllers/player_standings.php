@@ -6,6 +6,7 @@ class Player_standings extends MY_Controller
 	{
 		parent::__construct();
 		$this->load->model('players_model');
+		$this->load->model('games_model');
 		$this->load->model('goals_model');
 		$this->load->model('penalties_model');
 		$this->load->model('seasons_model');
@@ -74,11 +75,24 @@ class Player_standings extends MY_Controller
 
 		usort($players, array("player_standings", "sort_players_by_points"));
 
-		$data = array
-		(
-			'page_title' => 'Player Standings',
-			'players' => $players
-		);
-		$this->view_wrapper('player_standings', $data);
+		$is_playoff_started = count($this->games_model->get_all_playoff_games_by_seasonid($season))>0;
+		if($is_playoff && !$is_playoff_started)
+		{
+			$data = array
+			(
+				'page_title' => 'Playoff Player Standings',
+			);
+			$this->view_wrapper('playoffs_not_started', $data);	
+		}
+		else
+		{
+			$data = array
+			(
+				'page_title' =>  $is_playoff ?	'Playoff Player Standings':
+												'Player Standings',
+				'players' => $players,
+			);
+			$this->view_wrapper('player_standings', $data);	
+		}
 	}
 }

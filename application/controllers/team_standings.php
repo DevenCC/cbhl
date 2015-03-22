@@ -174,12 +174,24 @@ class Team_standings extends MY_Controller
 
 		if($is_playoff)
 		{
-			$data = array
-			(
-				'page_title' => 'Playoff Team Tracking',
-				'teams' => $teams,
-			);
-			$this->view_wrapper('playoff_team_tracking', $data);
+			$is_playoff_started = count($this->games_model->get_all_playoff_games_by_seasonid($season))>0;
+			if($is_playoff_started)
+			{
+				$data = array
+				(
+					'page_title' => 'Playoff Team Tracking',
+					'teams' => $teams,
+				);
+				$this->view_wrapper('playoff_team_tracking', $data);
+			}
+			else
+			{
+				$data = array
+				(
+					'page_title' => 'Playoff Team Tracking',
+				);
+				$this->view_wrapper('playoffs_not_started', $data);	
+			}
 		}
 		else
 		{
