@@ -73,9 +73,9 @@
 				<table class="table table-hover table-bordered">
 					<thead>
 						<th class="col-color" >
-							<?php if($teams[0]->playoff_wins==2): ?>
+							<?php if($teams[0]->playoff_wins>=2): ?>
 								<div align="center"><?php print $teams[0]->team_color ; ?></div>
-							<?php elseif($teams[3]->playoff_wins==2): ?>
+							<?php elseif($teams[3]->playoff_wins>=2): ?>
 								<div align="center"><?php print $teams[3]->team_color ; ?></div>
 							<?php else: ?>
 								<div align="center">Bracket 1 Winner</div>
@@ -84,9 +84,9 @@
 					</thead>
 					<tbody>
 						<tr>
-							<?php if($teams[0]->playoff_wins==2): ?>
+							<?php if($teams[0]->playoff_wins>=2): ?>
 								<td align="center">Wins:&nbsp;<?php print $teams[0]->playoff_wins-2 ; ?></td>
-							<?php elseif($teams[3]->playoff_wins==2): ?>
+							<?php elseif($teams[3]->playoff_wins>=2): ?>
 								<td align="center">Wins:&nbsp;<?php print $teams[3]->playoff_wins-2 ; ?></td>
 							<?php else: ?>
 								<td align="center">-</td>
@@ -98,9 +98,9 @@
 				<table class="table table-hover table-bordered">
 					<thead>
 						<th class="col-color" >
-							<?php if($teams[1]->playoff_wins==2): ?>
+							<?php if($teams[1]->playoff_wins>=2): ?>
 								<div align="center"><?php print $teams[1]->team_color ; ?></div>
-							<?php elseif($teams[2]->playoff_wins==2): ?>
+							<?php elseif($teams[2]->playoff_wins>=2): ?>
 								<div align="center"><?php print $teams[2]->team_color ; ?></div>
 							<?php else: ?>
 								<div align="center">Bracket 2 Winner</div>
@@ -109,9 +109,9 @@
 					</thead>
 					<tbody>
 						<tr>
-							<?php if($teams[1]->playoff_wins==2): ?>
+							<?php if($teams[1]->playoff_wins>=2): ?>
 								<td align="center">Wins:&nbsp;<?php print $teams[1]->playoff_wins-2 ; ?></td>
-							<?php elseif($teams[2]->playoff_wins==2): ?>
+							<?php elseif($teams[2]->playoff_wins>=2): ?>
 								<td align="center">Wins:&nbsp;<?php print $teams[2]->playoff_wins-2 ; ?></td>
 							<?php else: ?>
 								<td align="center">-</td>
