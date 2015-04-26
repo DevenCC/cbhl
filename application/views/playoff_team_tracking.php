@@ -85,9 +85,9 @@
 					<tbody>
 						<tr>
 							<?php if($teams[0]->playoff_wins==2): ?>
-								<td align="center"><?php print $teams[0]->playoff_wins-2 ; ?></td>
+								<td align="center">Wins:&nbsp;<?php print $teams[0]->playoff_wins-2 ; ?></td>
 							<?php elseif($teams[3]->playoff_wins==2): ?>
-								<td align="center"><?php print $teams[3]->playoff_wins-2 ; ?></td>
+								<td align="center">Wins:&nbsp;<?php print $teams[3]->playoff_wins-2 ; ?></td>
 							<?php else: ?>
 								<td align="center">-</td>
 							<?php endif; ?>
@@ -110,9 +110,9 @@
 					<tbody>
 						<tr>
 							<?php if($teams[1]->playoff_wins==2): ?>
-								<td align="center"><?php print $teams[1]->playoff_wins-2 ; ?></td>
+								<td align="center">Wins:&nbsp;<?php print $teams[1]->playoff_wins-2 ; ?></td>
 							<?php elseif($teams[2]->playoff_wins==2): ?>
-								<td align="center"><?php print $teams[2]->playoff_wins-2 ; ?></td>
+								<td align="center">Wins:&nbsp;<?php print $teams[2]->playoff_wins-2 ; ?></td>
 							<?php else: ?>
 								<td align="center">-</td>
 							<?php endif; ?>
