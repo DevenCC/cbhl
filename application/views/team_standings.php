@@ -1,6 +1,23 @@
 <div class="container">
 	<h2> <?php echo $page_title; ?></h2>
 	</br>
+
+	<?php if ($seasons): ?>
+		<div class="dropdown">
+		  	<button class="btn btn-default dropdown-toggle" type="button" id="seasondropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+		    	<?php print $season['season_name']; ?>
+		    	<span class="caret"></span>
+		  	</button>
+		  	<ul class="dropdown-menu" aria-labelledby="seasondropdown">
+		  	<?php foreach ($seasons as $seasonid => $season): ?>
+		    	<li><a href="<?php echo site_url('team_standings/teams/'.$season->seasonid.'/0'); ?>"><?php print $season->season_name; ?></a></li>
+			<?php endforeach; ?>
+		  	</ul>
+		</div>
+	<?php endif; ?>
+	</br>
+	</br>
+
 	<div class="panel panel-default">
 		<table width="100%" class="table table-hover table-bordered">
 			<thead>
@@ -73,9 +90,9 @@
 					<?php endforeach; ?>
 				<?php else: ?>
 					<tr>
-						<td colspan='8'>
+						<td colspan='10'>
 							No teams availble
-						<td>
+						</td>
 					</tr>
 				<?php endif; ?>
 			</tbody>

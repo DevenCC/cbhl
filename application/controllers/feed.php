@@ -16,10 +16,10 @@ class Feed extends MY_Controller
 
 	public function index()
 	{
-		$season = $this->seasons_model->get_current_season_id();
+		$season = $this->seasons_model->get_current_season();
 
 		$games = array();
-		$games = $this->games_model->get_all_games_by_seasonid($season);
+		$games = $this->games_model->get_all_games_by_seasonid($season['seasonid']);
 
 		foreach ($games as $game)
 		{

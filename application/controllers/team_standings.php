@@ -24,7 +24,7 @@ class Team_standings extends MY_Controller
 	// Get the team's goal total agaisnt a specific team throughout the entire season
 	private function get_total_goals_agaisnt_team($teamid, $opposing_teamid)
 	{
-		$games = $this->games_model->get_games_played_by_team($teamid);
+		$games = $this->games_model->get_season_games_played_by_team($teamid);
 		$get_total_goals_agaisnt_team = 0;
 		foreach ($games as $game)
 		{
@@ -69,23 +69,26 @@ class Team_standings extends MY_Controller
 
 	private function assign_team_position($teams)
 	{
-		$position = 0;
+		$index = 0;
 		foreach ($teams as $team)
 		{
-			if($position == 0)
+			if($index == 0)
 			{
-				$team->position = ++$position;
+				$team->position = ++$index;
 			}
 			else
 			{
-				if($team->tied_flag != 0 && $team->tied_flag == $teams[$team->teamid-1]->tied_flag && $team->points == $teams[$team->teamid-1]->points)
+				if($team->tied_flag != 0 &&
+				 $team->tied_flag ==
+				  $teams[$index-1]->tied_flag &&
+				  $team->points == $teams[$index-1]->points)
 				{
-					$team->position = $teams[$team->teamid-1]->position;
-					++$position;	
+					$team->position = $teams[$index-1]->position;
+					++$index;	
 				}
 				else
 				{
-					$team->position = ++$position;		
+					$team->position = ++$index;		
 				}
 		}
 		}
@@ -93,15 +96,19 @@ class Team_standings extends MY_Controller
 
 	
 
-	public function teams($is_playoff = false)
+	public function teams($seasonid = 0, $is_playoff = false)
 	{
-		$season = $this->seasons_model->get_current_season_id();
+		$season = ($seasonid == 0)? $this->seasons_model->get_current_season():
+									$this->seasons_model->get($seasonid);
+
+		$seasons = $this->seasons_model->get_all();
+
+		$is_playoff_started = count($this->games_model->get_all_playoff_games_by_seasonid($season['seasonid']))>0;
 
 		$teams = array();
+		$teams = $is_playoff ?	$this->teams_model->get_all_in_playoffs_by_season($season['seasonid']):
+								$this->teams_model->get_all_by_season($season['seasonid']);
 		$games = array();
-
-		$teams = $is_playoff ?	$this->teams_model->get_all_in_playoffs_by_season($season):
-								$this->teams_model->get_all_by_season($season);
 
 		foreach ($teams as $team)
 		{
@@ -169,29 +176,19 @@ class Team_standings extends MY_Controller
 		}
 
 		usort($teams, array("team_standings", "sort_teams_by_points"));
-
 		$this->assign_team_position($teams);
 
 		if($is_playoff)
 		{
-			$is_playoff_started = count($this->games_model->get_all_playoff_games_by_seasonid($season))>0;
-			if($is_playoff_started)
-			{
-				$data = array
-				(
-					'page_title' => 'Playoff Team Tracking',
-					'teams' => $teams,
-				);
-				$this->view_wrapper('playoff_team_tracking', $data);
-			}
-			else
-			{
-				$data = array
-				(
-					'page_title' => 'Playoff Team Tracking',
-				);
-				$this->view_wrapper('playoffs_not_started', $data);	
-			}
+			$data = array
+			(
+				'page_title' => 'Playoff Team Tracking',
+				'teams' => $teams,
+				'seasons' => $seasons,
+				'season' => $season,
+				'is_playoff_started' => $is_playoff_started,
+			);
+			$this->view_wrapper('playoff_team_tracking', $data);
 		}
 		else
 		{
@@ -199,9 +196,10 @@ class Team_standings extends MY_Controller
 			(
 				'page_title' => 'Team Standings',
 				'teams' => $teams,
+				'seasons' => $seasons,
+				'season' => $season,
 			);
 			$this->view_wrapper('team_standings', $data);	
 		}
 	}
-
 }

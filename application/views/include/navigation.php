@@ -35,8 +35,8 @@
       <li class="dropdown">
           <a href="<?php echo site_url('playoff'); ?>" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-tower"></span> Playoff Standings<b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="<?php echo site_url('player_standings/players/true'); ?>">Players</a></li>   
-            <li><a href="<?php echo site_url('team_standings/teams/true'); ?>">Teams</a></li>
+            <li><a href="<?php echo site_url('player_standings/players/0/true'); ?>">Players</a></li>   
+            <li><a href="<?php echo site_url('team_standings/teams/0/true'); ?>">Teams</a></li>
           </ul>
         </li>
       </ul>
