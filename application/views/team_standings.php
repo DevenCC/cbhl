@@ -53,7 +53,7 @@
 				</th>
 			</thead>
 			<tbody>
-				<?php if ($teams && $games_played_this_season): ?>
+				<?php if ($teams): ?>
 					<?php foreach ($teams as $teamid => $team): ?>
 						<tr>
 							<td>
@@ -91,7 +91,7 @@
 				<?php else: ?>
 					<tr>
 						<td colspan='10'>
-							No team standings availble
+							No teams availble
 						</td>
 					</tr>
 				<?php endif; ?>

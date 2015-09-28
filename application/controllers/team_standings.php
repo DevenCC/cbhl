@@ -110,77 +110,74 @@ class Team_standings extends MY_Controller
 								$this->teams_model->get_all_by_season($season['seasonid']);
 		$games = array();
 
-		$games_played_this_season = !empty($this->games_model->get_all_games_by_seasonid($season['seasonid']));
-		if($games_played_this_season)
+		foreach ($teams as $team)
 		{
-			foreach ($teams as $team)
-			{
-				$wins = 0;
-				$losses = 0;
-				$ot_losses = 0;
-				$regulation_wins = 0;
-				$points = 0;
-				$goals_against = 0;
-				$goals_for = 0;
+			$wins = 0;
+			$losses = 0;
+			$ot_losses = 0;
+			$regulation_wins = 0;
+			$points = 0;
+			$goals_against = 0;
+			$goals_for = 0;
 
-				$games = $this->games_model->get_season_games_played_by_team($team->teamid);
+			$games = $this->games_model->get_season_games_played_by_team($team->teamid);
+			foreach ($games as $game)
+			{
+				if($game->team_winner == $team->teamid)
+				{
+					$wins++;
+					$points += 2;
+					if($game->game_overtime == 0)
+					{
+						$regulation_wins++;
+					}
+				}	
+				else
+				{
+					if($game->game_overtime == 1)
+					{
+						$ot_losses++;
+						$points++;
+					}
+					else
+					{
+						$losses++;
+					}
+				}
+
+				$goals_for += $this->goals_model->get_goals_for_team_by_game($game->gameid, $team->teamid);
+				$goals_against += $this->goals_model->get_goals_against_team_by_game($game->gameid, $team->teamid);
+			}
+
+			$teams[$team->teamid]->wins = $wins;	
+			$teams[$team->teamid]->losses = $losses;	
+			$teams[$team->teamid]->ot_losses = $ot_losses;	
+			$teams[$team->teamid]->regulation_wins = $regulation_wins;	
+			$teams[$team->teamid]->points = $points;	
+			$teams[$team->teamid]->goals_against = $goals_against;	
+			$teams[$team->teamid]->goals_for = $goals_for;	
+			$teams[$team->teamid]->games_played = count($games);	
+			$teams[$team->teamid]->tied_flag = 0;	
+
+			if($is_playoff)
+			{
+				$playoff_wins = 0;
+
+				$games = $this->games_model->get_playoff_games_played_by_team($team->teamid);
 				foreach ($games as $game)
 				{
 					if($game->team_winner == $team->teamid)
 					{
-						$wins++;
-						$points += 2;
-						if($game->game_overtime == 0)
-						{
-							$regulation_wins++;
-						}
-					}	
-					else
-					{
-						if($game->game_overtime == 1)
-						{
-							$ot_losses++;
-							$points++;
-						}
-						else
-						{
-							$losses++;
-						}
+						$playoff_wins++;
 					}
-
-					$goals_for += $this->goals_model->get_goals_for_team_by_game($game->gameid, $team->teamid);
-					$goals_against += $this->goals_model->get_goals_against_team_by_game($game->gameid, $team->teamid);
 				}
-
-				$teams[$team->teamid]->wins = $wins;	
-				$teams[$team->teamid]->losses = $losses;	
-				$teams[$team->teamid]->ot_losses = $ot_losses;	
-				$teams[$team->teamid]->regulation_wins = $regulation_wins;	
-				$teams[$team->teamid]->points = $points;	
-				$teams[$team->teamid]->goals_against = $goals_against;	
-				$teams[$team->teamid]->goals_for = $goals_for;	
-				$teams[$team->teamid]->games_played = count($games);	
-				$teams[$team->teamid]->tied_flag = 0;	
-
-				if($is_playoff)
-				{
-					$playoff_wins = 0;
-
-					$games = $this->games_model->get_playoff_games_played_by_team($team->teamid);
-					foreach ($games as $game)
-					{
-						if($game->team_winner == $team->teamid)
-						{
-							$playoff_wins++;
-						}
-					}
-					$teams[$team->teamid]->playoff_wins = $playoff_wins;	
-				}
+				$teams[$team->teamid]->playoff_wins = $playoff_wins;	
 			}
-
-			usort($teams, array("team_standings", "sort_teams_by_points"));
-			$this->assign_team_position($teams);
 		}
+
+		usort($teams, array("team_standings", "sort_teams_by_points"));
+		$this->assign_team_position($teams);
+
 		if($is_playoff)
 		{
 			$data = array
@@ -201,7 +198,6 @@ class Team_standings extends MY_Controller
 				'teams' => $teams,
 				'seasons' => $seasons,
 				'season' => $season,
-				'games_played_this_season' => $games_played_this_season
 			);
 			$this->view_wrapper('team_standings', $data);	
 		}
