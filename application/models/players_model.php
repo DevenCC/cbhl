@@ -79,4 +79,22 @@
 		}
 		return $players;
 	}
+
+	public function get_all_by_teamid($teamid)
+	{
+		$sql = "SELECT DISTINCT players.playerid, players.player_first_name, players.player_last_name
+				FROM playersteams
+				JOIN players on playersteams.playerid = players.playerid
+				JOIN teams on playersteams.teamid = teams.teamid
+				WHERE teams.teamid = '$teamid'
+				AND teams.team_color <> 'none'";
+		$result = $this->db->query($sql);
+
+		$players = array();
+		foreach ($result->result() as $row) 
+		{
+			array_push($players, $row);
+		}
+		return $players;
+	}
  }

@@ -133,6 +133,6 @@
 			</br>
 		<?php endforeach; ?>
 		<?php else: ?>
-			<h4>No games availble</h4>
+			<h4>No games recorded for this season yet.</h4>
 	<?php endif; ?>
 </div>
