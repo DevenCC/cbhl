@@ -57,7 +57,9 @@
 					<?php foreach ($teams as $teamid => $team): ?>
 						<tr>
 							<td>
-								<?php print $team->position; ?>
+								<?php if($team->position!=0): ?>
+									<?php print $team->position; ?>
+								<?php endif; ?>
 							</td>
 							<td>
 								<?php print $team->team_color; ?>

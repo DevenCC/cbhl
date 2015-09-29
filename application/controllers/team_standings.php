@@ -69,28 +69,42 @@ class Team_standings extends MY_Controller
 
 	private function assign_team_position($teams)
 	{
-		$index = 0;
+		// Do not display position if all teams are unranked
+		$skip = true;
+
 		foreach ($teams as $team)
 		{
-			if($index == 0)
+			$team->position =0;
+			if($team->points != 0)
 			{
-				$team->position = ++$index;
+				$skip = false;
 			}
-			else
+		}
+
+		if(!$skip)
+		{
+			$index = 0;
+			foreach ($teams as $team)
 			{
-				if($team->tied_flag != 0 &&
-				 $team->tied_flag ==
-				  $teams[$index-1]->tied_flag &&
-				  $team->points == $teams[$index-1]->points)
+				if($index == 0)
 				{
-					$team->position = $teams[$index-1]->position;
-					++$index;	
+					$team->position = ++$index;
 				}
 				else
 				{
-					$team->position = ++$index;		
+					if($team->tied_flag != 0 &&
+					   $team->tied_flag == $teams[$index-1]->tied_flag &&
+					   $team->points == $teams[$index-1]->points)
+					{
+						$team->position = $teams[$index-1]->position;
+						++$index;	
+					}
+					else
+					{
+						$team->position = ++$index;		
+					}
 				}
-		}
+			}
 		}
 	}
 
