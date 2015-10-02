@@ -49,6 +49,9 @@
           </ul>
         </li>
       </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="<?php echo site_url('rules'); ?>"><span class="glyphicon glyphicon-list-alt"></span> Rules</a></li>
+      </ul>
     </div><!-- /.navbar-collapse -->
   </div>
   </nav>
