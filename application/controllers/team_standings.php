@@ -117,11 +117,11 @@ class Team_standings extends MY_Controller
 
 		$seasons = $this->seasons_model->get_all();
 
-		$is_playoff_started = count($this->games_model->get_all_playoff_games_by_seasonid($season['seasonid']))>0;
+		$is_playoff_started = count($this->games_model->get_all_playoff_games_by_seasonid($season->seasonid))>0;
 
 		$teams = array();
-		$teams = $is_playoff ?	$this->teams_model->get_all_in_playoffs_by_season($season['seasonid']):
-								$this->teams_model->get_all_by_season($season['seasonid']);
+		$teams = $is_playoff ?	$this->teams_model->get_all_in_playoffs_by_season($season->seasonid):
+								$this->teams_model->get_all_by_season($season->seasonid);
 		$games = array();
 
 		foreach ($teams as $team)

@@ -42,24 +42,24 @@ class Player_standings extends MY_Controller
 
 		$seasons = $this->seasons_model->get_all();
 
-		$is_playoff_started = count($this->games_model->get_all_playoff_games_by_seasonid($season['seasonid']))>0;
+		$is_playoff_started = count($this->games_model->get_all_playoff_games_by_seasonid($season->seasonid))>0;
 
 		$players = array();
-		$players = $is_playoff ?	$this->players_model->get_all_in_playoffs_by_seasonid($season['seasonid']):
-									$this->players_model->get_all_by_seasonid($season['seasonid']);
+		$players = $is_playoff ?	$this->players_model->get_all_in_playoffs_by_seasonid($season->seasonid):
+									$this->players_model->get_all_by_seasonid($season->seasonid);
 		
 		if($is_playoff)
 		{
 			foreach ($players as $player) 
 			{
 				$players[$player->playerid]->goals = 
-					$this->goals_model->get_player_playoff_goal_sum_by_season($player->playerid, $season['seasonid']);
+					$this->goals_model->get_player_playoff_goal_sum_by_season($player->playerid, $season->seasonid);
 				$players[$player->playerid]->assists = 
-					$this->goals_model->get_player_playoff_assist_sum_by_season($player->playerid, $season['seasonid']);
+					$this->goals_model->get_player_playoff_assist_sum_by_season($player->playerid, $season->seasonid);
 				$players[$player->playerid]->points = 
 					$players[$player->playerid]->goals + $players[$player->playerid]->assists;
 				$players[$player->playerid]->penalties = 
-					$this->penalties_model->get_player_playoff_penalties_sum($player->playerid, $season['seasonid']);
+					$this->penalties_model->get_player_playoff_penalties_sum($player->playerid, $season->seasonid);
 			}
 		}
 		else
@@ -67,13 +67,13 @@ class Player_standings extends MY_Controller
 			foreach ($players as $player) 
 			{
 				$players[$player->playerid]->goals = 
-					$this->goals_model->get_player_season_goal_sum_by_season($player->playerid, $season['seasonid']);
+					$this->goals_model->get_player_season_goal_sum_by_season($player->playerid, $season->seasonid);
 				$players[$player->playerid]->assists = 
-					$this->goals_model->get_player_season_assist_sum_by_season($player->playerid, $season['seasonid']);
+					$this->goals_model->get_player_season_assist_sum_by_season($player->playerid, $season->seasonid);
 				$players[$player->playerid]->points = 
 					$players[$player->playerid]->goals + $players[$player->playerid]->assists;
 				$players[$player->playerid]->penalties = 
-					$this->penalties_model->get_player_season_penalties_sum($player->playerid, $season['seasonid']);
+					$this->penalties_model->get_player_season_penalties_sum($player->playerid, $season->seasonid);
 			}	
 		}
 

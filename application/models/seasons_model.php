@@ -6,14 +6,13 @@
 		parent::__construct();
 	}
 
-
 	public function get($seasonid)
 	{
 		$sql = "SELECT * FROM seasons s
 				WHERE s.seasonid = '$seasonid'
 				LIMIT 1";
 		$result = $this->db->query($sql);
-		return $result->row_array();
+		return $result->row_object();
 	}
 
 	public function get_all()

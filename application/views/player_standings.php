@@ -1,11 +1,10 @@
 <div class="container">
 	<h2> <?php echo $page_title; ?></h2>
 	</br>
-
 	<?php if ($seasons): ?>
 		<div class="dropdown">
 		  	<button class="btn btn-default dropdown-toggle" type="button" id="seasondropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-		    	<?php print $season['season_name']; ?>
+		    	<?php print $season->season_name; ?>
 		    	<span class="caret"></span>
 		  	</button>
 		  	<ul class="dropdown-menu" aria-labelledby="seasondropdown">

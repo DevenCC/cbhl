@@ -27,7 +27,7 @@ class Schedules extends MY_Controller
 
 		$teams_temp = array();
 		$teams = array();
-		$teams_temp = $this->teams_model->get_all_by_season($season['seasonid']);
+		$teams_temp = $this->teams_model->get_all_by_season($season->seasonid);
 
 		// map teams in teams array as incrementing indexes from 0 instead of by teamid
 		foreach ($teams_temp as $team)
@@ -39,7 +39,7 @@ class Schedules extends MY_Controller
 		(
 			'page_title' => 'Season Schedule',
 			'teams' => $teams,
-			'start_date' => $season['season_start_date'],
+			'start_date' => $season->season_start_date,
 		);
 		$this->view_wrapper('schedule_season', $data);
 	}
@@ -50,7 +50,7 @@ class Schedules extends MY_Controller
 
 		$teams_temp = array();
 		$teams = array();
-		$teams_temp = $this->teams_model->get_all_by_season($season['seasonid']);
+		$teams_temp = $this->teams_model->get_all_by_season($season->seasonid);
 
 		// mapping the teams in $teams to incremental indexes from 0 instead of by teamid
 		foreach ($teams_temp as $team)
@@ -65,7 +65,7 @@ class Schedules extends MY_Controller
 		(
 			'page_title' => 'Referee Schedule',
 			'teams' => $teams,
-			'start_date' => $season['season_start_date'],
+			'start_date' => $season->season_start_date,
 		);
 		$this->view_wrapper('schedule_referee', $data);
 	}

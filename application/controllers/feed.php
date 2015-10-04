@@ -19,7 +19,7 @@ class Feed extends MY_Controller
 		$season = $this->seasons_model->get_current_season();
 
 		$games = array();
-		$games = $this->games_model->get_all_games_by_seasonid($season['seasonid']);
+		$games = $this->games_model->get_all_games_by_seasonid($season->seasonid);
 
 		foreach ($games as $game)
 		{
