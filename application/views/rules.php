@@ -53,7 +53,7 @@
 			</br>
 			<li>All new subs will be considered “B” players until evaluated by the captains.</li>
 			</br>
-			<li>A team may call a spare if they are missing a player.</li>
+			<li>A team may call a spare if they are missing two (2) non-A players OR one (1) A player.</li>
 				<ol>
 					<li>If a goalie is missing he can only be replaced by another goalie or an A spare.</li>
 					<li>B or C players can only be replaced by a B spare.</li>
