@@ -141,14 +141,14 @@ class Team_standings extends MY_Controller
 				{
 					$wins++;
 					$points += 2;
-					if($game->game_overtime == 0)
+					if(!$this->games_model->is_game_overtime($game->gameid))
 					{
 						$regulation_wins++;
 					}
 				}	
 				else
 				{
-					if($game->game_overtime == 1)
+					if($this->games_model->is_game_overtime($game->gameid))
 					{
 						$ot_losses++;
 						$points++;

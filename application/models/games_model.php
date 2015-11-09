@@ -90,4 +90,25 @@
 		}
 		return $games;
 	}
+
+	public function is_game_overtime($gameid)
+	{
+		$regulation_time ='01:30:00';
+
+		$sql = "SELECT * FROM goals go
+				LEFT JOIN games ga
+				ON ga.gameid = go.goal_gameid
+				WHERE ga.gameid = '$gameid' ";
+
+		$result = $this->db->query($sql);
+		foreach ($result->result() as $row) 
+		{
+			if($row->goal_time>$regulation_time)
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
 }

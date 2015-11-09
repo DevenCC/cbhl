@@ -31,7 +31,7 @@
 					<tbody>
 						<tr>
 							<td align="center">
-								Wins:&nbsp;<?php print $teams[0]->playoff_wins; ?>
+								Wins:&nbsp;<?php print ($teams[0]->playoff_wins>=2)? 2 : $teams[0]->playoff_wins; ?>
 							</td>
 						</tr>
 					</tbody>
@@ -46,7 +46,7 @@
 					<tbody>
 						<tr>
 							<td align="center">
-								Wins:&nbsp;<?php print $teams[3]->playoff_wins; ?>
+								Wins:&nbsp;<?php print ($teams[3]->playoff_wins>=2)? 2 : $teams[3]->playoff_wins; ?>
 							</td>
 						</tr>
 					</tbody>
@@ -62,7 +62,7 @@
 					<tbody>
 						<tr>
 							<td align="center">
-								Wins:&nbsp;<?php print $teams[1]->playoff_wins; ?>
+								Wins:&nbsp;<?php print ($teams[1]->playoff_wins>=2)? 2 : $teams[1]->playoff_wins; ?>
 							</td>
 						</tr>
 					</tbody>
@@ -77,7 +77,7 @@
 					<tbody>
 						<tr>
 							<td align="center">
-								Wins:&nbsp;<?php print $teams[2]->playoff_wins; ?>
+								Wins:&nbsp;<?php print ($teams[2]->playoff_wins>=2)? 2 : $teams[2]->playoff_wins; ?>
 							</td>
 						</tr>
 					</tbody>
