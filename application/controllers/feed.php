@@ -28,75 +28,91 @@ class Feed extends MY_Controller
 			$games[$game->gameid]->team_home = $this->teams_model->get_team_color_by_id($game->team_home);
 			$games[$game->gameid]->team_away = $this->teams_model->get_team_color_by_id($game->team_away);
 			
-			$games[$game->gameid]->period1_goals = array();
-			$games[$game->gameid]->period2_goals = array();
-			$games[$game->gameid]->period3_goals = array();
-			$games[$game->gameid]->period4_goals = array();
-			$games[$game->gameid]->period5_goals = array();
-
-			$games[$game->gameid]->period1_penalties = array();
-			$games[$game->gameid]->period2_penalties = array();
-			$games[$game->gameid]->period3_penalties = array();
-			$games[$game->gameid]->period4_penalties = array();
+			$games[$game->gameid]->period1 = array();
+			$games[$game->gameid]->period2 = array();
+			$games[$game->gameid]->period3 = array();
+			$games[$game->gameid]->period4 = array();
+			$games[$game->gameid]->period5 = array();
 
 			$goals = $this->goals_model->get_goals_by_game($game->gameid);
 			foreach ($goals as $goalid => $goal) 
 			{
-				$goal->team_scoring = $this->teams_model->get_team_color_by_id($goal->team_scoring);
-				$goal->player_scoring = $this->players_model->get_player_full_name_by_id($goal->player_scoring);
-				if($goal->player_assisting)
-				{
-					$goal->player_assisting = $this->players_model->get_player_full_name_by_id($goal->player_assisting);
-				}
+				$action = new stdClass();
+				$action->type = "goal";
+				$action->team = $this->teams_model->get_team_color_by_id($goal->team_scoring);
+				$action->player_primary =$this->players_model->get_player_full_name_by_id($goal->player_scoring);
 
-				if ($goal->goal_period == 1)
+				$goal->player_assisting ? $action->player_secondary = $this->players_model->get_player_full_name_by_id($goal->player_assisting):
+										  $action->player_secondary = "none";	
+
+				if ($goal->goal_time < '00:30:00' )
 				{
-					$games[$game->gameid]->period1_goals[$goal->goalid] = $goal;
+					$action->time = $goal->goal_time;
+					array_push($games[$game->gameid]->period1, $action);
 				}
-				elseif ($goal->goal_period == 2)
+				elseif ($goal->goal_time < '01:00:00' )
 				{
-					$games[$game->gameid]->period2_goals[$goal->goalid] = $goal;
+					$action->time = (new DateTime($goal->goal_time))->sub(new DateInterval("PT30M"))->format('H:i:s');
+					array_push($games[$game->gameid]->period2, $action);
 				}
-				elseif ($goal->goal_period == 3)
+				elseif ($goal->goal_time < '01:30:00' )
 				{
-					$games[$game->gameid]->period3_goals[$goal->goalid] = $goal;
+					$action->time = (new DateTime($goal->goal_time))->sub(new DateInterval("PT1H"))->format('H:i:s');
+					array_push($games[$game->gameid]->period3, $action);
 				}
-				elseif ($goal->goal_period == 4)
+				elseif ($goal->goal_time < '01:50:00' )
 				{
-					$games[$game->gameid]->period4_goals[$goal->goalid] = $goal;
+					$action->time = (new DateTime($goal->goal_time))->sub(new DateInterval("PT1H30M"))->format('H:i:s');
+					array_push($games[$game->gameid]->period4, $action);
 				}
-				elseif ($goal->goal_period == 5)
+				else
 				{
-					$games[$game->gameid]->period5_goals[$goal->goalid] = $goal;
+					$action->time = null;
+					array_push($games[$game->gameid]->period5, $action);
 				}
 			}
 
 			$penalties = $this->penalties_model->get_penalties_by_game($game->gameid);
 			foreach ($penalties as $penaltyid => $penalty) 
 			{
-				$penalty->team_serving = 
-					$this->teams_model->get_team_color_by_id(
-						$penalty->team_serving);
-				$penalty->player_serving =
-					$this->players_model->get_player_full_name_by_id(
-						$penalty->player_serving);
-				if ($penalty->penalty_period == 1)
+				$action = new stdClass();
+				$action->type = "penalty";
+				$action->team = $this->teams_model->get_team_color_by_id($penalty->team_serving);
+				$action->player_primary = $this->players_model->get_player_full_name_by_id($penalty->player_serving);
+				$action->player_secondary = null;
+
+				if ($penalty->penalty_time < '00:30:00' )
 				{
-					$games[$game->gameid]->period1_penalties[$penalty->penaltyid] = $penalty;
+					$action->time = $penalty->penalty_time;
+					array_push($games[$game->gameid]->period1, $action);
 				}
-				elseif ($penalty->penalty_period == 2)
+				elseif ($penalty->penalty_time < '01:00:00' )
 				{
-					$games[$game->gameid]->period2_penalties[$penalty->penaltyid] = $penalty;
+					$action->time = (new DateTime($penalty->penalty_time))->sub(new DateInterval("PT30M"))->format('H:i:s');
+					array_push($games[$game->gameid]->period2, $action);
 				}
-				elseif ($penalty->penalty_period == 3)
+				elseif ($penalty->penalty_time < '01:30:00' )
 				{
-					$games[$game->gameid]->period3_penalties[$penalty->penaltyid] = $penalty;
+					$action->time =(new DateTime($penalty->penalty_time))->sub(new DateInterval("PT1H"))->format('H:i:s');
+					array_push($games[$game->gameid]->period3, $action);
 				}
-				elseif ($penalty->penalty_period == 4)
+				elseif ($penalty->penalty_time < '01:50:00' )
 				{
-					$games[$game->gameid]->period4_penalties[$penalty->penaltyid] = $penalty;
+					$action->time = (new DateTime($penalty->penalty_time))->sub(new DateInterval("PT1H30M"))->format('H:i:s');
+					array_push($games[$game->gameid]->period4, $action);
+				}
+				else
+				{
+					$action->time = null;
+					array_push($games[$game->gameid]->period5, $action);
 				}	
 			}
+
+			usort($games[$game->gameid]->period1, array("feed", "sort_actions_by_time"));
+			usort($games[$game->gameid]->period2, array("feed", "sort_actions_by_time"));
+			usort($games[$game->gameid]->period3, array("feed", "sort_actions_by_time"));
+			usort($games[$game->gameid]->period4, array("feed", "sort_actions_by_time"));
+			usort($games[$game->gameid]->period5, array("feed", "sort_actions_by_time"));
 
 		}
 
@@ -121,6 +137,15 @@ class Feed extends MY_Controller
 			return ($a->gameid < $b->gameid) ? -1 : 1;
 		} 
 		return ($a->game_date > $b->game_date) ? -1 : 1;
+	}
+
+	private function sort_actions_by_time($a,$b)
+	{
+ 		if($a->time ==  $b->time )
+	 	{ 
+	 		return 0 ; 
+	 	} 
+		return ($a->time < $b->time) ? -1 : 1;
 	}
 
 }
