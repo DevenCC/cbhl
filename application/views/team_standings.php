@@ -27,9 +27,6 @@
 				<th class="col-color" width="15%">
 					Color
 				</th>
-				<th class="col-team-name" width="15%">
-					Team Name
-				</th>
 				<th class="col-points" width="7.5%">
 					Points
 				</th>
@@ -42,8 +39,11 @@
 				<th class="col-losses" width="5%">
 					L
 				</th>
-				<th class="col-over-times" width="5%">
-					OT
+				<th class="col-over-times-loses" width="5%">
+					OTL
+				</th>
+				<th class="col-over-times-wins" width="5%">
+					OTW
 				</th>
 				<th class="col-goals-for" width="5%">
 					GF
@@ -65,9 +65,6 @@
 								<?php print $team->team_color; ?>
 							</td>
 							<td>
-								<?php print $team->team_name ? $team->team_name : "<i>N/A</i>"; ?>
-							</td>
-							<td>
 								<?php print $team->points; ?>
 							</td>
 							<td>
@@ -81,6 +78,9 @@
 							</td>
 							<td>
 								<?php print $team->ot_losses; ?>
+							</td>
+							<td>
+								<?php print $team->ot_wins; ?>
 							</td>
 							<td>
 								<?php print $team->goals_for; ?>

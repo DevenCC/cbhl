@@ -166,6 +166,7 @@ class Team_standings extends MY_Controller
 			$teams[$team->teamid]->wins = $wins;	
 			$teams[$team->teamid]->losses = $losses;	
 			$teams[$team->teamid]->ot_losses = $ot_losses;	
+			$teams[$team->teamid]->ot_wins = $wins - $regulation_wins;	
 			$teams[$team->teamid]->regulation_wins = $regulation_wins;	
 			$teams[$team->teamid]->points = $points;	
 			$teams[$team->teamid]->goals_against = $goals_against;	
