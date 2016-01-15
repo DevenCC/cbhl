@@ -2,8 +2,25 @@
  * All your custom CSS should go into this file
  */
 
+tr.accordion-toggle.collapsed .glyphicon-plus {
+  display: inline;
+}
+tr.accordion-toggle.collapsed .glyphicon-minus {
+  display: none;
+}
+tr.accordion-toggle .glyphicon-plus {
+  display: none;
+}
+tr.accordion-toggle .glyphicon-minus {
+  display: inline;
+}
+
 body {
    padding-top: 15px;
+}
+
+*[data-href] {
+    cursor: pointer;
 }
 
 #system-messages {
@@ -115,7 +132,7 @@ body {
 }
 
 
-.color-Balck {
+.color-Black {
     color: #777;
 }
 .color-Blue {
@@ -129,4 +146,25 @@ body {
 }
 .color-Yellow {
     color: #f0ad4e;
+}
+
+.banner-Black {
+    height: 10px;
+    background: #777;
+}
+.banner-Blue {
+    height: 10px;
+    background: #428bca;
+}
+.banner-Green {
+    height: 10px;
+    background: #5cb85c;
+}
+.banner-Red {
+    height: 10px;
+    background: #d9534f;
+}
+.banner-Yellow {
+    height: 10px;
+    background: #f0ad4e;
 }

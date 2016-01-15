@@ -25,6 +25,16 @@
 		return $result->row_array();
 	}
 
+	public function get_by_seasonid_and_color($seasonid, $color)
+	{
+		$sql = "SELECT * FROM teams t
+				WHERE t.team_seasonid = '$seasonid'
+				AND t.team_color = '$color'
+				LIMIT 1";
+		$result = $this->db->query($sql);
+		return $result->row_array();
+	}
+
 	public function get_all()
 	{
 		$sql = "SELECT * FROM teams t";

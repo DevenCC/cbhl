@@ -111,4 +111,62 @@
 
 		return false;
 	}
+
+	public function get_game_winner_teamid($gameid)
+	{
+		$sql = "SELECT * FROM goals go
+				LEFT JOIN games ga
+				ON ga.gameid = go.goal_gameid
+				WHERE ga.gameid = '$gameid' ";
+		$result = $this->db->query($sql);
+		$game_array = $result->row_array();
+
+		$score_home = 0;
+		$homeid = $game_array['team_home'];
+		$score_away = 0;
+		$awayid = $game_array['team_away'];
+
+		foreach ($result->result() as $row) 
+		{
+			if($row->team_scoring == $row->team_home)
+			{
+				$score_home++;
+			}
+			elseif($row->team_scoring == $row->team_away)
+			{
+				$score_away++;
+			}
+		}
+
+		return ($score_home > $score_away)? $homeid : $awayid;
+	}
+
+	public function get_game_loser_teamid($gameid)
+	{
+		$sql = "SELECT * FROM goals go
+				LEFT JOIN games ga
+				ON ga.gameid = go.goal_gameid
+				WHERE ga.gameid = '$gameid' ";
+		$result = $this->db->query($sql);
+		$game_array = $result->row_array();
+
+		$score_home = 0;
+		$homeid = $game_array['team_home'];
+		$score_away = 0;
+		$awayid = $game_array['team_away'];
+
+		foreach ($result->result() as $row) 
+		{
+			if($row->team_scoring == $row->team_home)
+			{
+				$score_home++;
+			}
+			elseif($row->team_scoring == $row->team_away)
+			{
+				$score_away++;
+			}
+		}
+
+		return ($score_home < $score_away)? $homeid : $awayid;
+	}
 }

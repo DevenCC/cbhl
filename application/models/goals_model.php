@@ -112,4 +112,52 @@
 		$goals_array = $result->row_array();
 		return $goals_array['COUNT(*)'];
 	}
+
+	public function get_team_first_goal_by_game($gameid, $teamid)
+	{
+		$sql = "SELECT goal_time FROM goals
+				WHERE goal_gameid = '$gameid'
+				AND team_scoring = '$teamid'
+				ORDER BY goal_time ASC
+				LIMIT 1";
+
+		$result = $this->db->query($sql);
+		return (empty($result->row_array()))? strtotime("01:30:00") :strtotime($result->row_array()['goal_time']);
+	}
+
+	public function get_pass_percentage_by_playerid($playerid, $teamid)
+	{
+		$sql = "SELECT players.player_first_name, players.player_last_name, goals.player_assisting 
+				FROM goals
+				JOIN players on goals.player_assisting = players.playerid
+				WHERE goals.player_scoring = '$playerid'
+				AND team_scoring = '$teamid'";
+
+		$result = $this->db->query($sql);
+		$passing_players = array();
+		$total_passes = 0;
+
+		foreach ($result->result() as $row) 
+		{
+			if($row->player_assisting <> null)
+			{
+				$total_passes++;
+				if(array_key_exists($row->player_first_name.' '.$row->player_last_name, $passing_players))
+				{
+					$passing_players[$row->player_first_name.' '.$row->player_last_name]++;	
+				}
+				else
+				{
+					$passing_players[$row->player_first_name.' '.$row->player_last_name] = 1;
+				}
+			}
+		}
+		foreach ($passing_players as $key => $value ) 
+		{
+			$passing_players[$key] = $value/$total_passes;
+		}
+		arsort($passing_players);
+
+		return $passing_players;
+	}
  }

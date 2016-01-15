@@ -54,4 +54,100 @@
 		}
 		return $penalties;
 	}	
+
+	public function get_team_penalty_success_by_teamid($penalty_teamid, $scoring_team)
+	{
+		$penalty_length = 5*60; // in seconds
+		$sql = "SELECT penalties.penaltyid, penalties.team_serving, penalties.penalty_gameid, penalties.penalty_time, goals.goal_time, goals.team_scoring
+				FROM penalties
+				JOIN  goals on goals.goal_gameid = penalties.penalty_gameid
+				WHERE penalties.team_serving = '$penalty_teamid'
+				AND goals.team_scoring = '$scoring_team'";
+
+		$result = $this->db->query($sql);
+		$unsucessfull_pk = 0;
+		$distinct_penalties = array();
+
+		foreach ($result->result() as $row) 
+		{
+			if(!in_array($row->penaltyid, $distinct_penalties))
+			{
+				array_push($distinct_penalties, $row->penaltyid);
+			}
+			if( strtotime($row->goal_time) - strtotime($row->penalty_time) <= $penalty_length &&
+				strtotime($row->goal_time) - strtotime($row->penalty_time) >  0) 
+			{
+				$unsucessfull_pk++;
+			}
+
+		}
+		
+		return (empty($distinct_penalties)) ?
+					null:
+					(count($distinct_penalties) - $unsucessfull_pk)/ count($distinct_penalties);
+	}
+
+	public function get_penaltykill_success_by_teamid($penalty_teamid)
+	{
+		$penalty_length = 5*60; // in seconds
+		$sql = "SELECT penalties.penaltyid, penalties.team_serving, penalties.penalty_gameid, penalties.penalty_time, goals.goal_time, goals.team_scoring
+				FROM penalties
+				JOIN  goals on goals.goal_gameid = penalties.penalty_gameid
+				WHERE penalties.team_serving = '$penalty_teamid'
+				AND goals.team_scoring <> '$penalty_teamid'";
+
+		$result = $this->db->query($sql);
+		$unsucessfull_pk = 0;
+		$distinct_penalties = array();
+
+		foreach ($result->result() as $row) 
+		{
+			if(!in_array($row->penaltyid, $distinct_penalties))
+			{
+				array_push($distinct_penalties, $row->penaltyid);
+			}
+			if( strtotime($row->goal_time) - strtotime($row->penalty_time) <= $penalty_length &&
+				strtotime($row->goal_time) - strtotime($row->penalty_time) >  0) 
+			{
+				$unsucessfull_pk++;
+			}
+
+		}
+		
+		return (empty($distinct_penalties))?
+					null:
+					(count($distinct_penalties) - $unsucessfull_pk)/ count($distinct_penalties);
+	}
+
+	public function get_powerplay_success_by_teamid($powerplay_teamid)
+	{
+		$penalty_length = 5*60; // in seconds
+		$sql = "SELECT penalties.penaltyid, penalties.team_serving, penalties.penalty_gameid, penalties.penalty_time, goals.goal_time, goals.team_scoring
+				FROM penalties
+				JOIN  goals on goals.goal_gameid = penalties.penalty_gameid
+				WHERE penalties.team_serving <> '$powerplay_teamid'
+				AND goals.team_scoring = '$powerplay_teamid'";
+
+		$result = $this->db->query($sql);
+		$sucessful_powerplay = 0;
+		$distinct_penalties = array();
+
+		foreach ($result->result() as $row) 
+		{
+			if(!in_array($row->penaltyid, $distinct_penalties))
+			{
+				array_push($distinct_penalties, $row->penaltyid);
+			}
+			if( strtotime($row->goal_time) - strtotime($row->penalty_time) <= $penalty_length &&
+				strtotime($row->goal_time) - strtotime($row->penalty_time) >  0) 
+			{
+				$sucessful_powerplay++;
+			}
+
+		}
+		
+		return (empty($distinct_penalties))? 
+					null :
+					($sucessful_powerplay)/ count($distinct_penalties);
+	}
  }
