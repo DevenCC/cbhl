@@ -122,7 +122,9 @@
 				LIMIT 1";
 
 		$result = $this->db->query($sql);
-		return (empty($result->row_array()))? strtotime("01:30:00") :strtotime($result->row_array()['goal_time']);
+		return (!$result->row_array())
+				? strtotime("01:30:00") 
+				: strtotime($result->row_array()['goal_time']);
 	}
 
 	public function get_pass_percentage_by_playerid($playerid, $teamid)

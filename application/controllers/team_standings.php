@@ -117,7 +117,6 @@ class Team_standings extends MY_Controller
 					? $this->seasons_model->get_current_season()
 					: $this->seasons_model->get($seasonid);
 
-		//$team = (object) $this->teams_model->get($teamid);
 		$team = (object) $this->teams_model->get_by_seasonid_and_color($season->seasonid, $color);
 		$team->season = $season;
 		$team->stats_against = array();
@@ -173,7 +172,6 @@ class Team_standings extends MY_Controller
 			if($game->team_winner == $team->teamid)
 			{
 				$team->stats_against[$game_loser]->games_played++;
-				array_push($team->stats_against[$game_loser]->test, date("H:i:s",$this->goals_model->get_team_first_goal_by_game($game->gameid, $this->games_model->get_game_winner_teamid($game->gameid))) );
 				$team->stats_against[$game_loser]->avg_goals_for_time = is_null($team->stats_against[$game_loser]->avg_goals_for_time) 
 																		? $this->goals_model->get_team_first_goal_by_game($game->gameid, $this->games_model->get_game_winner_teamid($game->gameid)) 
 																		: ($team->stats_against[$game_loser]->avg_goals_against_time + 
@@ -196,7 +194,6 @@ class Team_standings extends MY_Controller
 			}	
 			else
 			{
-				array_push($team->stats_against[$game_winner]->test, date("H:i:s",$this->goals_model->get_team_first_goal_by_game($game->gameid, $this->games_model->get_game_loser_teamid($game->gameid))) );
 				$team->stats_against[$game_winner]->games_played++;
 				$team->stats_against[$game_winner]->avg_goals_for_time = is_null($team->stats_against[$game_winner]->avg_goals_against_time) 
 																		? $this->goals_model->get_team_first_goal_by_game($game->gameid, $this->games_model->get_game_loser_teamid($game->gameid)) 
