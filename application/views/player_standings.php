@@ -20,7 +20,7 @@
 
 	<?php if ((!$is_playoff) || ($is_playoff && $is_playoff_started)): ?>
 		<div class="panel panel-default">
-			<table width="100%" class="table table-hover table-bordered">
+			<table width="100%" class="table table-hover table-bordered table-striped">
 				<thead>
 					<th class="col-first-name" width="30%">
 						First Name
@@ -46,7 +46,10 @@
 						<?php foreach ($players as $playerid => $player): ?>
 							<tr>
 								<td>
-									<?php print $player->player_first_name; ?>
+									<?php if ($player->team_color =='none'): ?>
+										<span class="glyphicon glyphicon-cog"></span> 
+									<?php endif; ?>
+										<?php print $player->player_first_name; ?>
 								</td>
 								<td>
 									<?php print $player->player_last_name; ?>

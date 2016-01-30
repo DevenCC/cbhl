@@ -5,3 +5,5 @@ Thumbs.db
 *.orig
 
 application/config/database.php
+notes.txt
+index.sublime-workspace

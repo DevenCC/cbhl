@@ -43,12 +43,11 @@
 	// Excludes spares
 	public function get_all_by_seasonid($seasonid)
 	{
-		$sql = "SELECT DISTINCT players.playerid, players.player_first_name, players.player_last_name
+		$sql = "SELECT DISTINCT players.playerid, players.player_first_name, players.player_last_name, teams.team_color
 				FROM playersteams
 				JOIN players on playersteams.playerid = players.playerid
 				JOIN teams on playersteams.teamid = teams.teamid
-				WHERE teams.team_seasonid = '$seasonid'
-				AND teams.team_color <> 'none'";
+				WHERE teams.team_seasonid = '$seasonid'";
 		$result = $this->db->query($sql);
 
 		// Map the player rows by their ID
@@ -62,12 +61,11 @@
 
 	public function get_all_in_playoffs_by_seasonid($seasonid)
 	{
-		$sql = "SELECT DISTINCT players.playerid, players.player_first_name, players.player_last_name
+		$sql = "SELECT DISTINCT players.playerid, players.player_first_name, players.player_last_name, teams.team_color
 				FROM playersteams
 				JOIN players on playersteams.playerid = players.playerid
 				JOIN teams on playersteams.teamid = teams.teamid
 				WHERE teams.team_seasonid = '$seasonid'
-				AND teams.team_color <> 'none'
 				AND teams.team_made_playoffs = 1 ";
 		$result = $this->db->query($sql);
 

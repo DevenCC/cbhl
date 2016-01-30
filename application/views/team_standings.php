@@ -19,7 +19,7 @@
 	</br>
 
 	<div class="panel panel-default">
-		<table width="100%" class="table table-hover table-bordered">
+		<table width="100%" class="table table-hover table-bordered table-striped">
 			<thead>
 				<th class="col-color" width="5%">
 					Position
