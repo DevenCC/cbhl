@@ -131,7 +131,7 @@
 	{
 		$sql = "SELECT players.player_first_name, players.player_last_name, goals.player_assisting 
 				FROM goals
-				JOIN players on goals.player_assisting = players.playerid
+				LEFT JOIN players on goals.player_assisting = players.playerid
 				WHERE goals.player_scoring = '$playerid'
 				AND team_scoring = '$teamid'";
 
@@ -141,9 +141,10 @@
 
 		foreach ($result->result() as $row) 
 		{
+			$total_passes++;
+			
 			if($row->player_assisting <> null)
 			{
-				$total_passes++;
 				if(array_key_exists($row->player_first_name.' '.$row->player_last_name, $passing_players))
 				{
 					$passing_players[$row->player_first_name.' '.$row->player_last_name]++;	
@@ -151,6 +152,17 @@
 				else
 				{
 					$passing_players[$row->player_first_name.' '.$row->player_last_name] = 1;
+				}
+			}
+			else
+			{
+				if(array_key_exists('Unassisted', $passing_players))
+				{
+					$passing_players['Unassisted']++;
+				}
+				else
+				{
+					$passing_players['Unassisted'] = 1;
 				}
 			}
 		}
