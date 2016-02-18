@@ -45,9 +45,9 @@
 					<?php if ($players): ?>
 						<?php foreach ($players as $playerid => $player): ?>
 							<tr>
-								<td>
+								<td style="padding:0 0 0 5px;">
 									<?php if ($player->team_color =='none'): ?>
-										<span class="glyphicon glyphicon-cog"></span> 
+										<img style="display:inline-block;height:25px;" class="img-responsive" src="../assets/img/spare.png"   alt="spare " id='spare_pin' />
 									<?php endif; ?>
 										<?php print $player->player_first_name; ?>
 								</td>
