@@ -74,11 +74,15 @@
 											<td  colspan='6'>
 												<span class="glyphicon glyphicon-screenshot"></span>
 												&nbsp;  <?php print($action->time); ?>  &nbsp;
-												Goal by <b><?php print($action->player_primary); ?></b>
-												<?php if ($action->player_secondary != "none"): ?>
-													from <b><?php print($action->player_secondary); ?></b>
+												<?php if(!$action->time ): ?>
+													Winning shootout goal by <b><?php print($action->player_primary); ?></b>
 												<?php else: ?>
-													unassisted
+													Goal by <b><?php print($action->player_primary); ?></b>
+													<?php if ($action->player_secondary != "none"): ?>
+														from <b><?php print($action->player_secondary); ?></b>
+													<?php else: ?>
+														unassisted
+													<?php endif; ?>
 												<?php endif; ?>
 											</td>
 										</tr>
