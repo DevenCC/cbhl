@@ -101,8 +101,8 @@
 										<?php if ($team->season->season_start_date>date('2015-10-03 00:00:00')): ?>
 											avg GF: <?php print number_format($stats->goals_for/$stats->games_played, 2, ".",","); ?><br>
 											avg GA: <?php print number_format($stats->goals_against/$stats->games_played, 2, ".",","); ?><br>
-											avg 1<sup>st</sup> GF time:	<?php print date("H:i:s", $stats->avg_goals_for_time); ?><br>
-											avg 1<sup>st</sup> GA time:	<?php print date("H:i:s", $stats->avg_goals_against_time); ?><br>
+											avg 1<sup>st</sup> GF time:	<?php print date("i:s", $stats->avg_goals_for_time); ?><br>
+											avg 1<sup>st</sup> GA time:	<?php print date("i:s", $stats->avg_goals_against_time); ?><br>
 											<?php if (is_null($stats->pk_success)): ?>
 												PK: <i>no penalties</i><br>
 											<?php else: ?>
