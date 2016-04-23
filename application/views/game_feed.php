@@ -25,16 +25,16 @@
 								<div align="center"><b><?php print $game->team_away; ?></b></div>
 							</td>
 							<td class="col-overtime" width="11%">
-								<?php if (empty($game->period4) && empty($game->period5)): ?>
-									<div align="center"><i>regulation time</i></div>
-								<?php else: ?>
+								<?php if ($game->is_overtime == 1 ): ?>
 									<div align="center">OVERTIME</div>
+								<?php else: ?>
+									<div align="center"><i>regulation time</i></div>
 								<?php endif; ?>
 							</td>
 						</tr>
 						
 
-						<?php for($period_number = 1; $period_number <= 5; $period_number++): ?>
+						<?php for($period_number = 1; $period_number <= $game->number_periods_played; $period_number++): ?>
 							<?php if($period_number == 1): ?>
 								<tr>
 									<td bgcolor="#fafafa" colspan='6' align="center">
@@ -53,56 +53,64 @@
 										--- <b>3<sup>rd</sup> period</b> ---
 									</td>
 								</tr>
-							<?php elseif($period_number == 4 && (!empty($game->period4) || empty($game->period4) && !empty($game->period5)) ): ?>
+							<?php elseif($period_number == 4 && ($game->game_playoff != 1) ): ?>
 								<tr>
 									<td bgcolor="#fafafa" colspan='6' align="center">
 										--- <b>Overtime</b> ---
 									</td>
 								</tr>
-							<?php elseif($period_number == 5 && !empty($game->period5)): ?>
+							<?php elseif($period_number == 5 && ($game->game_playoff != 1) ): ?>
 								<tr>
 									<td bgcolor="#fafafa" colspan='6' align="center">
 										--- <b>Shootouts</b> ---
 									</td>
 								</tr>
+							<?php elseif(($game->game_playoff == 1) ): ?>
+								<tr>
+									<td bgcolor="#fafafa" colspan='6' align="center">
+										--- <b>Overtime <?php print($period_number -3); ?></b> ---
+									</td>
+								</tr>
 							<?php endif; ?>
-
-							<?php if ($game->{'period'.$period_number}): ?>
-								<?php foreach ($game->{'period'.$period_number} as $action): ?>
-									<?php if($action->type == "goal"): ?>
-										<tr class="bs-callout bs-callout-<?php print($action->team); ?>">
-											<td  colspan='6'>
-												<span class="glyphicon glyphicon-screenshot"></span>
-												&nbsp;  <?php print($action->time); ?>  &nbsp;
-												<?php if(!$action->time ): ?>
-													Winning shootout goal by <b><?php print($action->player_primary); ?></b>
-												<?php else: ?>
-													Goal by <b><?php print($action->player_primary); ?></b>
-													<?php if ($action->player_secondary != "none"): ?>
-														from <b><?php print($action->player_secondary); ?></b>
+							
+							<?php if(!empty($game->actions[$period_number])): ?>
+								<?php foreach ($game->actions[$period_number] as $action): ?>
+									<?php if($action->period == $period_number): ?>
+										<?php if($action->type == "goal"): ?>
+											<tr class="bs-callout bs-callout-<?php print($action->team); ?>">
+												<td  colspan='6'>
+													<span class="glyphicon glyphicon-screenshot"></span>
+													<?php if($action->period == 5  && $game->game_playoff ==0): ?>
+														&nbsp; Winning shootout goal by <b><?php print($action->player_primary); ?></b>
 													<?php else: ?>
-														unassisted
+														&nbsp;  00:<?php printf("%02d", $action->periodMinutes); ?>:<?php printf("%02d", $action->periodSeconds); ?>  &nbsp;
+														Goal by <b><?php print($action->player_primary); ?></b>
+														<?php if ($action->player_secondary != "none"): ?>
+															from <b><?php print($action->player_secondary); ?></b>
+														<?php else: ?>
+															unassisted
+														<?php endif; ?>
 													<?php endif; ?>
-												<?php endif; ?>
-											</td>
-										</tr>
-									<?php elseif($action->type == "penalty"): ?>
-										<tr class="bs-callout bs-callout-<?php print($action->team); ?>">
-											<td  colspan='6'>
-												<!-- <span class="glyphicon glyphicon-exclamation-sign color-<?php print($penalty->team_serving); ?>"></span> -->
-												&nbsp; &nbsp; &nbsp;  <?php print($action->time); ?>  &nbsp; 
-												Penalty by <b><?php print($action->player_primary); ?></b>
-											</td>
-										</tr>
+												</td>
+											</tr>
+										<?php elseif($action->type == "penalty"): ?>
+											<tr class="bs-callout bs-callout-<?php print($action->team); ?>">
+												<td  colspan='6'>
+													<!-- <span class="glyphicon glyphicon-exclamation-sign color-<?php print($penalty->team_serving); ?>"></span> -->
+													&nbsp; &nbsp; &nbsp;  00:<?php printf("%02d", $action->periodMinutes); ?>:<?php printf("%02d", $action->periodSeconds); ?>  &nbsp;
+													Penalty by <b><?php print($action->player_primary); ?></b>
+												</td>
+											</tr>
+										<?php endif;?>
 									<?php endif;?>
 								<?php endforeach; ?>
-							<?php elseif( !($period_number ==5 && empty($game->period5)) && !($period_number ==4 && empty($game->period4) && empty($game->period5))): ?>
+							<?php else: ?>
 								<tr>
 									<td colspan='6' >
 										<i>n/a</i>
 									</td>
 								</tr>
-							<?php endif; ?>
+							<?php endif;?>
 						<?php endfor; ?>
 					</tbody>
 				</table>
