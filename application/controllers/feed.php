@@ -87,11 +87,16 @@ class Feed extends MY_Controller
 				array_push($games[$game->gameid]->actions[$action->period], $action);
 			}
 
-			foreach ($games[$game->gameid]->actions as $actions)
-			{
-				usort($actions, array("feed", "sort_actions_by_time"));
-			}
 
+			ksort($games[$game->gameid]->actions);
+
+			for($period_number = 1 ; $period_number <= (int)$games[$game->gameid]->number_periods_played; $period_number++)
+			{
+				if(array_key_exists($period_number,$games[$game->gameid]->actions))
+				{
+					usort($games[$game->gameid]->actions[$period_number], array("feed", "sort_actions_by_time"));
+				}
+			}
 		}
 
 		usort($games, array("feed", "sort_games_by_date"));
@@ -118,20 +123,16 @@ class Feed extends MY_Controller
 	}
 
 	private function sort_actions_by_time($a,$b)
-	{
- 		if($a->period ==  $b->period )
-	 	{ 
-	 		if($a->periodMinutes ==  $b->periodMinutes )
-		 	{ 
-		 		if($a->periodSeconds ==  $b->periodSeconds )
-			 	{ 
-			 		return 0 ; 
-			 	} 
-				return ($a->periodSeconds < $b->periodSeconds) ? -1 : 1;
-		 	} 
-			return ($a->periodMinutes < $b->periodMinutes) ? -1 : 1;
-	 	} 
-		return ($a->period < $b->period) ? -1 : 1;
-	}
+	{	
+		if(((int)$a->periodMinutes) ==  ((int)$b->periodMinutes) )
+		{ 
+			if(((int)$a->periodSeconds) ==  ((int)$b->periodSeconds) )
+			{ 
+			 	return 0 ; 
+			} 
+			return (((int)$a->periodSeconds) < ((int)$b->periodSeconds)) ? -1 : 1;
+		} 
+		return (((int)$a->periodMinutes) < ((int)$b->periodMinutes)) ? -1 : 1;
+	 } 
 
 }
