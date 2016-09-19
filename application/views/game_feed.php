@@ -117,7 +117,7 @@
 			</div>
 			</br>
 		<?php endforeach; ?>
-		<?php else: ?>
-			<h4>No games recorded for this season yet.</h4>
+	<?php else: ?>
+		<h4>No games recorded for this season yet.</h4>
 	<?php endif; ?>
 </div>

@@ -222,7 +222,7 @@ class Team_standings extends MY_Controller
 
 		foreach ($team->stats_against as $statid => $stats)
 		{
-			if($statid <> 'ALL')
+			if(($team->stats_against[$statid]->games_played > 0) && $statid <> 'ALL')
 			{
 				$team->stats_against['ALL']->avg_goals_for_time = (($team->stats_against['ALL']->avg_goals_for_time * $team->stats_against['ALL']->games_played)  +
 																   ($team->stats_against[$statid]->avg_goals_for_time) * $team->stats_against[$statid]->games_played ) /

@@ -29,7 +29,7 @@
 				<!-- --------------SHCEDULE-------------- -->
 
 
-				<?php if ($teams): ?>
+				<?php if ($teams && reset($teams)->players): ?>
 					<tr bgcolor="#eaeaea">
 						<td>
 							<div align="center">0</div>
@@ -68,16 +68,16 @@
 							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['1']->players[$index1%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index1++%count($teams['1']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['2']->players[$index1%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index1++%count($teams['2']->players)]->player_last_name; ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['1']->players[$index1%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index1++%count($teams['1']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['2']->players[$index1%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index1++%count($teams['2']->players)]->player_last_name; ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['1']->players[$index1%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index1++%count($teams['1']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['2']->players[$index1%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index1++%count($teams['2']->players)]->player_last_name; ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['1']->players[$index1%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index1++%count($teams['1']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['2']->players[$index1%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index1++%count($teams['2']->players)]->player_last_name; ?></div>
 						</td>
 					</tr>
 					</tr>
@@ -108,16 +108,16 @@
 							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['2']->players[$index2%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index2++%count($teams['2']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['1']->players[$index2%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index2++%count($teams['1']->players)]->player_last_name; ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['2']->players[$index2%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index2++%count($teams['2']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['1']->players[$index2%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index2++%count($teams['1']->players)]->player_last_name; ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['2']->players[$index2%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index2++%count($teams['2']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['1']->players[$index2%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index2++%count($teams['1']->players)]->player_last_name; ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['2']->players[$index2%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index2++%count($teams['2']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['1']->players[$index2%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index2++%count($teams['1']->players)]->player_last_name; ?></div>
 						</td>
 					</tr>
 					</tr>
@@ -148,7 +148,7 @@
 							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
 						</td>
 						<td colspan="4">
-							<div align="center">Veterans Game</div>
+							<div align="center">Week Off</div>
 						</td>
 					</tr>
 					</tr>
@@ -159,16 +159,16 @@
 							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['1']->players[$index1%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index1++%count($teams['1']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['2']->players[$index1%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index1++%count($teams['2']->players)]->player_last_name; ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['1']->players[$index1%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index1++%count($teams['1']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['2']->players[$index1%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index1++%count($teams['2']->players)]->player_last_name; ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['1']->players[$index1%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index1++%count($teams['1']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['2']->players[$index1%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index1++%count($teams['2']->players)]->player_last_name; ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['1']->players[$index1%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index1++%count($teams['1']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['2']->players[$index1%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index1++%count($teams['2']->players)]->player_last_name; ?></div>
 						</td>
 					</tr>
 					</tr>
@@ -239,16 +239,16 @@
 							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['2']->players[$index2%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index2++%count($teams['2']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['1']->players[$index2%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index2++%count($teams['1']->players)]->player_last_name; ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['2']->players[$index2%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index2++%count($teams['2']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['1']->players[$index2%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index2++%count($teams['1']->players)]->player_last_name; ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['2']->players[$index2%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index2++%count($teams['2']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['1']->players[$index2%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index2++%count($teams['1']->players)]->player_last_name; ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['2']->players[$index2%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index2++%count($teams['2']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['1']->players[$index2%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index2++%count($teams['1']->players)]->player_last_name; ?></div>
 						</td>
 					</tr>
 
@@ -272,16 +272,16 @@
 							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['1']->players[$index1%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index1++%count($teams['1']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['2']->players[$index1%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index1++%count($teams['2']->players)]->player_last_name; ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['1']->players[$index1%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index1++%count($teams['1']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['2']->players[$index1%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index1++%count($teams['2']->players)]->player_last_name; ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['1']->players[$index1%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index1++%count($teams['1']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['2']->players[$index1%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index1++%count($teams['2']->players)]->player_last_name; ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['1']->players[$index1%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index1++%count($teams['1']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['2']->players[$index1%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index1++%count($teams['2']->players)]->player_last_name; ?></div>
 						</td>
 					</tr>
 					</tr>
@@ -292,16 +292,16 @@
 							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['2']->players[$index2%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index2++%count($teams['2']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['1']->players[$index2%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index2++%count($teams['1']->players)]->player_last_name; ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['2']->players[$index2%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index2++%count($teams['2']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['1']->players[$index2%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index2++%count($teams['1']->players)]->player_last_name; ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['2']->players[$index2%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index2++%count($teams['2']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['1']->players[$index2%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index2++%count($teams['1']->players)]->player_last_name; ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['2']->players[$index2%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index2++%count($teams['2']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['1']->players[$index2%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index2++%count($teams['1']->players)]->player_last_name; ?></div>
 						</td>
 					</tr>
 					</tr>
@@ -372,7 +372,7 @@
 							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
 						</td>
 						<td colspan="4">
-							<div align="center">Valentine's Day</div>
+							<div align="center">Week Off</div>
 						</td>
 					</tr>
 					</tr>
@@ -383,16 +383,16 @@
 							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['2']->players[$index2%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index2++%count($teams['2']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['1']->players[$index2%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index2++%count($teams['1']->players)]->player_last_name; ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['2']->players[$index2%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index2++%count($teams['2']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['1']->players[$index2%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index2++%count($teams['1']->players)]->player_last_name; ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['2']->players[$index2%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index2++%count($teams['2']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['1']->players[$index2%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index2++%count($teams['1']->players)]->player_last_name; ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['2']->players[$index2%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index2++%count($teams['2']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['1']->players[$index2%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index2++%count($teams['1']->players)]->player_last_name; ?></div>
 						</td>
 					</tr>
 					</tr>
@@ -423,16 +423,16 @@
 							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['1']->players[$index1%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index1++%count($teams['1']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['2']->players[$index1%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index1++%count($teams['2']->players)]->player_last_name; ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['1']->players[$index1%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index1++%count($teams['1']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['2']->players[$index1%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index1++%count($teams['2']->players)]->player_last_name; ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['1']->players[$index1%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index1++%count($teams['1']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['2']->players[$index1%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index1++%count($teams['2']->players)]->player_last_name; ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['1']->players[$index1%count($teams['1']->players)]->player_first_name; ?> <?php echo $teams['1']->players[$index1++%count($teams['1']->players)]->player_last_name; ?></div>
+							<div align="center"><?php echo $teams['2']->players[$index1%count($teams['2']->players)]->player_first_name; ?> <?php echo $teams['2']->players[$index1++%count($teams['2']->players)]->player_last_name; ?></div>
 						</td>
 					</tr>
 					</tr>

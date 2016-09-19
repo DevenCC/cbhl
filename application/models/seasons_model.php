@@ -41,7 +41,7 @@
 			if( ($row->season_start_date<$currentDate->format('Y-m-d H:i:s')) &&
 				($row->season_end_date>$currentDate->format('Y-m-d H:i:s'))		)
 			{
-				$season = $row;
+				$season = (object) $row;
 			}
 		}
 
@@ -51,7 +51,7 @@
 					 ORDER BY season_start_date DESC 
 					 LIMIT 1";
 			$result = $this->db->query($sql);
-			return $result->row_array();
+			return $result->row_object();
 		}
 		return $season;
 	}

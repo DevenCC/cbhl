@@ -47,7 +47,7 @@
 							<tr>
 								<td style="padding:0 0 0 5px;">
 									<?php if ($player->team_color =='none'): ?>
-										<img style="display:inline-block;height:25px;" class="img-responsive" src="../assets/img/spare.png"   alt="spare " id='spare_pin' />
+										<img style="display:inline-block;height:25px;" class="img-responsive" src="../../assets/img/spare.png"   alt="spare " id='spare_pin' />
 									<?php endif; ?>
 										<div style="display:inline-block;vertical-align:middle;"><?php print $player->player_first_name; ?></div>
 								</td>
