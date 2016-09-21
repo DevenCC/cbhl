@@ -1,5 +1,6 @@
 <div class="container">
 	<h2> <?php echo $page_title; ?></h2>
+	<?php $season_start_date = DateTime::createFromFormat('Y-m-d H:i:s', $season->season_start_date); ?>
 	</br>
 	<ol>	
 		<h4><u>Players</u></h4>
@@ -10,14 +11,14 @@
 			</br>
 			<li>All veterans having quit after being drafted for at least two (2) seasons in a row lose the privilege to automatically be drafted.  They do not have to play in the rookie game, but captains are not forced to draft them.</li>
 			</br>
-			<li>All veteran players will be assigned a ranking (A, B or C) by the captains at the beginning of the season.  A player will retain his ranking throughout the season.</li>
+			<li>All veteran players will be assigned a ranking ('A', 'B' or 'C') by the majority of the captains at the beginning of the season.  A player will retain his ranking throughout the season.</li>
 			</br>
 			<li>All rookie players will be assigned a ranking based on draft order.</li>
 				<ul>
-					<li>A rookie drafted between 2 B players will be assigned an B.</li>
-					<li>A rookie drafted between 2 C players will be assigned an C.</li>
-					<li>A rookie drafted between 2 A players will be assigned an A.</li>
-					<li>A rookie drafted between 2 levels will be assigned a ranking by the captains after the draft.</li>
+					<li>A rookie drafted between two (2) 'A' players will be assigned an 'A'.</li>
+					<li>A rookie drafted between two (2) 'B' players will be assigned an 'B'.</li>
+					<li>A rookie drafted between two (2) 'C' players will be assigned an 'C'.</li>
+					<li>A rookie drafted between two (2) levels will be assigned a ranking by the majority of the captains after the draft.</li>
 				</ul>
 				</br>
 
@@ -38,7 +39,7 @@
 		</br>
 			<li>Trades between teams are permitted provided that they are supported by the majority of the captains.</li>
 			</br>
-			<li>The Trade deadline is January 8th 2016 at 9:00 pm.</li>
+			<li>The Trade deadline is <?php echo date_format($season_start_date->add(new DateInterval("P97D")), 'l jS \of F Y'); ?> 09:00:00 PM.</li>
 			</br>
 
 
@@ -47,16 +48,17 @@
 		</br>
 			<li>Captains are responsible for finding their own spares.</li>
 			</br>
-			<li>A Captain must advise the president or the opposing captain no later than 9:00 pm on the Friday evening when calling a spare.</li>
+			<li>A Captain must advise the opposing captain and notify the president no later than 09:00:00 PM on the Friday evening when calling a spare.</li>
 			</br>
 			<li>Any new spares must be added to the spares list (name and number) to be available to all captains.</li>
 			</br>
-			<li>All new subs will be considered “B” players until evaluated by the captains.</li>
+			<li>All new subs will be considered “B” players until evaluated by the majority of the captains.</li>
 			</br>
-			<li>A team may call a spare if they are missing two (2) non-A players OR one (1) A player.</li>
+			<li>A team may call a spare if they are missing two (2) non-'A' players OR one (1) 'A' player.</li>
 				<ol>
-					<li>If a goalie is missing he can only be replaced by another goalie or an A spare.</li>
-					<li>B or C players can only be replaced by a B spare.</li>
+					<li>'A' players can replaced by any players spare.</li>
+					<li>'B' or 'C' players can be replaced by 'B' or 'C' spares non-respectively.</li>
+					<li>If a goalie is missing he can only be replaced by a designated goalie spare.</li>
 				</ol>
 				</br>
 			<li>Spares can be obtained on a first-come-first-serve basis. This is on the honor system; if two teams cannot agree who has the rights to a spare, the spare will not play for either team.</li>
@@ -73,11 +75,11 @@
 		</br>
 			<li>In case a full time player cannot continue with the season due to injury or personal reasons, a replacement can be picked up providing that the majority of the captains agree.</li>
 			</br>
-			<li>A player must miss 2 games before he can be replaced.  The NEW player plays on the 3rd game.</li>
+			<li>A player must miss 2 games before he can be replaced.  The NEW player will be on the offical roster as of the 3rd missed game.</li>
 			</br>
 			<li>New players cannot be added to any team after the said team has played its 16th regular season game.</li>
 			</br>
-			<li>To be eligible for post-Season play, a player must play 5 regular season games on any team (as a spare or full-time player).</li>
+			<li>To be eligible for post-Season play, a player must have played 5 regular season games on any team (as a spare or full-time player) and be on a team's roster.</li>
 			</br>
 			<li>Should a Captain be missing, the captain's assistant will be his replacement. If the Assistant is not present as well, the highest drafted player becomes the Captain for the game.</li>
 			</br>
@@ -88,13 +90,13 @@
 		</br>
 			<li>The amount to be paid to play in the league is 130$.</li>
 			</br>
-			<li>All fees must be paid before games on the second week, whether it be your first or second game.  NO exceptions will be made.</li>
+			<li>All fees must be paid before the start of the first game of the second split, the number of games played by the player are irrelevant.  No exceptions will be made.</li>
 			</br>
 			<li>A player will be fined of 5$ for every penalty after the forth one in the same season (5th penalty = 5$, 6th penalty = 5$).</li>
 			</br>
 			<li>A player not retuning his jersey at the end of the season will be fined a 45$ (for a total of 45$) – (Blank Jersey’s $20; Printer CBHL crest $15 & Jersey lettering $3).</li>
 			</br>
-			<li>A player owing any money for late league fees, penalty fines, jersey fines will not be allowed to play (no exceptions) – this includes any money owing from previous seasons.</li>
+			<li>A player owing any money for late league fees, penalty fines, jersey fines will not be allowed to play, no exceptions – this includes any money owing from previous seasons.</li>
 			</br>
 
 		</br>
@@ -102,9 +104,9 @@
 		</br>
 			<li>The  team  having  refereed  the  week  before  chooses  which  surface  to  play  on.    The  designated  home  teams (based  on schedule) select which end to start at.</li>
 			</br>
-			<li>The size of the hockey court is 32 steps between each net when game is played 4 on 4.   The size of the hockey court is 40 steps between each net when game is played 5 on 5.</li>
+			<li>The size of the hockey court 20 steps wide by thirty two (32) steps in between nets when game is played four (4) on four (4), by forty (40) steps in between nets when game is played five (5) on five (5).</li>
 			</br>
-			<li>The goal crease consists of an imaginary box extending one (1) foot to either side of the net and six (6) feet in front of the net.</li>
+			<li>The goal crease consists of an imaginary box extending one (1) foot from each post out and six (6) feet in front of the net.</li>
 			</br>
 
 
@@ -113,9 +115,9 @@
 		</br>
 			<li>All players must wear the jersey provided by the league.</li>
 			</br>
-			<li>Studded shoes/boots are dangerous and illegal.  If a player is caught with studded shoes/boots his team is immediately disqualified and forfeit 1 – 0.</li>
+			<li>Nothing must be worn on top of the Jersey.</li>
 			</br>
-			<li>Wearing garbage bags is permitted but must not surpass the players’ waist.</li>
+			<li>Studded shoes/boots are dangerous and illegal.  If a player is caught with studded shoes/boots his team is immediately disqualified and forfeit 1 – 0.</li>
 			</br>
 			<li>Goalies may only wear ice hockey player shin pads with tape; nothing wider will be permitted.</li>
 			</br>
@@ -145,13 +147,13 @@
 					<li>4 referee jerseys</li>
 				</ul>
 				</br>
-			<li>The  referees  will  have  to  sign for  the  equipment  and return  it  at the  end  of  the game.   Any  referee  not returning  the equipment will be fined.</li>
+			<li>The referees are responsible for returning the equipment at the end of the game.  Any referee not returning the equipment will be fined.</li>
 			</br>
-			<li>For a referee to be counted as present, he must be wearing a jersey and carrying a whistle.</li>
+			<li>For a referee to be counted as present, he must be wearing a jersey (or of a different color from the two (2) playing teams) and carrying a whistle.</li>
 			</br>
 			<li>The stop watch must be present at each game or both referees are considered missing.</li>
 			</br>
-			<li>Play stops when the whistle is blown.  Do not argue with the referees!  All calls are at his discretion and are final.</li>
+			<li>Play stops when the whistle is blown.  All calls are at the referees' discretions and are final. Do not argue with the referees.</li>
 			</br>
 			<li>Any physical aggression towards the referee will result in automatic dismissal from the league, regardless of post-season play.  The reverse holds true for the referee.</li>
 			</br>
@@ -173,7 +175,7 @@
 					<li>Shoot-out</li>
 					</ul>
 					</br>
-			<li>Each game will consist of three 30-minute periods (running time).  The third period will be divided into two 15-minute halves and the teams will be required to switch sides at the end of the first 15 minutes.</li>
+			<li>Each game will consist of three 30-minute periods (running time).  The third period will be divided into two 15-minute halves and the teams will be required to switch sides at the end of the first 15 minutes with no intermission.</li>
 			</br>
 			<li>If a team is not ready to start the game at 10:00, they may delay, but with the following consequences:</li>
 				<ul>
@@ -189,7 +191,7 @@
 					<li>20 Minutes – Loss of Points in the standings.</li>
 				</ul>
 				</br>
-			<li>Playoffs games are staggered with a 10:00 am and a 12:00 am starting times.  During the playoff the team who finishes first will decide at which time they would like to start.</li>
+			<li>Playoffs games are sequential instead of parallel with 10:00:00 AM and 12:00:00 AM starting times.  During the playoff, the team that finishes first in the season's standings decides their preferred timeslot.</li>
 			</br>
 
 		</br>
@@ -203,7 +205,7 @@
 				<ol>
 					<li>Teams must choose 5 players to do a shootout.</li>
 					<li>If after all 10 players have shot, the game is still tied, players will shoot according to their draft position (starting with the Captain, 1st Round; 2nd round and so on...) go head to head on shootouts until one team wins.</li>
-					<li>Only the last goal scored counts on the official stats.</li>
+					<li>Only the winning goal counts on the official stats.</li>
 				</ol>
 				</br>
 
@@ -211,7 +213,9 @@
 		</br>
 		<h4><u>Game Sheets</u></h4>
 		</br>
-			<li>A player from each team that played in the game must “witness” the game sheet at the end of the game on location.</li>
+			<li>The acting captain of each teams must provide the referee with a list of his team's players for the game as well as approve of his oppenents list.</li>
+			</br>
+			<li>A player from each team that played in the game as well as at least one (1) referee must “witness” the game sheet at the end of the game on location.</li>
 			</br>
 			<li>If stats are not “witnessed”, they will not be considered valid.</li>
 			</br>
@@ -220,7 +224,7 @@
 		</br>
 		<h4><u>Game Play</u></h4>
 		</br>
-			<li>A team needs a minimum of three (3) players (if playing 4 on 4) or four (4) players (if playing 5 on 5) to start a game.</li>
+			<li>A team needs a minimum of three (3) players if playing four (4) on four (4); or four (4) players if playing five (5) on five (5) to start a game.</li>
 			</br>
 			<li>If a team is missing players, they can wait for a player to show up, but face the consequences outlined in Rule 48.</li>
 			</br>
@@ -228,23 +232,25 @@
 			</br>
 			<li>When players “change on the fly”, the must touch sticks or hands.  Failure to do so will results in a “Too Many Men” penalty if and when the offending team gets control of the ball.  Until the offending team gets control of the ball, the two players may still rectify the situation by executing a proper change.</li>
 			</br>
-			<li>When the ball is to be played from the sidelines, the opposing player must allow a stick’s length from the ball.</li>
+			<li>Once a ball leaves the court’s delimitation, the ball is given to the team opposing the last player to touch the ball before it went out.</li>
 			</br>
-			<li>You cannot close your hand on the ball and change its direction of play.  This will result in the opposing team playing the ball from the sidelines.</li>
+			<li>When a call is made to change the ball's possession, the ball will be played from outside the court (from the closest side) at same court height from where the ball was when the call was made.</li>
 			</br>
-			<li>A player receiving a ball from a player of the same team’s hand is a “hand pass” and will result in a change in ball possession.</li>
+			<li>A ball must be brought in by a player from outside the court’s delimitation within 5 seconds of any players of the concerned team making it to the ball where it needs to be brought in. Failure to so will in a change of ball possession at the same area.</li>
 			</br>
-			<li>A player tapping the ball with a hand more than three (3) times before it touches his stick will result in a “double dribble” and will result in a change in ball possession.</li>
+			<li>When the ball is to be played from the sidelines, the opposing player must allow a stick’s length from sideline where the ball is being played from.</li>
 			</br>
-			<li>If the goalie freezes the ball outside his crease, the opposing team will play the ball from the sidelines.</li>
+			<li>You cannot close your hand on the ball and change its direction of play.  This will result in a change of ball possession.</li>
+			</br>
+			<li>A player receiving a ball from a hand of a teamate is a “Hand Pass” and will result in a change of ball possession.</li>
+			</br>
+			<li>A player tapping the ball with a hand more than three (3) times before it touches his stick will result in a “Double Dribble” and will result in a change of ball possession.</li>
+			</br>
+			<li>The goalie cannot freezes the ball outside his crease. This will result in a change of ball possession.</li>
 			</br>
 			<li>If the goalie freezes the ball, the play is dead until it is released again.  This means that even if the goalie puts his glove in the net after the whistle has been blown, no goal will be awarded.</li>
 			</br>
 			<li>If the designated goalie agrees, he may be replaced in nets by any one of his teammates at any time.  Once the goalie has been replaced he may not return back in nets until the next game.</li>
-			</br>
-			<li>Once a ball leaves the court’s delimitation, the ball is given to the team opposing the last player to touch the ball before it went out.</li>
-			</br>
-			<li>A ball must be brought in by a player from outside the court’s delimitation within 5 seconds of any players of the concerned team making it to the ball where it needs to be brought in. Failure to so will change the ball’s possession at the same area.</li>
 			</br>
 			<li>A  ball  is considered  “In  play”  once  it  enters  the  court’s delimitation  from  any  height  (not  when  it  touches  the  ground). Therefore a ball may come in play and go out of play without touching the ground.</li>
 			</br>
@@ -289,13 +295,13 @@
 			</br>
 			<li>Drawing blood results to a game ejection (accident or not).  That player’s team will be also penalized for 5 (five) minutes.</li>
 			</br>
-			<li>Sliding is permitted but should the sliding player not make contact with an opposing player before the ball first, a penalty is given (intent to injure).   Referee may eject the player if he feels that the slide was too “aggressive”.</li>
+			<li>Sliding is permitted but should the sliding player make contact with an opposing player before the ball, a penalty is given for "Intent to injure".   Referee may eject the player if he feels that the slide was too “aggressive”.</li>
 			</br>
 			<li>Three (3) penalties in the same game will result in automatic ejection from the game for the penalized player.</li>
 			</br>
 			<li>Fighting will result to an automatic game ejection for all players involved.</li>
 			</br>
-			<li>Fighting during the last fifteen (15) minutes of the game will result in a one game suspension, regardless of if it’s post-season.</li>
+			<li>Fighting during the last fifteen (15) minutes of the game will result in a one game suspension, regardless of if it is post-season.</li>
 			</br>
 			<li>This is a non-contact game and no hitting or checking will be tolerated.  Obvious intent to injure will result in immediate ejection of the game and further review by the league for suspension / dismissal.</li>
 			</br>
@@ -321,9 +327,9 @@
 			<li>Suspensions will be handed out for non-game related incidents that shed negative light on the league:</li>
 				<ul>
 					<li>Shooting at passing cars.</li>
-					<li>Harassing the “public”.</li>
+					<li>Harassing the public.</li>
 					<li>Breaking bottles.</li>
-					<li>“Burning” rubber.</li>
+					<li>“Burning rubber".</li>
 					<li>etc</li>
 				</ul>
 				</br>
@@ -337,7 +343,7 @@
 				</ul>
 				</br>
 				<ol>
-					<li>A player is “alone” if within a stick’s length of any other player.</li>
+					<li>A player is “alone” if not within a stick’s length of any other player.</li>
 					<li>A player high sticking will result in a penalty.</li>
 					<li>A player high sticking alone will result in change of the ball’s possession.</li>
 					<li>A player should not be penalized if his stick goes over the crossbar when taking a shot.</li>
@@ -355,9 +361,9 @@
 					<li>A defending player covers the ball in his goalie’s crease.</li>
 				</ul>
 				</br>
-			<li>Interference with the goalies will not be tolerated.  Interfering with a goalie results in a penalty.</li>
+			<li>Interference with the goalies will not be tolerated and will results in a penalty.</li>
 			</br>
-			<li>If an opposing player interferes with a goalies when a goal is scored, the goal will not count and the player will be penalized.</li>
+			<li>If an opposing player interferes with a goalie when a goal is scored, the goal will not count and the player will be penalized.</li>
 				<ul>
 					<li>If a player is in the crease but not interfering with the goalie, the goal will count.</li>
 				</ul>
