@@ -75,7 +75,7 @@
 		</br>
 			<li>In case a full time player cannot continue with the season due to injury or personal reasons, a replacement can be picked up providing that the majority of the captains agree.</li>
 			</br>
-			<li>A player must miss 2 games before he can be replaced.  The NEW player will be on the offical roster as of the 3rd missed game.</li>
+			<li>A player must miss 2 games before he can be replaced.  The NEW player will be on the official roster as of the 3rd missed game.</li>
 			</br>
 			<li>New players cannot be added to any team after the said team has played its 16th regular season game.</li>
 			</br>
@@ -92,9 +92,9 @@
 			</br>
 			<li>All fees must be paid before the start of the first game of the second split, the number of games played by the player are irrelevant.  No exceptions will be made.</li>
 			</br>
-			<li>A player will be fined of 5$ for every penalty after the forth one in the same season (5th penalty = 5$, 6th penalty = 5$).</li>
+			<li>A player will be fined of 5$ for every penalty after the fourth one in the same season (5th penalty = 5$, 6th penalty = 5$).</li>
 			</br>
-			<li>A player not retuning his jersey at the end of the season will be fined a 45$ (for a total of 45$) – (Blank Jersey’s $20; Printer CBHL crest $15 & Jersey lettering $3).</li>
+			<li>A player not returning his jersey at the end of the season will be fined a 45$ (for a total of 45$) – (Blank Jersey’s $20; Printer CBHL crest $15 & Jersey lettering $3).</li>
 			</br>
 			<li>A player owing any money for late league fees, penalty fines, jersey fines will not be allowed to play, no exceptions – this includes any money owing from previous seasons.</li>
 			</br>
@@ -111,7 +111,7 @@
 
 
 		</br>
-		<h4><u>Equipement</u></h4>
+		<h4><u>Equipment</u></h4>
 		</br>
 			<li>All players must wear the jersey provided by the league.</li>
 			</br>
@@ -153,7 +153,7 @@
 			</br>
 			<li>The stop watch must be present at each game or both referees are considered missing.</li>
 			</br>
-			<li>Play stops when the whistle is blown.  All calls are at the referees' discretions and are final. Do not argue with the referees.</li>
+			<li>Play stops when the whistle is blown.  All calls are at the referees' discretion and are final. Do not argue with the referees.</li>
 			</br>
 			<li>Any physical aggression towards the referee will result in automatic dismissal from the league, regardless of post-season play.  The reverse holds true for the referee.</li>
 			</br>
@@ -191,7 +191,7 @@
 					<li>20 Minutes – Loss of Points in the standings.</li>
 				</ul>
 				</br>
-			<li>Playoffs games are sequential instead of parallel with 10:00:00 AM and 12:00:00 AM starting times.  During the playoff, the team that finishes first in the season's standings decides their preferred timeslot.</li>
+			<li>Playoffs games are sequential instead of parallel with 10:00:00 AM and 12:00:00 AM starting times.  During the playoff, the team that finishes first in the season's standings decides their preferred time slot.</li>
 			</br>
 
 		</br>
@@ -213,7 +213,7 @@
 		</br>
 		<h4><u>Game Sheets</u></h4>
 		</br>
-			<li>The acting captain of each teams must provide the referee with a list of his team's players for the game as well as approve of his oppenents list.</li>
+			<li>The acting captain of each teams must provide the referee with a list of his team's players for the game as well as approve of his opponent's list.</li>
 			</br>
 			<li>A player from each team that played in the game as well as at least one (1) referee must “witness” the game sheet at the end of the game on location.</li>
 			</br>
@@ -242,7 +242,7 @@
 			</br>
 			<li>You cannot close your hand on the ball and change its direction of play.  This will result in a change of ball possession.</li>
 			</br>
-			<li>A player receiving a ball from a hand of a teamate is a “Hand Pass” and will result in a change of ball possession.</li>
+			<li>A player receiving a ball from a hand of a teammate  is a “Hand Pass” and will result in a change of ball possession.</li>
 			</br>
 			<li>A player tapping the ball with a hand more than three (3) times before it touches his stick will result in a “Double Dribble” and will result in a change of ball possession.</li>
 			</br>
