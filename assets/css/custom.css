@@ -101,10 +101,10 @@ body {
     margin-top: -5px;
 }
 .bs-callout-Black {
-    border-left-color: #777;
+    border-left-color: #333;
 }
 .bs-callout-Balck h4 {
-    color: #777;
+    color: #333;
 }
 .bs-callout-Blue {
     border-left-color: #428bca;
@@ -117,6 +117,12 @@ body {
 }
 .bs-callout-Green h4 {
     color: #5cb85c;
+}
+.bs-callout-Green {
+    border-left-color: #bfbfbf;
+}
+.bs-callout-Grey h4 {
+    color: #bfbfbf;
 }
 .bs-callout-Red {
     border-left-color: #d9534f;
@@ -133,13 +139,16 @@ body {
 
 
 .color-Black {
-    color: #777;
+    color: #333;
 }
 .color-Blue {
     color: #428bca;
 }
 .color-Green {
     color: #5cb85c;
+}
+.color-Grey {
+    color: #bfbfbf;
 }
 .color-Red {
     color: #d9534f;
@@ -150,7 +159,7 @@ body {
 
 .banner-Black {
     height: 10px;
-    background: #777;
+    background: #333;
 }
 .banner-Blue {
     height: 10px;
@@ -159,6 +168,10 @@ body {
 .banner-Green {
     height: 10px;
     background: #5cb85c;
+}
+.banner-Grey {
+    height: 10px;
+    background: #bfbfbf;
 }
 .banner-Red {
     height: 10px;

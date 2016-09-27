@@ -136,6 +136,11 @@
 		</br>
 		</br>
 
+	<?php else: ?>
+		<h4>No games from this team recorded for this season yet.</h4>
+	<?php endif; ?>
+
+	<?php if ($team->players): ?>
 		<h3>Roster stats</h3>
 			<div class="panel panel-default">
 				<table width="100%" class="table table-hover table-bordered table-striped">
@@ -201,6 +206,6 @@
 			</div>
 
 	<?php else: ?>
-		<h4>No games from this team recorded for this season yet.</h4>
+		<h4>Players are not yet drafted to this team.</h4>
 	<?php endif; ?>
 </div>

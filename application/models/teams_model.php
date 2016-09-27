@@ -27,10 +27,22 @@
 
 	public function get_by_seasonid_and_color($seasonid, $color)
 	{
-		$sql = "SELECT * FROM teams t
-				WHERE t.team_seasonid = '$seasonid'
-				AND t.team_color = '$color'
-				LIMIT 1";
+		// TODO : Remove grey/yellow hack once refactoring team standings seasons dropdown is made
+		if(($color == "Yellow") || ($color == "Grey"))
+		{
+			$sql = "SELECT * FROM teams t
+					WHERE t.team_seasonid = '$seasonid'
+					AND t.team_color = 'Yellow'
+					OR t.team_color = 'Grey'
+					LIMIT 1";
+		}
+		else
+		{
+			$sql = "SELECT * FROM teams t
+					WHERE t.team_seasonid = '$seasonid'
+					AND t.team_color = '$color'
+					LIMIT 1";
+		}
 		$result = $this->db->query($sql);
 		return $result->row_array();
 	}

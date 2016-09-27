@@ -29,8 +29,8 @@
             <li><a href="<?php echo site_url('team_standings/team/0/Blue'); ?>">Blue</a></li>   
             <li><a href="<?php echo site_url('team_standings/team/0/Black'); ?>">Black</a></li>   
             <li><a href="<?php echo site_url('team_standings/team/0/Green'); ?>">Green</a></li>   
+            <li><a href="<?php echo site_url('team_standings/team/0/Grey'); ?>">Grey</a></li>
             <li><a href="<?php echo site_url('team_standings/team/0/Red'); ?>">Red</a></li>   
-            <li><a href="<?php echo site_url('team_standings/team/0/Yellow'); ?>">Yellow</a></li>
           </ul>
         </li>
       </ul>
