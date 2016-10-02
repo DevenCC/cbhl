@@ -22,7 +22,7 @@
 				WHERE t.teamid = '$teamid'
 				LIMIT 1";
 		$result = $this->db->query($sql);
-		return $result->row_array();
+		return $result->row_object();
 	}
 
 	public function get_by_seasonid_and_color($seasonid, $color)

@@ -73,9 +73,11 @@
 		</br>
 		<h4><u>Replacements</u></h4>
 		</br>
-			<li>In case a full time player cannot continue with the season due to injury or personal reasons, a replacement can be picked up providing that the majority of the captains agree.</li>
+			<li>In case a full time player cannot continue with the season due to injury or personal reasons, a replacement can be picked up providing that the majority of the captains vote that it is a fair replacement.</li>
 			</br>
-			<li>A player must miss 2 games before he can be replaced.  The NEW player will be on the official roster as of the 3rd missed game.</li>
+			<li>A player must miss 2 consecutive games before he can be replaced.  The NEW player will be on the official roster as of the 3rd missed game.</li>
+			</br>
+			<li>If the replaced player had already paid their season's fee, the replacement player need only pay half the season's fee in order to play.  If the replaced player had not yet paid their season's fee, the replacement player must pay a full season's fee. The number of games left in the season's is irrelevant.</li>
 			</br>
 			<li>New players cannot be added to any team after the said team has played its 16th regular season game.</li>
 			</br>
@@ -199,7 +201,7 @@
 		</br>
 			<li>A game cannot end in a tie.</li>
 			</br>
-			<li>If two teams are tied after regulation time, an overtime period will be played. Overtime periods are sudden-death and consist of two 10-minute halves.  The teams will be required to switch sides at the end of the first ten minutes.</li>
+			<li>If two teams are tied after regulation time, an overtime period will be played. Overtime periods are sudden-death and consist of two 10-minute halves. The first half is played is played regularly; the second half is played with one (1) less player on each side. The teams will be required to switch sides at the end of the first ten minutes.</li>
 			</br>
 			<li>If a game remains tied after overtime, a shoot-out will ensue.</li>
 				<ol>
@@ -232,7 +234,7 @@
 			</br>
 			<li>When players “change on the fly”, the must touch sticks or hands.  Failure to do so will results in a “Too Many Men” penalty if and when the offending team gets control of the ball.  Until the offending team gets control of the ball, the two players may still rectify the situation by executing a proper change.</li>
 			</br>
-			<li>Once a ball leaves the court’s delimitation, the ball is given to the team opposing the last player to touch the ball before it went out.</li>
+			<li>Once a ball leaves the court’s delimitation, the ball is given to the team opposing the team who last touched the ball before it went out.  Cones are considered out of the courts delimitation.</li>
 			</br>
 			<li>When a call is made to change the ball's possession, the ball will be played from outside the court (from the closest side) at same court height from where the ball was when the call was made.</li>
 			</br>

@@ -98,11 +98,19 @@
 										<?php else: ?>
 											<div class="accordion-body collapse" id="details_<?php print($statid); ?>">
 										<?php endif; ?>
-											<?php if ($team->season->season_start_date>date('2015-10-03 00:00:00')): ?>
+											<?php if ($stats->games_played > 0): ?>
 												avg GF: <?php print number_format($stats->goals_for/$stats->games_played, 2, ".",","); ?><br>
 												avg GA: <?php print number_format($stats->goals_against/$stats->games_played, 2, ".",","); ?><br>
-												avg 1<sup>st</sup> GF time:	<?php print date("H:i:s", $stats->avg_goals_for_time); ?><br>
-												avg 1<sup>st</sup> GA time:	<?php print date("H:i:s", $stats->avg_goals_against_time); ?><br>
+												<?php if ($stats->avg_goals_for_time): ?>
+													avg 1<sup>st</sup> GF time:	<?php print date("H:i:s", $stats->avg_goals_for_time); ?><br>
+												<?php else: ?>
+													avg 1<sup>st</sup> GF time: - <br>
+												<?php endif; ?>
+												<?php if ($stats->avg_goals_against_time): ?>
+													avg 1<sup>st</sup> GA time:	<?php print date("H:i:s", $stats->avg_goals_against_time); ?><br>
+												<?php else: ?>
+													avg 1<sup>st</sup> GA time: - <br>
+												<?php endif; ?>
 												<?php if (is_null($stats->pk_success)): ?>
 													PK: <i>no penalties</i><br>
 												<?php else: ?>
@@ -114,8 +122,7 @@
 													PP:  <?php print number_format(($stats->pp_success)*100)."%"; ?><br>
 												<?php endif; ?>
 											<?php else: ?>
-												avg GF: <?php print number_format($stats->goals_for/$stats->games_played, 2, ".",","); ?><br>
-												avg GA: <?php print number_format($stats->goals_against/$stats->games_played, 2, ".",","); ?><br>
+												No games played against this team yet.<br>
 											<?php endif; ?>	
 											</div>
 										</td>

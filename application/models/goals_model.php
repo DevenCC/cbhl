@@ -122,8 +122,9 @@
 				LIMIT 1";
 
 		$result = $this->db->query($sql);
-		return (!$result->row_array())
-				? strtotime("01:30:00") 
+
+		return (empty($result->row_array()))
+				? null
 				: strtotime($result->row_array()['goal_time']);
 	}
 
