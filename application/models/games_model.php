@@ -16,13 +16,10 @@
 		$result = $this->db->query($sql);
 		$games = array();
 
-		// Map the games rows by their ID and only adding the games played (games with winner)
+		// TODO: G1 - Add proper logic to deal with possibility of games entered but not yet played (date)
 		foreach ($result->result() as $row) 
 		{
-			if($row->team_winner)
-			{
 				$games[$row->gameid] = $row;
-			}
 		}
 		return $games;
 	}
@@ -37,13 +34,10 @@
 		$result = $this->db->query($sql);
 		$games = array();
 
-		// Map the games rows by their ID and only adding the games played (games with winner)
+		// TODO: G1 
 		foreach ($result->result() as $row) 
 		{
-			if($row->team_winner)
-			{
 				$games[$row->gameid] = $row;
-			}
 		}
 		return $games;
 	}
@@ -52,19 +46,16 @@
 	{
 		$sql = "SELECT * FROM games g
 				LEFT JOIN teams t
-				ON g.team_winner = t.teamid
+				ON g.team_home = t.teamid
 				WHERE t.team_seasonid = '$seasonid'";
 
 		$result = $this->db->query($sql);
 		$games = array();
 
-		// Map the games rows by their ID and only adding the games played (games with winner)
+		// TODO: G1 
 		foreach ($result->result() as $row) 
 		{
-			if($row->team_winner)
-			{
 				$games[$row->gameid] = $row;
-			}
 		}
 		return $games;
 	}
@@ -73,20 +64,17 @@
 	{
 		$sql = "SELECT * FROM games g
 				LEFT JOIN teams t
-				ON g.team_winner = t.teamid
+				ON g.team_home = t.teamid
 				WHERE t.team_seasonid = '$seasonid'
 				AND g.game_playoff = 1";
 
 		$result = $this->db->query($sql);
 		$games = array();
 
-		// Map the games rows by their ID and only adding the games played (games with winner)
+		// TODO: G1 
 		foreach ($result->result() as $row) 
 		{
-			if($row->team_winner)
-			{
 				$games[$row->gameid] = $row;
-			}
 		}
 		return $games;
 	}

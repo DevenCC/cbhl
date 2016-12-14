@@ -170,7 +170,7 @@ class Team_standings extends MY_Controller
 							$this->games_model->get_game_winner_teamid($game->gameid));
 			$game_loser =	$this->teams_model->get(
 							$this->games_model->get_game_loser_teamid($game->gameid));
-			if($game->team_winner == $team->teamid)
+			if($game_winner->teamid == $team->teamid)
 			{
 				$team->stats_against[$game_loser->team_color]->games_played++;
 				$team->stats_against[$game_loser->team_color]->avg_goals_for_time = is_null($team->stats_against[$game_loser->team_color]->avg_goals_for_time) 
@@ -292,7 +292,7 @@ class Team_standings extends MY_Controller
 			$games = $this->games_model->get_season_games_played_by_team($team->teamid);
 			foreach ($games as $game)
 			{
-				if($game->team_winner == $team->teamid)
+				if($this->games_model->get_game_winner_teamid($game->gameid) == $team->teamid)
 				{
 					$wins++;
 					$points += 2;
@@ -321,7 +321,6 @@ class Team_standings extends MY_Controller
 			$teams[$team->teamid]->wins = $wins;	
 			$teams[$team->teamid]->losses = $losses;	
 			$teams[$team->teamid]->ot_losses = $ot_losses;	
-			$teams[$team->teamid]->ot_wins = $wins - $regulation_wins;	
 			$teams[$team->teamid]->regulation_wins = $regulation_wins;	
 			$teams[$team->teamid]->points = $points;	
 			$teams[$team->teamid]->goals_against = $goals_against;	
@@ -336,7 +335,7 @@ class Team_standings extends MY_Controller
 				$games = $this->games_model->get_playoff_games_played_by_team($team->teamid);
 				foreach ($games as $game)
 				{
-					if($game->team_winner == $team->teamid)
+					if($this->games_model->get_game_winner_teamid($game->gameid) == $team->teamid)
 					{
 						$playoff_wins++;
 					}
