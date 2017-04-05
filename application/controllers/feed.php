@@ -30,7 +30,7 @@ class Feed extends MY_Controller
 			$games[$game->gameid]->team_home = $this->teams_model->get_team_color_by_id($game->team_home);
 			$games[$game->gameid]->team_away = $this->teams_model->get_team_color_by_id($game->team_away);
 			$games[$game->gameid]->is_overtime = 0;
-			$games[$game->gameid]->number_periods_played = 0;
+			$games[$game->gameid]->number_periods_played = 3;
 			$games[$game->gameid]->actions = array();
 
 			$goals = $this->goals_model->get_goals_by_game($game->gameid);
