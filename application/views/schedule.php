@@ -47,10 +47,12 @@
 				<?php if ($teams): ?>
 					<tr bgcolor="#eaeaea">
 						<td>
-							<div align="center">0</div>
+							<div align="center"></div>
 						</td>
 						<td>
-							<div align="center"><?php echo date_format($game_date->sub(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
+							<div align="center"><?php echo date_format($game_date->sub(new DateInterval("P14D")), 'm/d/Y - H:i'); ?></div>
+							<!-- Week off before the season's starts -->
+							<?php $game_date->add(new DateInterval("P7D")); ?>
 						</td>
 						<td colspan="4">
 							<div align="center">Rookie Game / Draft</div>
@@ -65,10 +67,56 @@
 							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
 						</td>
 						<td>
-							<div align="right"><?php echo $teams['3']->team_color; ?></div>
+							<div align="right"><?php echo $teams['2']->team_color; ?></div>
+						</td>
+						<td>
+							<div align="left"><?php echo $teams['1']->team_color; ?></div>
+						</td>
+						<td>
+							<div align="right"><?php echo $teams['4']->team_color; ?></div>
+						</td>
+						<td>
+							<div align="left"><?php echo $teams['0']->team_color; ?></div>
+						</td>
+						<td>
+							<div align="center"><?php echo $teams['3']->team_color; ?></div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div align="center">2</div>
+						</td>
+						<td>
+							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
+						</td>
+						<td>
+							<div align="right"><?php echo $teams['0']->team_color; ?></div>
 						</td>
 						<td>
 							<div align="left"><?php echo $teams['2']->team_color; ?></div>
+						</td>
+						<td>
+							<div align="right"><?php echo $teams['3']->team_color; ?></div>
+						</td>
+						<td>
+							<div align="left"><?php echo $teams['4']->team_color; ?></div>
+						</td>
+						<td>
+							<div align="center"><?php echo $teams['1']->team_color; ?></div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div align="center">3</div>
+						</td>
+						<td>
+							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
+						</td>
+						<td>
+							<div align="right"><?php echo $teams['2']->team_color; ?></div>
+						</td>
+						<td>
+							<div align="left"><?php echo $teams['3']->team_color; ?></div>
 						</td>
 						<td>
 							<div align="right"><?php echo $teams['1']->team_color; ?></div>
@@ -82,10 +130,16 @@
 					</tr>
 					<tr>
 						<td>
-							<div align="center">2</div>
+							<div align="center">4</div>
 						</td>
 						<td>
 							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
+						</td>
+						<td>
+							<div align="right"><?php echo $teams['4']->team_color; ?></div>
+						</td>
+						<td>
+							<div align="left"><?php echo $teams['2']->team_color; ?></div>
 						</td>
 						<td>
 							<div align="right"><?php echo $teams['3']->team_color; ?></div>
@@ -94,18 +148,12 @@
 							<div align="left"><?php echo $teams['1']->team_color; ?></div>
 						</td>
 						<td>
-							<div align="right"><?php echo $teams['4']->team_color; ?></div>
-						</td>
-						<td>
-							<div align="left"><?php echo $teams['0']->team_color; ?></div>
-						</td>
-						<td>
-							<div align="center"><?php echo $teams['2']->team_color; ?></div>
+							<div align="center"><?php echo $teams['0']->team_color; ?></div>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<div align="center">3</div>
+							<div align="center">5</div>
 						</td>
 						<td>
 							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
@@ -120,56 +168,10 @@
 							<div align="right"><?php echo $teams['0']->team_color; ?></div>
 						</td>
 						<td>
-							<div align="left"><?php echo $teams['2']->team_color; ?></div>
-						</td>
-						<td>
-							<div align="center"><?php echo $teams['3']->team_color; ?></div>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<div align="center">4</div>
-						</td>
-						<td>
-							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
-						</td>
-						<td>
-							<div align="right"><?php echo $teams['0']->team_color; ?></div>
-						</td>
-						<td>
 							<div align="left"><?php echo $teams['3']->team_color; ?></div>
 						</td>
 						<td>
-							<div align="right"><?php echo $teams['2']->team_color; ?></div>
-						</td>
-						<td>
-							<div align="left"><?php echo $teams['4']->team_color; ?></div>
-						</td>
-						<td>
-							<div align="center"><?php echo $teams['1']->team_color; ?></div>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<div align="center">5</div>
-						</td>
-						<td>
-							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
-						</td>
-						<td>
-							<div align="right"><?php echo $teams['4']->team_color; ?></div>
-						</td>
-						<td>
-							<div align="left"><?php echo $teams['3']->team_color; ?></div>
-						</td>
-						<td>
-							<div align="right"><?php echo $teams['2']->team_color; ?></div>
-						</td>
-						<td>
-							<div align="left"><?php echo $teams['1']->team_color; ?></div>
-						</td>
-						<td>
-							<div align="center"><?php echo $teams['0']->team_color; ?></div>
+							<div align="center"><?php echo $teams['2']->team_color; ?></div>
 						</td>
 					</tr>
 
@@ -192,36 +194,13 @@
 							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
 						</td>
 						<td>
+							<div align="right"><?php echo $teams['4']->team_color; ?></div>
+						</td>
+						<td>
+							<div align="left"><?php echo $teams['2']->team_color; ?></div>
+						</td>
+						<td>
 							<div align="right"><?php echo $teams['3']->team_color; ?></div>
-						</td>
-						<td>
-							<div align="left"><?php echo $teams['1']->team_color; ?></div>
-						</td>
-						<td>
-							<div align="right"><?php echo $teams['4']->team_color; ?></div>
-						</td>
-						<td>
-							<div align="left"><?php echo $teams['0']->team_color; ?></div>
-						</td>
-						<td>
-							<div align="center"><?php echo $teams['2']->team_color; ?></div>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<div align="center">7</div>
-						</td>
-						<td>
-							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
-						</td>
-						<td>
-							<div align="right"><?php echo $teams['4']->team_color; ?></div>
-						</td>
-						<td>
-							<div align="left"><?php echo $teams['3']->team_color; ?></div>
-						</td>
-						<td>
-							<div align="right"><?php echo $teams['2']->team_color; ?></div>
 						</td>
 						<td>
 							<div align="left"><?php echo $teams['1']->team_color; ?></div>
@@ -232,7 +211,7 @@
 					</tr>
 					<tr>
 						<td>
-							<div align="center">8</div>
+							<div align="center">7</div>
 						</td>
 						<td>
 							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
@@ -247,7 +226,30 @@
 							<div align="right"><?php echo $teams['0']->team_color; ?></div>
 						</td>
 						<td>
-							<div align="left"><?php echo $teams['2']->team_color; ?></div>
+							<div align="left"><?php echo $teams['3']->team_color; ?></div>
+						</td>
+						<td>
+							<div align="center"><?php echo $teams['2']->team_color; ?></div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div align="center">8</div>
+						</td>
+						<td>
+							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
+						</td>
+						<td>
+							<div align="right"><?php echo $teams['2']->team_color; ?></div>
+						</td>
+						<td>
+							<div align="left"><?php echo $teams['1']->team_color; ?></div>
+						</td>
+						<td>
+							<div align="right"><?php echo $teams['4']->team_color; ?></div>
+						</td>
+						<td>
+							<div align="left"><?php echo $teams['0']->team_color; ?></div>
 						</td>
 						<td>
 							<div align="center"><?php echo $teams['3']->team_color; ?></div>
@@ -261,19 +263,19 @@
 							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
 						</td>
 						<td>
-							<div align="right"><?php echo $teams['3']->team_color; ?></div>
+							<div align="right"><?php echo $teams['0']->team_color; ?></div>
 						</td>
 						<td>
 							<div align="left"><?php echo $teams['2']->team_color; ?></div>
 						</td>
 						<td>
-							<div align="right"><?php echo $teams['1']->team_color; ?></div>
+							<div align="right"><?php echo $teams['3']->team_color; ?></div>
 						</td>
 						<td>
-							<div align="left"><?php echo $teams['0']->team_color; ?></div>
+							<div align="left"><?php echo $teams['4']->team_color; ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['4']->team_color; ?></div>
+							<div align="center"><?php echo $teams['1']->team_color; ?></div>
 						</td>
 					</tr>
 					<tr>
@@ -284,19 +286,19 @@
 							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
 						</td>
 						<td>
-							<div align="right"><?php echo $teams['0']->team_color; ?></div>
+							<div align="right"><?php echo $teams['2']->team_color; ?></div>
 						</td>
 						<td>
 							<div align="left"><?php echo $teams['3']->team_color; ?></div>
 						</td>
 						<td>
-							<div align="right"><?php echo $teams['2']->team_color; ?></div>
+							<div align="right"><?php echo $teams['1']->team_color; ?></div>
 						</td>
 						<td>
-							<div align="left"><?php echo $teams['4']->team_color; ?></div>
+							<div align="left"><?php echo $teams['0']->team_color; ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['1']->team_color; ?></div>
+							<div align="center"><?php echo $teams['4']->team_color; ?></div>
 						</td>
 					</tr>
 
@@ -306,7 +308,7 @@
 						<td>
 							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
 							<!-- Christmas and new year break -->
-							<?php $game_date->add(new DateInterval("P14D")); ?>
+							<?php $game_date->add(new DateInterval("P7D")); ?>
 						</td>
 						<td colspan="4">
 							<div align="center">Christmas Charity Game</div>
@@ -315,25 +317,25 @@
 					</tr>
 					<tr>
 						<td>
-							<div align="center">11</div>
+							<div align="center">1</div>
 						</td>
 						<td>
 							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
 						</td>
 						<td>
+							<div align="right"><?php echo $teams['0']->team_color; ?></div>
+						</td>
+						<td>
+							<div align="left"><?php echo $teams['2']->team_color; ?></div>
+						</td>
+						<td>
 							<div align="right"><?php echo $teams['3']->team_color; ?></div>
 						</td>
 						<td>
-							<div align="left"><?php echo $teams['1']->team_color; ?></div>
+							<div align="left"><?php echo $teams['4']->team_color; ?></div>
 						</td>
 						<td>
-							<div align="right"><?php echo $teams['4']->team_color; ?></div>
-						</td>
-						<td>
-							<div align="left"><?php echo $teams['0']->team_color; ?></div>
-						</td>
-						<td>
-							<div align="center"><?php echo $teams['2']->team_color; ?></div>
+							<div align="center"><?php echo $teams['1']->team_color; ?></div>
 						</td>
 					</tr>
 					<tr>
@@ -344,19 +346,19 @@
 							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
 						</td>
 						<td>
-							<div align="right"><?php echo $teams['0']->team_color; ?></div>
+							<div align="right"><?php echo $teams['2']->team_color; ?></div>
 						</td>
 						<td>
 							<div align="left"><?php echo $teams['3']->team_color; ?></div>
 						</td>
 						<td>
-							<div align="right"><?php echo $teams['2']->team_color; ?></div>
+							<div align="right"><?php echo $teams['1']->team_color; ?></div>
 						</td>
 						<td>
-							<div align="left"><?php echo $teams['4']->team_color; ?></div>
+							<div align="left"><?php echo $teams['0']->team_color; ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['1']->team_color; ?></div>
+							<div align="center"><?php echo $teams['4']->team_color; ?></div>
 						</td>
 					</tr>
 					<tr>
@@ -367,19 +369,19 @@
 							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
 						</td>
 						<td>
-							<div align="right"><?php echo $teams['3']->team_color; ?></div>
+							<div align="right"><?php echo $teams['4']->team_color; ?></div>
 						</td>
 						<td>
 							<div align="left"><?php echo $teams['2']->team_color; ?></div>
 						</td>
 						<td>
-							<div align="right"><?php echo $teams['1']->team_color; ?></div>
+							<div align="right"><?php echo $teams['3']->team_color; ?></div>
 						</td>
 						<td>
-							<div align="left"><?php echo $teams['0']->team_color; ?></div>
+							<div align="left"><?php echo $teams['1']->team_color; ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['4']->team_color; ?></div>
+							<div align="center"><?php echo $teams['0']->team_color; ?></div>
 						</td>
 					</tr>
 					<tr>
@@ -399,10 +401,10 @@
 							<div align="right"><?php echo $teams['0']->team_color; ?></div>
 						</td>
 						<td>
-							<div align="left"><?php echo $teams['2']->team_color; ?></div>
+							<div align="left"><?php echo $teams['3']->team_color; ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['3']->team_color; ?></div>
+							<div align="center"><?php echo $teams['2']->team_color; ?></div>
 						</td>
 					</tr>
 					<tr>
@@ -413,19 +415,19 @@
 							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
 						</td>
 						<td>
-							<div align="right"><?php echo $teams['4']->team_color; ?></div>
-						</td>
-						<td>
-							<div align="left"><?php echo $teams['3']->team_color; ?></div>
-						</td>
-						<td>
 							<div align="right"><?php echo $teams['2']->team_color; ?></div>
 						</td>
 						<td>
 							<div align="left"><?php echo $teams['1']->team_color; ?></div>
 						</td>
 						<td>
-							<div align="center"><?php echo $teams['0']->team_color; ?></div>
+							<div align="right"><?php echo $teams['4']->team_color; ?></div>
+						</td>
+						<td>
+							<div align="left"><?php echo $teams['0']->team_color; ?></div>
+						</td>
+						<td>
+							<div align="center"><?php echo $teams['3']->team_color; ?></div>
 						</td>
 					</tr>
 
@@ -448,19 +450,19 @@
 							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
 						</td>
 						<td>
+							<div align="right"><?php echo $teams['1']->team_color; ?></div>
+						</td>
+						<td>
+							<div align="left"><?php echo $teams['4']->team_color; ?></div>
+						</td>
+						<td>
 							<div align="right"><?php echo $teams['0']->team_color; ?></div>
 						</td>
 						<td>
 							<div align="left"><?php echo $teams['3']->team_color; ?></div>
 						</td>
 						<td>
-							<div align="right"><?php echo $teams['2']->team_color; ?></div>
-						</td>
-						<td>
-							<div align="left"><?php echo $teams['4']->team_color; ?></div>
-						</td>
-						<td>
-							<div align="center"><?php echo $teams['1']->team_color; ?></div>
+							<div align="center"><?php echo $teams['2']->team_color; ?></div>
 						</td>
 					</tr>
 					<tr>
@@ -471,16 +473,16 @@
 							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
 						</td>
 						<td>
-							<div align="right"><?php echo $teams['1']->team_color; ?></div>
+							<div align="right"><?php echo $teams['2']->team_color; ?></div>
 						</td>
 						<td>
-							<div align="left"><?php echo $teams['4']->team_color; ?></div>
+							<div align="left"><?php echo $teams['1']->team_color; ?></div>
 						</td>
 						<td>
-							<div align="right"><?php echo $teams['0']->team_color; ?></div>
+							<div align="right"><?php echo $teams['4']->team_color; ?></div>
 						</td>
 						<td>
-							<div align="left"><?php echo $teams['2']->team_color; ?></div>
+							<div align="left"><?php echo $teams['0']->team_color; ?></div>
 						</td>
 						<td>
 							<div align="center"><?php echo $teams['3']->team_color; ?></div>
@@ -494,19 +496,19 @@
 							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
 						</td>
 						<td>
+							<div align="right"><?php echo $teams['0']->team_color; ?></div>
+						</td>
+						<td>
+							<div align="left"><?php echo $teams['2']->team_color; ?></div>
+						</td>
+						<td>
 							<div align="right"><?php echo $teams['3']->team_color; ?></div>
 						</td>
 						<td>
-							<div align="left"><?php echo $teams['1']->team_color; ?></div>
+							<div align="left"><?php echo $teams['4']->team_color; ?></div>
 						</td>
 						<td>
-							<div align="right"><?php echo $teams['4']->team_color; ?></div>
-						</td>
-						<td>
-							<div align="left"><?php echo $teams['0']->team_color; ?></div>
-						</td>
-						<td>
-							<div align="center"><?php echo $teams['2']->team_color; ?></div>
+							<div align="center"><?php echo $teams['1']->team_color; ?></div>
 						</td>
 					</tr>
 					<tr>
@@ -517,10 +519,10 @@
 							<div align="center"><?php echo date_format($game_date->add(new DateInterval("P7D")), 'm/d/Y - H:i'); ?></div>
 						</td>
 						<td>
-							<div align="right"><?php echo $teams['3']->team_color; ?></div>
+							<div align="right"><?php echo $teams['2']->team_color; ?></div>
 						</td>
 						<td>
-							<div align="left"><?php echo $teams['2']->team_color; ?></div>
+							<div align="left"><?php echo $teams['3']->team_color; ?></div>
 						</td>
 						<td>
 							<div align="right"><?php echo $teams['1']->team_color; ?></div>
@@ -543,10 +545,10 @@
 							<div align="right"><?php echo $teams['4']->team_color; ?></div>
 						</td>
 						<td>
-							<div align="left"><?php echo $teams['3']->team_color; ?></div>
+							<div align="left"><?php echo $teams['2']->team_color; ?></div>
 						</td>
 						<td>
-							<div align="right"><?php echo $teams['2']->team_color; ?></div>
+							<div align="right"><?php echo $teams['3']->team_color; ?></div>
 						</td>
 						<td>
 							<div align="left"><?php echo $teams['1']->team_color; ?></div>

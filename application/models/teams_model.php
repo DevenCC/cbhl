@@ -32,8 +32,7 @@
 		{
 			$sql = "SELECT * FROM teams t
 					WHERE t.team_seasonid = '$seasonid'
-					AND t.team_color = 'Yellow'
-					OR t.team_color = 'Grey'
+					AND (t.team_color = 'Yellow' OR t.team_color = 'Grey')
 					LIMIT 1";
 		}
 		else

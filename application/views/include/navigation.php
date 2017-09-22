@@ -53,13 +53,7 @@
         </li>
       </ul>
       <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="<?php echo site_url('schedules'); ?>" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-calendar"></span> Schedules<b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="<?php echo site_url("schedules/season"); ?>">Player</a></li>
-            <li><a href="<?php echo site_url("schedules/referee"); ?>">Referee</a></li>
-          </ul>
-        </li>
+          <li><a href="<?php echo site_url('schedule'); ?>"><span class="glyphicon glyphicon-calendar"></span> Schedule</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="<?php echo site_url('rules'); ?>"><span class="glyphicon glyphicon-list-alt"></span> Rules</a></li>
