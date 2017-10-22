@@ -61,7 +61,7 @@
 					<li>If a goalie is missing he can only be replaced by a designated goalie spare.</li>
 				</ol>
 				</br>
-			<li>Spares can be obtained on a first-come-first-serve basis. This is on the honor system; if two teams cannot agree who has the rights to a spare, the spare will not play for either team.</li>
+			<li>Spares can be obtained on a first-come-first-serve basis no more than a week in advance and only once both current games have ended. If two (2) captains ask for a spare player in person after both games have ended, a coin is flip in order to determine which team obtains the spare player.</li>
 			</br>
 			<li>Designated goalies can be replaced by spare goalies only if they are absent from the game.</li>
 			</br>
@@ -132,25 +132,16 @@
 		</br>
 			<li>The team on bye for a given week is responsible for supplying 4 referees (2 for each game).</li>
 			</br>
-			<li>Players will be responsible for refereeing based on a schedule provided by the league.</li>
+			<li>The team responsible for refereeing on a given week must have both courts ready in accordance to Rule #31 by 10:00 or looses 1 point in the year's team standings.</li>
 			</br>
-			<li>If referees are missing, the refereeing team will face the sum of the following consequences:</li>
+			<li>If referees are missing at 10:00, the refereeing team will face the sum of the following consequences:</li>
 				<ul>
 					<li>1st Referee missing – 5 minute penalty at the beginning of the 1st period of their designated next game.</li>
 					<li>2nd Referee missing – 5 minute penalty at the beginning of the 2nd period of their designated next game.</li>
-					<li>3rd/4th Referee missing – loss of a point in the standings.</li>
-					<li>If your name is on the list for refereeing and you do not find a replacement from your team, you will have to pay $5.00 to the league in addition to the penalty.</li>
+					<li>3rd Referee missing – 5 minute penalty at the beginning of the 3rd period of their designated next game.</li>
+					<li>4th Referee missing – loss of a point in the standings.</li>
 				</ul>
 				</br>
-			<li>The Refereeing Team will be provided a referee kit by the league that consists of:</li>
-				<ul>
-					<li>4 whistles</li>
-					<li>2 stop watches</li>
-					<li>4 referee jerseys</li>
-				</ul>
-				</br>
-			<li>The referees are responsible for returning the equipment at the end of the game.  Any referee not returning the equipment will be fined.</li>
-			</br>
 			<li>For a referee to be counted as present, he must be wearing a jersey (or of a different color from the two (2) playing teams) and carrying a whistle.</li>
 			</br>
 			<li>The stop watch must be present at each game or both referees are considered missing.</li>
@@ -181,16 +172,9 @@
 			</br>
 			<li>If a team is not ready to start the game at 10:00, they may delay, but with the following consequences:</li>
 				<ul>
-					<li>10 Minutes – 1 x 5 Minute Penalty.</li>
-					<li>15 Minutes – 2 x 5 Minute Penalties (2 men short).</li>
-					<li>20 Minutes – 1-0 Forfeit.</li>
-				</ul>
-				</br>
-			<li>If the referees are not ready to start the game at 10:00, they may delay, but with the following consequences:</li>
-				<ul>
-					<li>10 Minutes – 1 x 5 Minute Penalty (to be served next game).</li>
-					<li>15 Minutes – 2 x 5 Minute Penalties (2 men short) (to be served next game).</li>
-					<li>20 Minutes – Loss of Points in the standings.</li>
+					<li>10:00 – 1 x 5 Minute Penalty.</li>
+					<li>10:10 – 2 x 5 Minute Penalties (2 men short).</li>
+					<li>10:20 – 1-0 Forfeit.</li>
 				</ul>
 				</br>
 			<li>Playoffs games are sequential instead of parallel with 10:00:00 AM and 12:00:00 AM starting times.  During the playoff, the team that finishes first in the season's standings decides their preferred time slot.</li>
@@ -201,7 +185,7 @@
 		</br>
 			<li>A game cannot end in a tie.</li>
 			</br>
-			<li>If two teams are tied after regulation time, an overtime period will be played. Overtime periods are sudden-death and consist of two 10-minute halves. The first half is played is played regularly; the second half is played with one (1) less player on each side. The teams will be required to switch sides at the end of the first ten minutes.</li>
+			<li>If two teams are tied after regulation time, an overtime period will be played. Overtime periods are sudden-death and consist of two 10-minute halves played with one (1) less player on each side. The teams will be required to switch sides at the end of the first ten minutes.</li>
 			</br>
 			<li>If a game remains tied after overtime, a shoot-out will ensue.</li>
 				<ol>
@@ -228,7 +212,7 @@
 		</br>
 			<li>A team needs a minimum of three (3) players if playing four (4) on four (4); or four (4) players if playing five (5) on five (5) to start a game.</li>
 			</br>
-			<li>If a team is missing players, they can wait for a player to show up, but face the consequences outlined in Rule 48.</li>
+			<li>If a team is missing players, they can wait for a player to show up, but face the consequences outlined in Rule #47.</li>
 			</br>
 			<li>Any player arriving after the mid-point of the second period will not be permitted to play.</li>
 			</br>
@@ -295,7 +279,7 @@
 		</br>
 			<li>All penalties are for duration of five (5) minutes.  The penalized player will be permitted to return to the game upon the expiration of his penalty or if the opposing teams scores before his penalty expires.</li>
 			</br>
-			<li>Drawing blood results to a game ejection (accident or not).  That player’s team will be also penalized for 5 (five) minutes.</li>
+			<li>If blood is drawn from the result of a penalty or by a dangerous shot follow-through movement, the offending player will be ejected from the game (accident or not).  That player’s team will be also penalized for 5 (five) minutes.</li>
 			</br>
 			<li>Sliding is permitted but should the sliding player make contact with an opposing player before the ball, a penalty is given for "Intent to injure".   Referee may eject the player if he feels that the slide was too “aggressive”.</li>
 			</br>
@@ -335,19 +319,19 @@
 					<li>etc</li>
 				</ul>
 				</br>
-			<li>High sticking is defined as lifting your stick above the crossbar it includes:</li>
+			<li>High sticking is defined as lifting your stick above the crossbar it includes but is not restricted to:</li>
 				<ul>
 					<li>Passing your stick over someone’s head to get around them.</li>
 					<li>Jumping for a ball with the blade of the stick above the crossbar.</li>
 					<li>Bending over to get a ball with the blade of your stick above the crossbar.</li>
 					<li>Calling for a pass.</li>
-					<li>Hitting a ball with a stick while over the cross bar.</li>
 				</ul>
 				</br>
 				<ol>
 					<li>A player is “alone” if not within a stick’s length of any other player.</li>
 					<li>A player high sticking will result in a penalty.</li>
 					<li>A player high sticking alone will result in change of the ball’s possession.</li>
+					<li>A player playing the ball while having a high stick is an automatic penalty.</li>
 					<li>A player should not be penalized if his stick goes over the crossbar when taking a shot.</li>
 					<li>Clipping someone in the face is an automatic high-sticking penalty regardless of circumstance.</li>
 					<li>You are responsible for your stick at all times.  Someone else lifting your stick is not an excuse and you will be penalized.</li>
