@@ -226,7 +226,7 @@
 			</br>
 			<li>When the ball is to be played from the sidelines, the opposing player must allow a stick’s length from the sideline where the ball is being played from.</li>
 			</br>
-			<li>You cannot close your hand on the ball and give it motion or change its direction of play.  This will result in a change of ball possession.</li>
+			<li>You cannot close your hand on the ball and give it motion or change its direction of play. This will result in a change of ball possession.</li>
 			</br>
 			<li>A player receiving a ball from a hand of a teammate  is a “Hand Pass” and will result in a change of ball possession.</li>
 			</br>
