@@ -224,9 +224,9 @@
 			</br>
 			<li>A ball must be brought in by a player from outside the court’s delimitation within 5 seconds of any players of the concerned team making it to the ball where it needs to be brought in. Failure to so will in a change of ball possession at the same area.</li>
 			</br>
-			<li>When the ball is to be played from the sidelines, the opposing player must allow a stick’s length from sideline where the ball is being played from.</li>
+			<li>When the ball is to be played from the sidelines, the opposing player must allow a stick’s length from the sideline where the ball is being played from.</li>
 			</br>
-			<li>You cannot close your hand on the ball and change its direction of play.  This will result in a change of ball possession.</li>
+			<li>You cannot close your hand on the ball and give it motion or change its direction of play.  This will result in a change of ball possession.</li>
 			</br>
 			<li>A player receiving a ball from a hand of a teammate  is a “Hand Pass” and will result in a change of ball possession.</li>
 			</br>
@@ -253,7 +253,7 @@
 			</br>
 			<li>Should overtime be necessary during regular season, one (1) extra time out will be permitted.</li>
 			</br>
-			<li>During the playoff teams will be allowed one (1) extra time out per 30-minute period.</li>
+			<li>During playoffs, teams will be allowed one (1) extra time out per 30-minute period.</li>
 			</br>
 			<li>A time out can only be called by the team captain if:</li>
 				<ul>
@@ -279,7 +279,11 @@
 		</br>
 			<li>All penalties are for duration of five (5) minutes.  The penalized player will be permitted to return to the game upon the expiration of his penalty or if the opposing teams scores before his penalty expires.</li>
 			</br>
-			<li>If blood is drawn from the result of a penalty or by a dangerous shot follow-through movement, the offending player will be ejected from the game (accident or not).  That player’s team will be also penalized for 5 (five) minutes.</li>
+			<li>A player drawing blood from another player will result in a game suspension as well as the a five (5) minute penalty for the offending team.</li>
+				<ol>
+						<li>Blood as a result of the asphalt does not qualify as drawing blood.</li>
+						<li>Blood as a result of a shot windup or follow through bellow the crossbar does not qualify as drawing blood.</li>
+				</ol>
 			</br>
 			<li>Sliding is permitted but should the sliding player make contact with an opposing player before the ball, a penalty is given for "Intent to injure".   Referee may eject the player if he feels that the slide was too “aggressive”.</li>
 			</br>
@@ -302,8 +306,8 @@
 						<li>1st suspension – 1 game (unless otherwise determine by the league)</li>
 						<li>2nd suspension – 2 games</li>
 						<li>3rd suspension – 4 games</li>
-					</ul>
-					</br>	
+				</ul>
+			</br>	
 			<li>Repeat offenders of dangerous plays and fighting will be reviewed for possible league expulsion.</li>
 			</br>
 			<li>If a player voluntarily causes damage to private or public property they will be dismissed from league play for the entirety of the season.</li>
@@ -345,6 +349,7 @@
 					<li>An attacking player is taken down on a clear break.</li>
 					<li>A defending player throws his stick at the player / ball.</li>
 					<li>A defending player covers the ball in his goalie’s crease.</li>
+					<li>A defending player throws the ball while in his goalie’s crease.</li>
 				</ul>
 				</br>
 			<li>Interference with the goalies will not be tolerated and will results in a penalty.</li>
