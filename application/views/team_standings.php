@@ -48,6 +48,9 @@
 				<th class="col-goals-against" width="5%">
 					GA
 				</th>
+				<th class="col-goals-against" width="5%">
+					TP
+				</th>
 			</thead>
 			<tbody>
 				<?php if ($teams): ?>
@@ -81,6 +84,9 @@
 							</td>
 							<td>
 								<?php print $team->goals_against; ?>
+							</td>
+							<td>
+								<?php print $team->team_penalties; ?>
 							</td>
 						</tr>
 					<?php endforeach; ?>

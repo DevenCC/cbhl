@@ -39,7 +39,7 @@
 		</br>
 			<li>Trades between teams are permitted provided that they are supported by the majority of the captains.</li>
 			</br>
-			<li>The Trade deadline is <?php echo date_format($season_start_date->add(new DateInterval("P97D")), 'l jS \of F Y'); ?> 09:00:00 PM.</li>
+			<li>The Trade deadline is <?php echo date_format($season_start_date->add(new DateInterval("P90D")), 'l jS \of F Y'); ?> 09:00:00 PM.</li>
 			</br>
 
 

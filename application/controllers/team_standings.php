@@ -10,6 +10,7 @@ class Team_standings extends MY_Controller
 		$this->load->model('penalties_model');
 		$this->load->model('players_model');
 		$this->load->model('teams_model');
+		$this->load->model('teampenalties_model');
 		$this->load->model('seasons_model');
 	}
 
@@ -321,12 +322,15 @@ class Team_standings extends MY_Controller
 			$teams[$team->teamid]->wins = $wins;	
 			$teams[$team->teamid]->losses = $losses;	
 			$teams[$team->teamid]->ot_losses = $ot_losses;	
-			$teams[$team->teamid]->regulation_wins = $regulation_wins;	
-			$teams[$team->teamid]->points = $points;	
+			$teams[$team->teamid]->regulation_wins = $regulation_wins;		
 			$teams[$team->teamid]->goals_against = $goals_against;	
 			$teams[$team->teamid]->goals_for = $goals_for;	
 			$teams[$team->teamid]->games_played = count($games);	
 			$teams[$team->teamid]->tied_flag = 0;	
+			$teams[$team->teamid]->team_penalties = $this->teampenalties_model->get_team_penalties($team->teamid);
+
+
+			$teams[$team->teamid]->points = $points - $teams[$team->teamid]->team_penalties;
 
 			if($is_playoff)
 			{
