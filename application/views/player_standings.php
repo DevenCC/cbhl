@@ -20,7 +20,7 @@
 
 	<?php if ((!$is_playoff) || ($is_playoff && $is_playoff_started)): ?>
 		<div class="panel panel-default">
-			<table width="100%" class="table table-hover table-bordered table-striped">
+			<table width="100%" class="table table-bordered table-striped">
 				<thead>
 					<th class="col-first-name" width="30%">
 						First Name
@@ -28,17 +28,17 @@
 					<th class="col-last-name" width="30%">
 						Last Name
 					</th>
-					<th class="col-goals" width="10%">
-						Goals
-					</th>
-					<th class="col-assists" width="10%">
-						Assist
-					</th>
-					<th class="col-assists" width="10%">
-						Penalties
-					</th>
 					<th class="col-points" width="10%">
-						Points
+						Pts
+					</th>
+					<th class="col-goals" width="10%">
+						G
+					</th>
+					<th class="col-assists" width="10%">
+						A
+					</th>
+					<th class="col-assists" width="10%">
+						P
 					</th>
 				</thead>
 				<tbody>
@@ -55,6 +55,9 @@
 									<?php print $player->player_last_name; ?>
 								</td>
 								<td>
+									<?php print $player->points; ?>
+								</td>
+								<td>
 									<?php print $player->goals; ?>
 								</td>
 								<td>
@@ -62,9 +65,6 @@
 								</td>
 								<td>
 									<?php print $player->penalties; ?>
-								</td>
-								<td>
-									<?php print $player->points; ?>
 								</td>
 							</tr>
 						<?php endforeach; ?>

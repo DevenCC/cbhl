@@ -19,7 +19,7 @@
 
 	<?php if ($team->stats_against['ALL']->games_played > 0 ): ?>
 		<h3>Team stats</h3>
-			<div class="panel panel-default">
+			<div class="panel panel-default table-responsive">
 				<table class="table table-hover table-bordered">
 					<thead>
 						<th class="col-color" width="28%">
@@ -101,16 +101,6 @@
 											<?php if ($stats->games_played > 0): ?>
 												avg GF: <?php print number_format($stats->goals_for/$stats->games_played, 2, ".",","); ?><br>
 												avg GA: <?php print number_format($stats->goals_against/$stats->games_played, 2, ".",","); ?><br>
-												<?php if ($stats->avg_goals_for_time): ?>
-													avg 1<sup>st</sup> GF time:	<?php print date("H:i:s", $stats->avg_goals_for_time); ?><br>
-												<?php else: ?>
-													avg 1<sup>st</sup> GF time: - <br>
-												<?php endif; ?>
-												<?php if ($stats->avg_goals_against_time): ?>
-													avg 1<sup>st</sup> GA time:	<?php print date("H:i:s", $stats->avg_goals_against_time); ?><br>
-												<?php else: ?>
-													avg 1<sup>st</sup> GA time: - <br>
-												<?php endif; ?>
 												<?php if (is_null($stats->pk_success)): ?>
 													PK: <i>no penalties</i><br>
 												<?php else: ?>
@@ -149,25 +139,25 @@
 
 	<?php if ($team->players): ?>
 		<h3>Roster stats</h3>
-			<div class="panel panel-default">
-				<table width="100%" class="table table-hover table-bordered table-striped">
+			<div class="panel panel-default table-responsive">
+				<table width="100%" class="table table-hover table-bordered">
 					<thead>
-						<th class="col-color" width="30%">
+						<th class="col-color" style="position: sticky; left:0; background-color:#ffffff;">
 							Name
 						</th>
-						<th class="col-points" width="8%">
-							Points
+						<th class="col-points">
+							Pts
 						</th>
-						<th class="col-games-played" width="8%">
-							Goals
+						<th class="col-games-played">
+							G
 						</th>
-						<th class="col-wins" width="8%">
-							Assists
+						<th class="col-wins">
+							A
 						</th>
-						<th class="col-losses" width="8%">
-							Penalties
+						<th class="col-losses">
+							P
 						</th>
-						<th class="col-over-times-loses" width="38%">
+						<th class="col-over-times-loses">
 							Assist %
 						</th>
 					</thead>
@@ -175,7 +165,7 @@
 						<?php if ($team): ?>
 							<?php foreach ($team->players as $playerid => $player): ?>
 								<tr>
-									<td style="text-align:left;vertical-align:top">
+									<td style="text-align:left;vertical-align:top; position: sticky; left:0;background-color:#ffffff;">
 										<?php print $player->player_first_name.' '.$player->player_last_name; ?>
 									</td>
 									<td style="text-align:left;vertical-align:top">
@@ -196,7 +186,7 @@
 												<?php print number_format($passin_percent*100); ?>%	- <?php print $passing_player; ?><br/>
 											<?php endforeach; ?>
 										<?php else: ?>
-											<div style="font-style: italic;"> no assists</div>
+											<div style="font-style: italic;"> no goals</div>
 										<?php endif; ?>
 									</td>
 								</tr>

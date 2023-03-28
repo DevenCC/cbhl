@@ -133,8 +133,6 @@ class Team_standings extends MY_Controller
 					'games_played' => 0,
 					'goals_against' => 0,
 					'goals_for' => 0,
-					'avg_goals_against_time' => 0,
-					'avg_goals_for_time' => 0,
 					'pk_success' => $this->penalties_model->get_penaltykill_success_by_teamid($team->teamid),
 					'pp_success' => $this->penalties_model->get_powerplay_success_by_teamid($team->teamid),
 				);
@@ -153,8 +151,6 @@ class Team_standings extends MY_Controller
 					'games_played' => 0,
 					'goals_against' => 0,
 					'goals_for' => 0,
-					'avg_goals_against_time' => null,
-					'avg_goals_for_time' => null,
 					'pk_success' => $this->penalties_model->get_team_penalty_success_by_teamid($team->teamid, $t->teamid),
 					'pp_success' => (is_null($this->penalties_model->get_team_penalty_success_by_teamid($t->teamid, $team->teamid))) 
 									? null
@@ -174,16 +170,6 @@ class Team_standings extends MY_Controller
 			if($game_winner->teamid == $team->teamid)
 			{
 				$team->stats_against[$game_loser->team_color]->games_played++;
-				$team->stats_against[$game_loser->team_color]->avg_goals_for_time = is_null($team->stats_against[$game_loser->team_color]->avg_goals_for_time) 
-																		? $this->goals_model->get_team_first_goal_by_game($game->gameid, $game_winner->teamid) 
-																		: ($team->stats_against[$game_loser->team_color]->avg_goals_against_time + 
-																		   $this->goals_model->get_team_first_goal_by_game($game->gameid,$game_winner->teamid)) /
-																		   $team->stats_against[$game_loser->team_color]->games_played;
-				$team->stats_against[$game_loser->team_color]->avg_goals_against_time = is_null($team->stats_against[$game_loser->team_color]->avg_goals_against_time) 
-																			? $this->goals_model->get_team_first_goal_by_game($game->gameid, $game_loser->teamid) 
-																			: ($team->stats_against[$game_loser->team_color]->avg_goals_for_time +
-																		       $this->goals_model->get_team_first_goal_by_game($game->gameid, $game_loser->teamid)) /
-																		       $team->stats_against[$game_loser->team_color]->games_played;
 				$team->stats_against[$game_loser->team_color]->wins++;
 				$team->stats_against[$game_loser->team_color]->points += 2;
 				if($this->games_model->is_game_overtime($game->gameid))
@@ -197,16 +183,6 @@ class Team_standings extends MY_Controller
 			else
 			{
 				$team->stats_against[$game_winner->team_color]->games_played++;
-				$team->stats_against[$game_winner->team_color]->avg_goals_for_time = is_null($team->stats_against[$game_winner->team_color]->avg_goals_against_time) 
-																		? $this->goals_model->get_team_first_goal_by_game($game->gameid, $game_loser->teamid) 
-																		: ($team->stats_against[$game_winner->team_color]->avg_goals_for_time +
-																		   $this->goals_model->get_team_first_goal_by_game($game->gameid, $game_loser->teamid)) /
-																	       $team->stats_against[$game_winner->team_color]->games_played;
-				$team->stats_against[$game_winner->team_color]->avg_goals_against_time = is_null($team->stats_against[$game_winner->team_color]->avg_goals_for_time) 
-																			? $this->goals_model->get_team_first_goal_by_game($game->gameid,$game_winner->teamid) 
-																			: ($team->stats_against[$game_winner->team_color]->avg_goals_against_time + 
-																			   $this->goals_model->get_team_first_goal_by_game($game->gameid,$game_winner->teamid)) /
-																			   $team->stats_against[$game_winner->team_color]->games_played;
 				if($this->games_model->is_game_overtime($game->gameid))
 				{
 					$team->stats_against[$game_winner->team_color]->ot_losses++;
@@ -226,12 +202,6 @@ class Team_standings extends MY_Controller
 		{
 			if(($team->stats_against[$statid]->games_played > 0) && $statid <> 'ALL')
 			{
-				$team->stats_against['ALL']->avg_goals_for_time = (($team->stats_against['ALL']->avg_goals_for_time * $team->stats_against['ALL']->games_played)  +
-																   ($team->stats_against[$statid]->avg_goals_for_time) * $team->stats_against[$statid]->games_played ) /
-																   ($team->stats_against['ALL']->games_played + $team->stats_against[$statid]->games_played );
-				$team->stats_against['ALL']->avg_goals_against_time = (($team->stats_against['ALL']->avg_goals_against_time * $team->stats_against['ALL']->games_played)  +
-																   	   ($team->stats_against[$statid]->avg_goals_against_time) * $team->stats_against[$statid]->games_played ) /
-																	   ($team->stats_against['ALL']->games_played + $team->stats_against[$statid]->games_played );
 				$team->stats_against['ALL']->games_played += $team->stats_against[$statid]->games_played;
 				$team->stats_against['ALL']->wins += $team->stats_against[$statid]->wins;
 				$team->stats_against['ALL']->losses += $team->stats_against[$statid]->losses;

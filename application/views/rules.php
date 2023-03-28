@@ -137,9 +137,7 @@
 			<li>If referees are missing at 10:00, the refereeing team will face the sum of the following consequences:</li>
 				<ul>
 					<li>1st Referee missing – 5 minute penalty at the beginning of the 1st period of their designated next game.</li>
-					<li>2nd Referee missing – 5 minute penalty at the beginning of the 2nd period of their designated next game.</li>
-					<li>3rd Referee missing – 5 minute penalty at the beginning of the 3rd period of their designated next game.</li>
-					<li>4th Referee missing – loss of a point in the standings.</li>
+					<li>2nd Referee missing – 5 minute penalty at the beginning of the 2nd period of their designated next game and loss of a point in the standings.</li>
 				</ul>
 				</br>
 			<li>For a referee to be counted as present, he must be wearing a jersey (or of a different color from the two (2) playing teams) and carrying a whistle.</li>
@@ -273,10 +271,6 @@
 			<li>Teams will be penalized for leaving garbage after the game (broken sticks, bottles, tape, etc).</li>
 			</br>
 
-
-		</br>
-		<h4><u>Penalties & Suspensions</u></h4>
-		</br>
 			<li>All penalties are for duration of five (5) minutes.  The penalized player will be permitted to return to the game upon the expiration of his penalty or if the opposing teams scores before his penalty expires.</li>
 			</br>
 			<li>A player drawing blood from another player will result in a game suspension as well as the a five (5) minute penalty for the offending team.</li>
@@ -289,26 +283,26 @@
 			</br>
 			<li>Three (3) penalties in the same game will result in automatic ejection from the game for the penalized player.</li>
 			</br>
-			<li>Fighting will result to an automatic game ejection for all players involved.</li>
-			</br>
-			<li>Fighting during the last fifteen (15) minutes of the game will result in a one game suspension, regardless of if it is post-season.</li>
-			</br>
 			<li>This is a non-contact game and no hitting or checking will be tolerated.  Obvious intent to injure will result in immediate ejection of the game and further review by the league for suspension / dismissal.</li>
-			</br>
-			<li>Defending players are allowed to move you from the front of their net providing they use their bodies.  Cross-checking and pushing with hands and feet will not be tolerated and offensive players may not retaliate.</li>
 			</br>
 			<li>There will be an automatic one (1) game suspension for causing injuries.</li>
 			</br>
-			<li>Any ejection from a game will result in three (3) penalties appearing on the player’s personal stats.</li>
+			<li>Fighting will result in an automatic game ejection for all players involved. Fighting will result in game suspensions, regardless of if it is post-season.</li>
 			</br>
-			<li>Suspension time doubles for each subsequent infraction.</li>
+			<li>Suspension time increases for each subsequent ejection / infraction, regardless of if it is post-season.</li>
 				<ul>
-						<li>1st suspension – 1 game (unless otherwise determine by the league)</li>
-						<li>2nd suspension – 2 games</li>
-						<li>3rd suspension – 4 games</li>
+						<li>1st – 1 game</li>
+						<li>2nd - 3 games</li>
+						<li>3rd - 12 games as well as a review for league expulsion</li>
 				</ul>
 			</br>	
 			<li>Repeat offenders of dangerous plays and fighting will be reviewed for possible league expulsion.</li>
+			</br>	
+			<li>Suspended or expulsed players are not subject to reimbursements by the league.</li>
+			</br>
+			<li>Defending players are allowed to move you from the front of their net providing they use their bodies.  Cross-checking and pushing with hands and feet will not be tolerated and offensive players may not retaliate.</li>
+			</br>
+			<li>Any ejection from a game will result in three (3) penalties appearing on the player’s personal stats.</li>
 			</br>
 			<li>If a player voluntarily causes damage to private or public property they will be dismissed from league play for the entirety of the season.</li>
 			</br>

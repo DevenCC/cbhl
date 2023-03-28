@@ -18,37 +18,37 @@
 	</br>
 	</br>
 
-	<div class="panel panel-default">
-		<table width="100%" class="table table-hover table-bordered table-striped">
-			<thead>
-				<th class="col-color" width="5%">
-					Position
+	<div class="panel panel-default table-responsive">
+		<table class="table table-bordered">
+			<thead class="thead">
+				<th class="col-position" style="position: sticky; left:0;">
+					#
 				</th>
-				<th class="col-color" width="15%">
+				<th class="col-color" style="position: sticky; left: 24px; background-color:#FFFFFF;">
 					Color
 				</th>
-				<th class="col-points" width="7.5%">
+				<th class="col-points">
 					Points
 				</th>
-				<th class="col-games-played" width="5%">
+				<th class="col-games-played">
 					GP
 				</th>
-				<th class="col-wins" width="5%">
+				<th class="col-wins">
 					W (r)
 				</th>
-				<th class="col-losses" width="5%">
+				<th class="col-losses">
 					L
 				</th>
-				<th class="col-over-times-loses" width="5%">
+				<th class="col-over-times-loses">
 					OTL
 				</th>
-				<th class="col-goals-for" width="5%">
+				<th class="col-goals-for">
 					GF
 				</th>
-				<th class="col-goals-against" width="5%">
+				<th class="col-goals-against">
 					GA
 				</th>
-				<th class="col-goals-against" width="5%">
+				<th class="col-team-penalties" >
 					TP
 				</th>
 			</thead>
@@ -56,12 +56,12 @@
 				<?php if ($teams): ?>
 					<?php foreach ($teams as $teamid => $team): ?>
 						<tr>
-							<td>
+							<td style="position: sticky; left:0; background-color: #f9f9f9;">
 								<?php if($team->position!=0): ?>
 									<?php print $team->position; ?>
 								<?php endif; ?>
 							</td>
-							<td>
+							<td style="position: sticky; left: 24px; background-color:#f9f9f9;">
 								<?php print $team->team_color; ?>
 							</td>
 							<td>
