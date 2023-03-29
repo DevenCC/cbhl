@@ -21,10 +21,10 @@
 	<div class="panel panel-default table-responsive">
 		<table class="table table-bordered">
 			<thead class="thead">
-				<th class="col-position" style="position: sticky; left:0;">
+				<th class="col-position" style="position: sticky; left:0; background-color:#E9E9E9;">
 					#
 				</th>
-				<th class="col-color" style="position: sticky; left: 24px; background-color:#FFFFFF;">
+				<th class="col-color" style="position: sticky; left: 24px; background-color:#E9E9E9;">
 					Color
 				</th>
 				<th class="col-points">
